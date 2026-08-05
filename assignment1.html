@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- !!!!! -->
+<!--    change this to refer to your specific page  -->
+    <title>Assignment 1</title>
+
+<!-- !!!!! -->
+<!--  change this to your preferred icon  -->
+    <!-- favicon was sourced from favicon.io but the original graphics are copyright 2020 Twitter, Inc
+    and other contributors -->
+    <!-- They are licensed under CC-BY 4.0 as linked below -->
+    <!-- https://creativecommons.org/licenses/by/4.0/ -->
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+<!-- !!!!! -->
+<!--    change this to your preferred online name  -->
+        <h1>System Design Document</h1>
+    </header>
+
+    <div class="mainNavContainer">
+
+        <nav>
+            <a href="./index.html">Home Page</a>
+            <a href="">Assignment 2</a>
+        </nav>
+
+        <main>
+
+            <section id="scenario-section">
+
+                <h3 class="firstSectionHeading">Scenario: Creativity for Senior Centres</h3>
+
+                <h4>Prompt:</h4>
+
+                <p>Design a way for seniors to make music, and feel proud of their work.</p>
+
+                <h4>Context:</h4>
+
+                <p>
+                    Many different forms of creativity have been linked to positive aging outcomes. Creativity in this
+                    context shouldn't be focused on mastery or novelty, but might instead be approached as a craft
+                    and/or social activity.
+                </p>
+
+                <h4>Discussion:</h4>
+
+                <p>
+                    Based on my understanding of the brief, I can identify a few notable details related to how it
+                    sets up this project's purpose and worth. At the core, like most (if not all) instruments, is the goal
+                    of using it to make music. The purpose and process of making music is not singular, so based on the
+                    angle presented in the brief, to approach it as "craft and/or social activity", I might interpret
+                    the importance of making music through performance either with or for others. This differs from other
+                    ways in which a user might understand making music, such as from a personal or compositional approach.
+                </p>
+
+                <p>
+                    Taking performance as an integral aspect of the instruments purpose, I am drawn to thinking about
+                    the underlying social aspects of the act. How can performance serve to connect with others, either
+                    through direct experience of a piece of music, or perhaps drawing in shared memories of prior
+                    experiences with music culture. I can also see the dynamics of crafting communities coming into play
+                    through the potential of instruments to facilitate teaching and learning between two or more people.
+                </p>
+
+                <p>
+                    Building off of this interpretation of purpose, and other aspects of the context's particulars, I can
+                    recognise its potential worth through three particular values: approachability, familiarity and Maturity.
+                    It should be approachable, as something that doesn't feel overwhelmingly complex in its initial appearance.
+                    However, this doesn't mean it should not be complex, but that this complexity is something that may
+                    be optionally revealed over time. In this way it should also be mature, something that doesn't feel
+                    like a toy, overly simple in its appearance or functionality. Finally, tying into the purpose of
+                    connecting with others through shared cultural experiences, is the value of familiarity. The instrument
+                    should draw on familiar cultural framings - either of other instruments, or other aspects of musical
+                    culture.
+                </p>
+
+            </section>
+
+            <section>
+
+                <h4>Synopsis</h4>
+
+                <p>
+                    I will design an instrument focused on performing accompaniments to a collection of popular songs. This
+                    will include "play along" visual feedback for the song's instrumental parts as well as its lyrics,
+                    with optional levels of auto-accompaniment.
+                </p>
+
+                <h4>Response to Purpose and Worth</h4>
+
+                <p>
+                    This responds to the purpose of allowing for performance to be a social act. By allowing for the visual
+                    feedback to address multiple musical parts (instrumental and vocal) it encourages engagement with
+                    others for that performance. In choosing which particular songs are included in its repertoire,
+                    there's opportunity to engage with the cultural specificity of the instrument's context, such as the
+                    age of the residents, and the location of the centre. I would minimise the particular controls over
+                    the tone of the instrument, instead providing a preset sound matched to the song selection, helping
+                    with the overall approachability. I would also allow for a variance in the amount of auto-accompaniment,
+                    letting users choose the volume of it in relation to their own performance (like karaoke). This would
+                    additionally encourage some aspect of learning - as someone became more familiar with the particular
+                    song they might dial down the accompaniment.
+                </p>
+
+            </section>
+
+            <section>
+                <h3>Framing</h3>
+                <p>
+                    A key conceptual influence on this project is Karaoke - and what if it could be applied to the
+                    vocals and accompaniment. It's important to note that someone who is currently 70 years old would
+                    have been a teenager in the 1970s where the technology of music playback allowed for Karaoke and
+                    "sing alongs" to develop in this particular form. While Karaoke machines (and jukeboxes) have their
+                    own interesting aesthetic lineage, I would perhaps instead draw more specifically on the characterisation
+                    of something like Hammond's 1970 electric organ designs, with wood panelling and colourful toggles.
+                </p>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Hammond_Aurora_Classic.jpg" alt="Hammond Aurora Electronic Organ">
+                    <figcaption>
+                        <a href="https://commons.wikimedia.org/wiki/File:Hammond_Aurora_Classic.jpg">
+                            Hammond Aurora Classic
+                        </a>
+                         by Goolit. Licensed under the
+                        <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
+                            Creative Commons Attribution-Share Alike 4.0 International licence.
+                        </a>
+                    </figcaption>
+                </figure>
+                <p>
+                    To be continued...
+                </p>
+
+            </section>
+
+            <section>
+                <h3>Interaction design analysis</h3>
+                <h4>
+                    Example 1:
+                    <a href="https://virtualpiano.net/?song-post-32683" target="_blank">Virtual Piano</a>
+                </h4>
+                <p>
+                    I chose this example to its discuss information design, in particular the way it handles
+                    searching for a song. There is lots I don't like about other aspects of the info design, but
+                    this is the most relevant for my project. When arriving at the keyboard users can select a
+                    piece of sheet music to play, not too dissimilar to my Karaoke concept. They do so by using
+                    the search box (pictured below).
+                </p>
+
+                <figure>
+                    <img src="./assets/images/virtualPiano_screenGrab1.PNG.jpg" alt="screen shot of the virtual piano UI">
+                    <figcaption>
+                        <a href="https://virtualpiano.net/">Virtual Piano</a>
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Clicking on the box doesn't provide any immediate suggesting for the kinds of music sheets I might
+                    be able to search for, rather it just makes the box larger. As I start to type it gives me a few
+                    preselected categories, before it loads in the prediction of the song I'm looking for. Selecting
+                    anything from the categories takes me to a separate page, but selecting the prediction loads the
+                    song straight into the UI. This represents a discord of information design, with different ways of
+                    displaying information based on the kinds of action taken, rather than presenting all the information
+                    within a single frame.
+                </p>
+                <p>
+                    Besides the issues with how the information is presented within the experience of interaction, there
+                    is also the selection of songs that I might choose from, with a seemingly large but also shallow pool
+                    of information. For example there's many different variations on the song "Mad World", but based on
+                    the Imagine Dragons or Gary Jules covers, rather than the original, with no way of knowing which is
+                    which until selecting the sheet.
+                </p>
+                <p>
+                    Picking such an example is perhaps unfair, but it provides a valuable impact on what I want my
+                    project's information design <em>not</em> to be like. Selecting the particular song to play should
+                    be integrated within the singular instrument UI. Preferably this could be done through an initial
+                    presentation of categories, along with a search function if needed, for people to explore rather than
+                    needing to input something ahead of time. It would support this through a more curated choice of
+                    included songs - seeking to represent a smaller set more relevant to its cultural context, and also
+                    making it possible to explore more directly.
+                </p>
+                <h4>Example 2</h4>
+                <h4>Example 3</h4>
+                <h4>Example 4</h4>
+            </section>
+
+        </main>
+
+        <!-- this is an empty element which helps with spacing -->
+        <aside></aside>
+
+    </div>
+
+    <footer>
+        <p>
+<!-- !!!!! -->
+<!--    change this to your preferred online name and update link to refer to your github page  -->
+            Page maintained by:
+            <a href="https://github.com/p-mcmahon-rmit/" target="_blank">
+            Patrick McMahon
+            </a>
+            <a href="https://au.miro.com/app/board/u3jVOf6GvjM=/?share_link_id=172045544644">
+                Community of Practice Documentation
+            </a>
+        </p>
+    </footer>
+</body>
+</html>
