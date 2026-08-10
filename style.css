@@ -10,6 +10,7 @@
     /* https://lospec.com/palette-list/1bit-monitor-glow */
     --colour-1: #222323;
     --colour-2: #f0f6f0;
+    --box-tint: rgba(34, 35, 35, 0.05);
 }
 
 /* this swaps the colour order to account for user's OS dark mode */
@@ -19,6 +20,7 @@
     :root{
         --colour-1: #f0f6f0;
         --colour-2: #222323;
+        --box-tint: rgba(240, 246, 240, 0.08);
     }
 }
 
@@ -53,6 +55,7 @@ nav {
     min-width: fit-content;
     flex: 1;
     align-items: flex-end;
+    gap: 0.5rem;
 }
 
 main {
@@ -65,9 +68,119 @@ section {
     max-width: 80rch;
 }
 
+/* spacing between sections, replacing the need for manual <br> spacers.
+   Note: this uses ~ (general sibling) instead of + (adjacent sibling)
+   because a hidden <br> still sits between the sections in the HTML,
+   which would break a "+" match even though it isn't visible. */
+main > section ~ section {
+    margin-top: 2.5rem;
+}
+
+/* headings inside a section get breathing room above, and sit close
+   to the paragraph that follows them */
+section h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+section h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* the very first heading in a section shouldn't add its own top gap on
+   top of the section's own top margin */
+section h3:first-child,
+section h4:first-child {
+    margin-top: 0;
+}
 
 .firstSectionHeading {
     margin-top: 0;
+}
+
+/* paragraph and figure spacing */
+section p {
+    margin-bottom: 1rem;
+}
+
+section p:last-child {
+    margin-bottom: 0;
+}
+
+figure {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+figure img + img {
+    margin-top: 0.5rem;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* "+" sub-points nested one level inside a "-" point, like an indented
+   list in a doc */
+.subpoint {
+    display: block;
+    margin-left: 1.75rem;
+}
+
+/* a soft colored box around each major part of the document, so the
+   sections read as distinct cards rather than relying on spacing alone */
+.section-block {
+    background-color: var(--box-tint);
+    border-left: 3px solid var(--colour-1);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+}
+
+/* editorial/magazine layout for the Framing intro text + image gallery:
+   text and images sit side by side instead of stacking top to bottom */
+.framing-feature {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.framing-gallery {
+    margin: 0;
+}
+
+.framing-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+/* first image spans both columns as a "hero" shot, the other two sit
+   side by side underneath it, like a magazine photo mosaic */
+.framing-gallery-grid img:first-child {
+    grid-column: 1 / -1;
+}
+
+.framing-gallery-grid img {
+    margin: 0;
+}
+
+@media (width < 840px) {
+    .framing-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* the assignment content uses standalone <br> tags purely to add gaps
+   between elements that already have margin above; hide them so spacing
+   comes only from the rules above instead of doubling up */
+main > br,
+section > br,
+figure > br {
+    display: none;
 }
 
 aside {
@@ -79,6 +192,14 @@ footer {
     display: flex;
     justify-content: center;
     margin-block-start: 3rem;
+}
+
+footer a {
+    margin-inline-end: 0.5rem;
+}
+
+footer a:last-child {
+    margin-inline-end: 0;
 }
 
 /*technique from Kevin Powell*/
