@@ -29,7 +29,10 @@ function createObjectState(element, info, x, y, waveform) {
         waveform,
         synth: null,
         panner: null,
-        timerId: null
+        timerId: null,
+        previewSynth: null,
+        previewPanner: null,
+        usingPatternSynthForDrag: false
     };
 }
 
@@ -51,10 +54,11 @@ function startDragging(event, soundObject) {
 
     soundObject.element.classList.add("is-dragging");
     soundObject.element.setPointerCapture(event.pointerId);
+    startObjectSound(soundObject);
 }
 
 function dragObject(event, soundObject) {
-    if (!activeDrag || activeDrag.soundObject !== soundObject) return;
+    if (!activeDrag || activeDrag.soundObject !== soundObject || buttonBusy) return;
     if (activeDrag.pointerId !== event.pointerId) return;
 
     // Convert the pointer location into clamped x and y positions inside the canvas.
@@ -76,6 +80,7 @@ function stopDragging(event, soundObject) {
     if (activeDrag.pointerId !== event.pointerId) return;
 
     soundObject.element.classList.remove("is-dragging");
+    stopObjectSound(soundObject);
     activeDrag = null;
 }
 
@@ -124,6 +129,11 @@ function updateObject(soundObject) {
         soundObject.panner.pan.rampTo(soundObject.pan, 0.04);
     }
 
+    if (soundObject.previewSynth) {
+        soundObject.previewSynth.frequency.rampTo(soundObject.frequency, 0.04);
+        soundObject.previewPanner.pan.rampTo(soundObject.pan, 0.04);
+    }
+
     updateTestingLabel(soundObject);
 }
 
@@ -150,17 +160,62 @@ let gardenPlaying = false;
 let buttonBusy = false;
 let masterGain;
 
-function createAudioNodes(soundObject) {
-    soundObject.panner = new Tone.Panner(soundObject.pan).connect(masterGain);
-    soundObject.synth = new Tone.Synth({
-        oscillator: { type: soundObject.waveform },
+function makeSynth(waveform) {
+    return new Tone.Synth({
+        oscillator: { type: waveform },
         envelope: {
             attack: 0.04,
             decay: 0.12,
             sustain: 0.18,
             release: 0.3
         }
-    }).connect(soundObject.panner);
+    });
+}
+
+function createAudioNodes(soundObject) {
+    soundObject.panner = new Tone.Panner(soundObject.pan).connect(masterGain);
+    soundObject.synth = makeSynth(soundObject.waveform).connect(soundObject.panner);
+}
+
+async function startObjectSound(soundObject) {
+    await Tone.start();
+
+    // A quick release may finish before Tone has unlocked for the first time.
+    if (!activeDrag || activeDrag.soundObject !== soundObject) return;
+
+    if (gardenPlaying && soundObject.synth) {
+        // Reuse the object's monophonic pattern synth to avoid overlapping voices.
+        soundObject.usingPatternSynthForDrag = true;
+        soundObject.synth.triggerAttack(soundObject.frequency, Tone.now(), 0.55);
+        return;
+    }
+
+    // When the garden is stopped, create a temporary quiet synth for click-and-drag testing.
+    soundObject.previewPanner = new Tone.Panner(soundObject.pan).toDestination();
+    soundObject.previewSynth = makeSynth(soundObject.waveform).connect(soundObject.previewPanner);
+    soundObject.previewSynth.volume.value = -18;
+    soundObject.previewSynth.triggerAttack(soundObject.frequency);
+}
+
+function stopObjectSound(soundObject) {
+    if (soundObject.usingPatternSynthForDrag && soundObject.synth) {
+        soundObject.synth.triggerRelease();
+        soundObject.usingPatternSynthForDrag = false;
+    }
+
+    if (!soundObject.previewSynth) return;
+
+    const previewSynth = soundObject.previewSynth;
+    const previewPanner = soundObject.previewPanner;
+    soundObject.previewSynth = null;
+    soundObject.previewPanner = null;
+    previewSynth.triggerRelease();
+
+    // Dispose temporary audition nodes after their release envelope has faded.
+    setTimeout(() => {
+        previewSynth.dispose();
+        previewPanner.dispose();
+    }, 400);
 }
 
 function randomDelay() {
@@ -205,6 +260,7 @@ async function stopGarden() {
     soundObjects.forEach((soundObject) => {
         clearTimeout(soundObject.timerId);
         soundObject.timerId = null;
+        stopObjectSound(soundObject);
         if (soundObject.synth) soundObject.synth.triggerRelease();
     });
 
