@@ -41,7 +41,7 @@ function startDragging(event) {
 function dragVertically(event) {
     if (dragging === false) return;
 
-    // Only the pointer's vertical position is used; horizontal movement has no effect.
+    // Only vertical movement changes the flower and its pitch.
     const canvasRect = canvas.getBoundingClientRect();
     const objectHeight = dragObject.offsetHeight;
     const availableHeight = canvas.clientHeight - objectHeight;
@@ -66,7 +66,7 @@ dragObject.addEventListener("pointercancel", stopDragging);
 
 ///////////// Vertical Position to Pitch
 function positionToFrequency(position) {
-    // Exponential mapping makes the three-octave C3-to-C6 range sound even.
+    // Exponential mapping spreads the C3-to-C6 range evenly by octave.
     const pitchAmount = 1 - position;
     return lowFrequency * Math.pow(highFrequency / lowFrequency, pitchAmount);
 }
@@ -92,11 +92,11 @@ function createSound() {
 }
 
 async function startSound() {
-    // Tone.start() unlocks browser audio after the user presses the object.
+    // Tone.start() unlocks audio after the user presses the flower.
     await Tone.start();
     if (dragging === false) return;
 
-    // Create one Tone oscillator only, then fade its volume in for each drag.
+    // One persistent oscillator prevents overlapping voices.
     createSound();
     volume.gain.rampTo(0.12, 0.08);
 }
@@ -104,14 +104,14 @@ async function startSound() {
 function updateOscillator(frequency) {
     if (!oscillator) return;
 
-    // Tone's rampTo() smooths continuous pitch changes so they do not click or jump.
+    // Smooth each frequency update so vertical movement does not click or jump.
     oscillator.frequency.rampTo(frequency, 0.03);
 }
 
 function stopSound() {
     if (!oscillator) return;
 
-    // Fade the Tone gain gently to silence when the pointer is released.
+    // Fade gently to silence when the flower is released.
     volume.gain.rampTo(0, 0.18);
 }
 
@@ -120,5 +120,4 @@ placeObject(verticalPosition);
 
 window.addEventListener("resize", () => {
     placeObject(verticalPosition);
-});
 });
