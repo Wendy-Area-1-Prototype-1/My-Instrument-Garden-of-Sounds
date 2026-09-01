@@ -7,14 +7,14 @@ const infoElements = [
     document.getElementById("object-two-info")
 ];
 
-///////////// Mapping Settings
-const lowFrequency = 130.81; // C3
-const highFrequency = 523.25; // C5
+///////////// Musical Mapping
+const noteNames = ["C", "D", "E", "F", "G", "A", "B"];
+const octaves = [1, 2, 3, 4, 5, 6, 7, 8];
 const minimumDelay = 700;
 const maximumDelay = 1400;
 
 const soundObjects = [
-    createObjectState(objectElements[0], infoElements[0], 0.28, 0.65, "sine"),
+    createObjectState(objectElements[0], infoElements[0], 0.28, 0.65, "triangle"),
     createObjectState(objectElements[1], infoElements[1], 0.68, 0.35, "triangle")
 ];
 
@@ -24,14 +24,14 @@ function createObjectState(element, info, x, y, waveform) {
         info,
         x,
         y,
-        frequency: 0,
-        pan: 0,
+        note: "",
+        baseFrequency: 0,
+        playedFrequency: 0,
+        volumeCompensation: 0,
         waveform,
         synth: null,
-        panner: null,
         timerId: null,
         previewSynth: null,
-        previewPanner: null,
         usingPatternSynthForDrag: false
     };
 }
@@ -39,123 +39,173 @@ function createObjectState(element, info, x, y, waveform) {
 ///////////// Dragging
 let activeDrag = null;
 
-function startDragging(event, soundObject) {
+function beginDragging(clientX, clientY, soundObject, inputType, pointerId = null) {
     if (activeDrag) return;
 
-    event.preventDefault();
     const objectRect = soundObject.element.getBoundingClientRect();
-
     activeDrag = {
         soundObject,
-        pointerId: event.pointerId,
-        offsetX: event.clientX - objectRect.left,
-        offsetY: event.clientY - objectRect.top
+        inputType,
+        pointerId,
+        offsetX: clientX - objectRect.left,
+        offsetY: clientY - objectRect.top
     };
 
     soundObject.element.classList.add("is-dragging");
-    soundObject.element.setPointerCapture(event.pointerId);
     startObjectSound(soundObject);
 }
 
-function dragObject(event, soundObject) {
-    if (!activeDrag || activeDrag.soundObject !== soundObject || buttonBusy) return;
-    if (activeDrag.pointerId !== event.pointerId) return;
+function moveDraggedObject(clientX, clientY) {
+    if (!activeDrag) return;
 
-    // Convert the pointer location into clamped x and y positions inside the canvas.
+    const soundObject = activeDrag.soundObject;
     const canvasRect = canvas.getBoundingClientRect();
-    const objectWidth = soundObject.element.offsetWidth;
-    const objectHeight = soundObject.element.offsetHeight;
-    const maximumX = canvas.clientWidth - objectWidth;
-    const maximumY = canvas.clientHeight - objectHeight;
-    const objectX = event.clientX - canvasRect.left - activeDrag.offsetX;
-    const objectY = event.clientY - canvasRect.top - activeDrag.offsetY;
+    const maximumX = canvas.clientWidth - soundObject.element.offsetWidth;
+    const maximumY = canvas.clientHeight - soundObject.element.offsetHeight;
+    const objectX = clientX - canvasRect.left - activeDrag.offsetX;
+    const objectY = clientY - canvasRect.top - activeDrag.offsetY;
 
     soundObject.x = Math.min(Math.max(objectX / maximumX, 0), 1);
     soundObject.y = Math.min(Math.max(objectY / maximumY, 0), 1);
     updateObject(soundObject);
 }
 
-function stopDragging(event, soundObject) {
+function finishDragging(soundObject) {
     if (!activeDrag || activeDrag.soundObject !== soundObject) return;
-    if (activeDrag.pointerId !== event.pointerId) return;
 
     soundObject.element.classList.remove("is-dragging");
     stopObjectSound(soundObject);
     activeDrag = null;
 }
 
+// Mouse Events follow the class example: press, move over the canvas, then release.
 soundObjects.forEach((soundObject) => {
-    soundObject.element.addEventListener("pointerdown", (event) => {
-        startDragging(event, soundObject);
-    });
-
-    soundObject.element.addEventListener("pointermove", (event) => {
-        dragObject(event, soundObject);
-    });
-
-    soundObject.element.addEventListener("pointerup", (event) => {
-        stopDragging(event, soundObject);
-    });
-
-    soundObject.element.addEventListener("pointercancel", (event) => {
-        stopDragging(event, soundObject);
+    soundObject.element.addEventListener("mousedown", (event) => {
+        if (event.button !== 0) return;
+        event.preventDefault();
+        beginDragging(event.clientX, event.clientY, soundObject, "mouse");
     });
 });
 
-///////////// Position Mapping
-function positionToFrequency(yPosition) {
-    // Vertical position maps continuously and exponentially from C3 to C5.
-    const pitchAmount = 1 - yPosition;
-    return lowFrequency * Math.pow(highFrequency / lowFrequency, pitchAmount);
+canvas.addEventListener("mousemove", (event) => {
+    if (!activeDrag || activeDrag.inputType !== "mouse") return;
+    moveDraggedObject(event.clientX, event.clientY);
+});
+
+window.addEventListener("mouseup", () => {
+    if (!activeDrag || activeDrag.inputType !== "mouse") return;
+    finishDragging(activeDrag.soundObject);
+});
+
+// Pointer Events keep the same interaction available on touchscreens and pens.
+soundObjects.forEach((soundObject) => {
+    soundObject.element.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse") return;
+        if (activeDrag) return;
+        event.preventDefault();
+        beginDragging(event.clientX, event.clientY, soundObject, "pointer", event.pointerId);
+        soundObject.element.setPointerCapture(event.pointerId);
+    });
+
+    soundObject.element.addEventListener("pointermove", (event) => {
+        if (!activeDrag || activeDrag.inputType !== "pointer") return;
+        if (activeDrag.soundObject !== soundObject) return;
+        if (activeDrag.pointerId !== event.pointerId) return;
+        moveDraggedObject(event.clientX, event.clientY);
+    });
+
+    soundObject.element.addEventListener("pointerup", (event) => {
+        if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
+        finishDragging(soundObject);
+    });
+
+    soundObject.element.addEventListener("pointercancel", (event) => {
+        if (!activeDrag || activeDrag.pointerId !== event.pointerId) return;
+        finishDragging(soundObject);
+    });
+});
+
+///////////// Position to Note
+function positionToNote(xPosition, yPosition) {
+    // Horizontal position selects octave 1 to 8.
+    const octaveIndex = Math.round(xPosition * (octaves.length - 1));
+
+    // Vertical position selects C at the bottom through B at the top.
+    const noteIndex = Math.round((1 - yPosition) * (noteNames.length - 1));
+    return noteNames[noteIndex] + octaves[octaveIndex];
 }
 
-function positionToPan(xPosition) {
-    // Horizontal position maps directly from left (-1) through centre (0) to right (1).
-    return xPosition * 2 - 1;
+function randomiseFrequency(baseFrequency) {
+    // A maximum variation of 0.3% changes the Hz slightly but preserves the perceived note.
+    const maximumVariation = baseFrequency * 0.003;
+    return baseFrequency + (Math.random() * 2 - 1) * maximumVariation;
+}
+
+function volumeCompensationForNote(note) {
+    const octave = Number(note.slice(-1));
+    const compensationByOctave = {
+        1: 8,
+        2: 5,
+        3: 2,
+        4: 0,
+        5: -1,
+        6: -2,
+        7: -3,
+        8: -4
+    };
+
+    // Low octaves receive a safe boost; high octaves are reduced slightly.
+    return compensationByOctave[octave];
+}
+
+function choosePlayedFrequency(soundObject) {
+    soundObject.playedFrequency = randomiseFrequency(soundObject.baseFrequency);
+    updateTestingLabel(soundObject);
 }
 
 function updateObject(soundObject) {
     const maximumX = canvas.clientWidth - soundObject.element.offsetWidth;
     const maximumY = canvas.clientHeight - soundObject.element.offsetHeight;
+    const selectedNote = positionToNote(soundObject.x, soundObject.y);
+    const noteChanged = selectedNote !== soundObject.note;
 
     soundObject.element.style.left = maximumX * soundObject.x + "px";
     soundObject.element.style.top = maximumY * soundObject.y + "px";
-    soundObject.frequency = positionToFrequency(soundObject.y);
-    soundObject.pan = positionToPan(soundObject.x);
 
-    // A sounding note follows the current position smoothly while it is being dragged.
-    if (soundObject.synth) {
-        soundObject.synth.frequency.rampTo(soundObject.frequency, 0.04);
-        soundObject.panner.pan.rampTo(soundObject.pan, 0.04);
-    }
+    // Randomise only when a different note area is entered, not on every mousemove event.
+    if (noteChanged) {
+        soundObject.note = selectedNote;
+        soundObject.baseFrequency = Tone.Frequency(selectedNote).toFrequency();
+        soundObject.volumeCompensation = volumeCompensationForNote(selectedNote);
+        choosePlayedFrequency(soundObject);
 
-    if (soundObject.previewSynth) {
-        soundObject.previewSynth.frequency.rampTo(soundObject.frequency, 0.04);
-        soundObject.previewPanner.pan.rampTo(soundObject.pan, 0.04);
+        if (soundObject.synth) {
+            soundObject.synth.frequency.rampTo(soundObject.playedFrequency, 0.04);
+            soundObject.synth.volume.rampTo(soundObject.volumeCompensation, 0.06);
+        }
+
+        if (soundObject.previewSynth) {
+            soundObject.previewSynth.frequency.rampTo(soundObject.playedFrequency, 0.04);
+            soundObject.previewSynth.volume.rampTo(-18 + soundObject.volumeCompensation, 0.06);
+        }
     }
 
     updateTestingLabel(soundObject);
 }
 
-function nearestNoteName(frequency) {
-    const noteNames = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
-    const midiNumber = Math.round(69 + 12 * Math.log2(frequency / 440));
-    const noteName = noteNames[(midiNumber + 120) % 12];
-    const octave = Math.floor(midiNumber / 12) - 1;
-    return noteName + octave;
-}
-
 function updateTestingLabel(soundObject) {
     const objectNumber = soundObjects.indexOf(soundObject) + 1;
-    const noteName = nearestNoteName(soundObject.frequency);
 
     soundObject.info.textContent =
         "Object " + objectNumber + ": " +
-        soundObject.frequency.toFixed(1) + " Hz - approximately " +
-        noteName + " - Pan: " + soundObject.pan.toFixed(2);
+        soundObject.note + " - " +
+        soundObject.playedFrequency.toFixed(1) + " Hz " +
+        "(base " + soundObject.baseFrequency.toFixed(1) + " Hz) - Gain: " +
+        (soundObject.volumeCompensation >= 0 ? "+" : "") +
+        soundObject.volumeCompensation + " dB";
 }
 
-///////////// Repeating Sounds
+///////////// Sound
 let gardenPlaying = false;
 let buttonBusy = false;
 let masterGain;
@@ -172,29 +222,26 @@ function makeSynth(waveform) {
     });
 }
 
-function createAudioNodes(soundObject) {
-    soundObject.panner = new Tone.Panner(soundObject.pan).connect(masterGain);
-    soundObject.synth = makeSynth(soundObject.waveform).connect(soundObject.panner);
+function createPatternSynth(soundObject) {
+    soundObject.synth = makeSynth(soundObject.waveform).connect(masterGain);
+    soundObject.synth.volume.value = soundObject.volumeCompensation;
 }
 
 async function startObjectSound(soundObject) {
     await Tone.start();
+    if (!activeDrag || activeDrag.soundObject !== soundObject || buttonBusy) return;
 
-    // A quick release may finish before Tone has unlocked for the first time.
-    if (!activeDrag || activeDrag.soundObject !== soundObject) return;
+    choosePlayedFrequency(soundObject);
 
     if (gardenPlaying && soundObject.synth) {
-        // Reuse the object's monophonic pattern synth to avoid overlapping voices.
         soundObject.usingPatternSynthForDrag = true;
-        soundObject.synth.triggerAttack(soundObject.frequency, Tone.now(), 0.55);
+        soundObject.synth.triggerAttack(soundObject.playedFrequency, Tone.now(), 0.55);
         return;
     }
 
-    // When the garden is stopped, create a temporary quiet synth for click-and-drag testing.
-    soundObject.previewPanner = new Tone.Panner(soundObject.pan).toDestination();
-    soundObject.previewSynth = makeSynth(soundObject.waveform).connect(soundObject.previewPanner);
-    soundObject.previewSynth.volume.value = -18;
-    soundObject.previewSynth.triggerAttack(soundObject.frequency);
+    soundObject.previewSynth = makeSynth(soundObject.waveform).toDestination();
+    soundObject.previewSynth.volume.value = -18 + soundObject.volumeCompensation;
+    soundObject.previewSynth.triggerAttack(soundObject.playedFrequency);
 }
 
 function stopObjectSound(soundObject) {
@@ -206,45 +253,48 @@ function stopObjectSound(soundObject) {
     if (!soundObject.previewSynth) return;
 
     const previewSynth = soundObject.previewSynth;
-    const previewPanner = soundObject.previewPanner;
     soundObject.previewSynth = null;
-    soundObject.previewPanner = null;
     previewSynth.triggerRelease();
 
-    // Dispose temporary audition nodes after their release envelope has faded.
     setTimeout(() => {
         previewSynth.dispose();
-        previewPanner.dispose();
     }, 400);
 }
 
+///////////// Repeating Patterns
 function randomDelay() {
-    // Delay randomness stays between 700 and 1400 ms.
     return minimumDelay + Math.random() * (maximumDelay - minimumDelay);
 }
 
 function playRepeatingNote(soundObject) {
     if (gardenPlaying === false || !soundObject.synth) return;
 
-    // A small velocity change adds gentle volume variation without changing pitch or pan.
+    // Each repeat receives a small random Hz and volume variation.
+    choosePlayedFrequency(soundObject);
     const velocity = 0.48 + Math.random() * 0.12;
-    soundObject.synth.triggerAttackRelease(soundObject.frequency, "8n", Tone.now(), velocity);
+    soundObject.synth.triggerAttackRelease(
+        soundObject.playedFrequency,
+        "8n",
+        Tone.now(),
+        velocity
+    );
+
     soundObject.timerId = setTimeout(() => {
         playRepeatingNote(soundObject);
     }, randomDelay());
 }
 
+///////////// Master Play and Stop
 async function startGarden() {
     await Tone.start();
     if (gardenPlaying) return;
 
     masterGain = new Tone.Gain(0).toDestination();
-    soundObjects.forEach(createAudioNodes);
+    soundObjects.forEach(createPatternSynth);
     gardenPlaying = true;
     playButton.textContent = "Stop Garden";
-    masterGain.gain.rampTo(0.2, 0.1);
+    masterGain.gain.rampTo(0.16, 0.1);
 
-    // Separate starting delays keep the two repeating patterns independent.
     soundObjects[0].timerId = setTimeout(() => playRepeatingNote(soundObjects[0]), 80);
     soundObjects[1].timerId = setTimeout(() => playRepeatingNote(soundObjects[1]), 420);
 }
@@ -264,22 +314,18 @@ async function stopGarden() {
         if (soundObject.synth) soundObject.synth.triggerRelease();
     });
 
-    // Fade the master output before disconnecting and disposing all old nodes.
     if (masterGain) masterGain.gain.rampTo(0, 0.2);
     await wait(300);
 
     soundObjects.forEach((soundObject) => {
         if (soundObject.synth) soundObject.synth.dispose();
-        if (soundObject.panner) soundObject.panner.dispose();
         soundObject.synth = null;
-        soundObject.panner = null;
     });
 
     if (masterGain) masterGain.dispose();
     masterGain = null;
 }
 
-// The master button starts or safely stops both independent repeating patterns.
 async function toggleGarden() {
     if (buttonBusy) return;
 
