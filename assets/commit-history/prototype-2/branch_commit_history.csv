@@ -1,0 +1,66 @@
+Son Hai Anh Nguyen,2026-09-13T21:12:28+10:00,Remove unrelated files from Area1_Prototype2,
+Son Hai Anh Nguyen,2026-09-13T21:07:02+10:00,Add 'Prototype-2/' from commit '723e0ce94a9c138f04f5afb2f9ac68d951d8cdf9',"git-subtree-dir: Prototype-2
+git-subtree-mainline: 7eb22855286ab549493a08a23cd888802e0d02b1
+git-subtree-split: 723e0ce94a9c138f04f5afb2f9ac68d951d8cdf9
+"
+Son Hai Anh Nguyen,2026-09-13T20:14:15+10:00,Add 'Prototype-1/' from commit '6857ed23429499c96515b41a13d849f52a01e680',"git-subtree-dir: Prototype-1
+git-subtree-mainline: 7395f9fab2bba7d56fa667d2047a4a90d1f7dddb
+git-subtree-split: 6857ed23429499c96515b41a13d849f52a01e680
+"
+Son Hai Anh Nguyen,2026-09-01T18:23:55+10:00,fix css layout,
+Son Hai Anh Nguyen,2026-09-01T18:20:35+10:00,Repair Mapping Prototype 2,"Repair Mapping Prototype 2 with a visible draggable flower and continuous C3–C6 vertical pitch control. Fix malformed HTML, CSS, and JavaScript; restore Tone.js audio smoothing, and remove unused Prototype 1 zone code.
+"
+Son Hai Anh Nguyen,2026-09-01T18:06:25+10:00,Restore and fix draggable button,"Restore the draggable flower in Mapping Prototype 1 and repair broken HTML and JavaScript. Preserve Tone.js playback, zone detection, random note selection, and octave 2–6 pitch ranges.
+"
+Son Hai Anh Nguyen,2026-09-01T17:58:05+10:00,Rename style2.css to style.css,
+Son Hai Anh Nguyen,2026-09-01T17:57:51+10:00,Rename script2.js to script.js,
+Son Hai Anh Nguyen,2026-09-01T17:57:24+10:00,Rename index2.html to index.html,
+Son Hai Anh Nguyen,2026-09-01T17:56:27+10:00,Add files via upload,
+Son Hai Anh Nguyen,2026-09-01T17:30:55+10:00,Tone.js and expand zone notes,Updated zone notes to include more musical notes and refactored audio handling to use Tone.js for synthesis.
+Son Hai Anh Nguyen,2026-09-01T17:21:43+10:00,Add Tone.js script to index.html,
+Son Hai Anh Nguyen,2026-09-01T17:21:03+10:00,Clean up CSS by removing unused styles,Removed unused keyframes and image styles from CSS.
+Son Hai Anh Nguyen,2026-09-01T17:17:03+10:00,Enhance dragging functionality and note retrieval,"A draggable object, which plays a random low, middle, or high note depending on whether it is dropped in the underground, garden, or sky zone. Refactor dragging logic and improve note selection."
+Son Hai Anh Nguyen,2026-09-01T17:01:42+10:00,Rename index1.html to index.html,
+Son Hai Anh Nguyen,2026-09-01T16:40:40+10:00,Add initial CSS styles for the prototype,"add all styles for the class, id"
+Son Hai Anh Nguyen,2026-09-01T16:26:30+10:00,Remove unnecessary lines  & enable functions,Change pitch/sound depending on the zone/place the objects are placed. Enable objects as draggable
+Son Hai Anh Nguyen,2026-09-01T16:24:32+10:00,Refactor index1.html,Removed unused elements and updated the structure of the HTML for the Garden of Sounds prototype.
+Son Hai Anh Nguyen,2026-09-01T16:21:49+10:00,Create index1.html for Garden of Sounds prototype,"Added a new HTML structure for the 'Garden of Sounds' 1st prototype, including sections for interaction, sound zones, and audio controls."
+Son Hai Anh Nguyen,2026-09-01T11:48:18+10:00,Initial commit,
+Son Hai Anh Nguyen,2026-08-19T00:03:49+10:00,Merge branch 'main' of https://github.com/Wendy-Hai-Anh/My-Instrument-Garden-of-Sounds,
+Son Hai Anh Nguyen,2026-08-19T00:03:44+10:00,create a2 html,"create a2 file and added in some information (discussion of info design and layout), followed by very brief notation about each prototype
+"
+Son Hai Anh Nguyen,2026-08-11T07:31:18+10:00,Update assignment1.html,
+Son Hai Anh Nguyen,2026-08-11T07:26:35+10:00,fix image errors,
+Son Hai Anh Nguyen,2026-08-11T07:12:37+10:00,Update assignment1.html,
+Son Hai Anh Nguyen,2026-08-11T07:04:34+10:00,Update image source path in assignment1.html,
+Son Hai Anh Nguyen,2026-08-11T07:00:37+10:00,fix image errors,"Image works fine locally, but now it's errored. Updated image file extensions from .PNG to .png for to see if the image can be seen properly"
+Son Hai Anh Nguyen,2026-08-11T06:47:45+10:00,Checking and formating code,"update the homepage, and format all code for the last time. I actually don't know what to put into the home page, so I include all the important part that can comprehensively introduce the project
+"
+Son Hai Anh Nguyen,2026-08-11T06:08:57+10:00,Revise content and finalise,"I read through all the content of the document and revise it once last time to ensure consistency in content, also check wordings and if there are any errors
+"
+Son Hai Anh Nguyen,2026-08-11T04:58:29+10:00,fixing more styles,"making some sub-headlines and important information bold and italic, moving the image up above
+"
+Son Hai Anh Nguyen,2026-08-11T03:59:26+10:00,Styling for the web,"I added class and id to style the html in css, and also fix spacing in html. The style is made so that each section required in the assignment brief is separated clearly for readability (even though it's not required)
+"
+Son Hai Anh Nguyen,2026-08-11T03:04:40+10:00,Update document,"image replace for the framing
+"
+Son Hai Anh Nguyen,2026-08-11T02:16:16+10:00,assignment 1 response,"All required response to Assignment 1 was filled in assignment1.html file along with pictures of 4 reference UIs and inserted links to the web reference
+"
+Son Hai Anh Nguyen,2026-08-05T16:37:00+10:00,style change and assignment 1 file added,"i have changed a couple of things in the style and reset.css, also I have created a new html file named assignment 1 for particularly the content of 1st assignment
+"
+Son Hai Anh Nguyen,2026-07-29T14:01:26+10:00,Update index.html,
+Son Hai Anh Nguyen,2026-07-28T19:34:39+10:00,Merge branch 'main' of https://github.com/Wendee-Hai-Anh/specialisationWorkIndex-template,
+Son Hai Anh Nguyen,2026-07-28T19:34:28+10:00,Update index.html,
+Son Hai Anh Nguyen,2026-07-28T19:31:05+10:00,Update index.html,
+Son Hai Anh Nguyen,2026-07-28T18:45:44+10:00,Update index.html,
+Patrick McMahon,2026-07-16T11:20:02+10:00,fixed assignment links,"removed id refs so we can add pages
+"
+Patrick McMahon,2026-07-16T10:45:35+10:00,change favicon and remove unnecessary sections,
+hase,2026-06-05T13:00:32+10:00,moved to flex in flex,"grid wasn't quite cutting it so i moved to a nested flex situation for the main section. now hopefully should all work as intended
+"
+hase,2026-06-05T12:03:25+10:00,more responsiveq,"fixed grid issues of overflow. added a max width to text
+"
+hase,2026-06-05T11:10:13+10:00,responsiveness,"added in grid template for the four areas to shift based on screen width
+"
+hase,2026-06-05T09:14:59+10:00,init,"set up and linked basic files
+"
