@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Sounds - Mapping Prototype 2</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="prototype">
+        <header class="intro">
+            <p class="eyebrow">Garden of Sounds</p>
+            <h1>Mapping Prototype 2</h1>
+            <p>Drag the flower up and down to change its pitch.</p>
+        </header>
+
+        <section id="pitch-canvas" class="pitch-canvas" aria-label="Continuous vertical pitch canvas">
+            <span class="pitch-end pitch-end--high" aria-hidden="true">High</span>
+            <span class="pitch-end pitch-end--low" aria-hidden="true">Low</span>
+
+            <button id="drag-object" class="drag-object" type="button" aria-label="Drag flower vertically">
+                <span aria-hidden="true">&#10047;</span>
+            </button>
+        </section>
+
+        <p id="pitch-label" class="pitch-label" role="status" aria-live="polite">370.0 Hz</p>
+    </main>
+</body>
+</html>
