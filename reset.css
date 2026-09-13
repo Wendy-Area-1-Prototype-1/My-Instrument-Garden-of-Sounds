@@ -16,13 +16,13 @@ html {
 }
 h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
-    max-width: 80rch;
+    max-width: 80ch;
 }
 
 /*readability based on WCAG*/
 /*https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html*/
 p, li, figcaption {
-    max-width: 80rch;
+    max-width: 80ch;
 }
 
 
