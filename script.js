@@ -7,6 +7,19 @@ const releaseDuration = 0.24;
 let synth;
 let startingAudio = false;
 
+// The visual includes the note's release tail, so both finish together.
+flower.style.setProperty("--feedback-duration", `${noteDuration + releaseDuration}s`);
+
+function restartMovement(startTime) {
+    flower.classList.remove("is-playing");
+    // Flush the previous animation so another tap always starts at normal size.
+    void flower.offsetWidth;
+    // Match Tone's audio scheduling delay instead of moving before the note starts.
+    flower.style.setProperty("--sound-delay", `${Math.max(0, startTime - Tone.immediate())}s`);
+    soundStatus.textContent = "";
+    flower.classList.add("is-playing");
+}
+
 async function playFlower() {
     // Coalesce taps while the browser unlocks audio; never queue a burst of notes.
     if (startingAudio) return;
@@ -39,8 +52,9 @@ async function playFlower() {
             }).toDestination();
         }
 
-        synth.triggerAttackRelease("C4", noteDuration, Tone.now(), 0.65);
-        soundStatus.textContent = "Sound played";
+        const startTime = Tone.now();
+        synth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
+        restartMovement(startTime);
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
@@ -50,3 +64,14 @@ async function playFlower() {
 
 // A native button's click event supports mouse, touch, Enter and Space.
 flower.addEventListener("click", playFlower);
+
+flower.addEventListener("animationstart", () => {
+    soundStatus.textContent = "Sound played";
+});
+
+flower.addEventListener("animationend", () => {
+    // An old end event must not clear a new animation started by a quick tap.
+    if (!flower.getAnimations().some(animation => animation.playState === "running")) {
+        flower.classList.remove("is-playing");
+    }
+});

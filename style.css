@@ -76,6 +76,7 @@ h1 {
     touch-action: manipulation;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    transform: translateY(0) scale(1);
 }
 
 .flower svg {
@@ -88,6 +89,19 @@ h1 {
 .flower:focus-visible {
     outline: 3px solid var(--ink);
     outline-offset: 6px;
+}
+
+/* One grow-and-bounce cycle; JavaScript supplies the note + release duration. */
+.flower.is-playing {
+    animation: flower-bounce var(--feedback-duration) ease-in-out var(--sound-delay) both;
+}
+
+@keyframes flower-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    18% { transform: translateY(-2px) scale(1.2); }
+    40% { transform: translateY(-24px) scale(1.2); }
+    68% { transform: translateY(4px) scale(1.05); }
+    84% { transform: translateY(-5px) scale(1.02); }
 }
 
 .sound-status {
