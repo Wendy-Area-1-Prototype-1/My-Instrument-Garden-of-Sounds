@@ -1,0 +1,32 @@
+name: Sync Prototypes to Separate Repos
+
+on:
+  push:
+    branches:
+      - Area1_Prototype1
+      - Area1_Prototype2
+      - Area1_Prototype3
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine target repo
+        id: target
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/Area1_Prototype1" ]]; then
+            echo "repo=Prototype-1" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/Area1_Prototype2" ]]; then
+            echo "repo=Prototype-2" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/Area1_Prototype3" ]]; then
+            echo "repo=Prototype-3" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push to prototype repo
+        run: |
+          git remote add prototype https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/Wendy-Area-1-Prototype-1/${{ steps.target.outputs.repo }}.git
+          git push prototype HEAD:main --force
