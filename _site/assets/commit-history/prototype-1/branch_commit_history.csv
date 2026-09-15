@@ -1,0 +1,44 @@
+Son Hai Anh Nguyen,2026-09-16T02:02:36+10:00,Test out automatic syncing,"After adding to automate code syncing code from branches of this repo to separate repo containing each prototype
+"
+Son Hai Anh Nguyen,2026-09-13T21:12:57+10:00,Remove remaining unrelated asset from Area1_Prototype1,
+Son Hai Anh Nguyen,2026-09-13T20:57:47+10:00,Delete .idea/vcs.xml,
+Son Hai Anh Nguyen,2026-09-13T20:57:39+10:00,Delete .idea/.gitignore,
+Son Hai Anh Nguyen,2026-09-13T20:57:32+10:00,Delete .idea/modules.xml,
+Son Hai Anh Nguyen,2026-09-13T20:57:24+10:00,Delete .idea/studioWorkIndex-IDAD2650-template.iml,
+Son Hai Anh Nguyen,2026-09-13T20:57:10+10:00,Delete style.css,
+Son Hai Anh Nguyen,2026-09-13T20:57:00+10:00,Delete reset.css,
+Son Hai Anh Nguyen,2026-09-13T20:56:50+10:00,Delete index.html,
+Son Hai Anh Nguyen,2026-09-13T20:49:38+10:00,Add 'Prototype-1/' from commit '6857ed23429499c96515b41a13d849f52a01e680',"git-subtree-dir: Prototype-1
+git-subtree-mainline: daf252453fc2277d2d17339fc5989bab74a51037
+git-subtree-split: 6857ed23429499c96515b41a13d849f52a01e680
+"
+Son Hai Anh Nguyen,2026-09-13T20:49:37+10:00,"Revert ""Merge commit 'bb957ba7775282ccd4071b78d00c4744a04778ad' as 'Prototype-1'""","This reverts commit f7f3e7f4acb07d681152bc492068991794de10e3, reversing
+changes made to 0498673720575cf628f0c58c4849e5792943c764.
+"
+Son Hai Anh Nguyen,2026-09-13T20:37:43+10:00,Merge commit 'bb957ba7775282ccd4071b78d00c4744a04778ad' as 'Prototype-1',
+Son Hai Anh Nguyen,2026-09-13T20:37:43+10:00,Squashed 'Prototype-1/' content from commit 7395f9f,"git-subtree-dir: Prototype-1
+git-subtree-split: 7395f9fab2bba7d56fa667d2047a4a90d1f7dddb
+"
+Son Hai Anh Nguyen,2026-09-01T18:06:25+10:00,Restore and fix draggable button,"Restore the draggable flower in Mapping Prototype 1 and repair broken HTML and JavaScript. Preserve Tone.js playback, zone detection, random note selection, and octave 2–6 pitch ranges.
+"
+Son Hai Anh Nguyen,2026-09-01T17:30:55+10:00,Tone.js and expand zone notes,Updated zone notes to include more musical notes and refactored audio handling to use Tone.js for synthesis.
+Son Hai Anh Nguyen,2026-09-01T17:21:43+10:00,Add Tone.js script to index.html,
+Son Hai Anh Nguyen,2026-09-01T17:21:03+10:00,Clean up CSS by removing unused styles,Removed unused keyframes and image styles from CSS.
+Son Hai Anh Nguyen,2026-09-01T17:17:03+10:00,Enhance dragging functionality and note retrieval,"A draggable object, which plays a random low, middle, or high note depending on whether it is dropped in the underground, garden, or sky zone. Refactor dragging logic and improve note selection."
+Son Hai Anh Nguyen,2026-09-01T17:01:42+10:00,Rename index1.html to index.html,
+Son Hai Anh Nguyen,2026-09-01T16:40:40+10:00,Add initial CSS styles for the prototype,"add all styles for the class, id"
+Son Hai Anh Nguyen,2026-09-01T16:26:30+10:00,Remove unnecessary lines  & enable functions,Change pitch/sound depending on the zone/place the objects are placed. Enable objects as draggable
+Son Hai Anh Nguyen,2026-09-01T16:24:32+10:00,Refactor index1.html,Removed unused elements and updated the structure of the HTML for the Garden of Sounds prototype.
+Son Hai Anh Nguyen,2026-09-01T16:21:49+10:00,Create index1.html for Garden of Sounds prototype,"Added a new HTML structure for the 'Garden of Sounds' 1st prototype, including sections for interaction, sound zones, and audio controls."
+Son Hai Anh Nguyen,2026-09-01T11:48:18+10:00,Initial commit,
+Patrick McMahon,2026-07-16T11:20:02+10:00,fixed assignment links,"removed id refs so we can add pages
+"
+Patrick McMahon,2026-07-16T10:45:35+10:00,change favicon and remove unnecessary sections,
+hase,2026-06-05T13:00:32+10:00,moved to flex in flex,"grid wasn't quite cutting it so i moved to a nested flex situation for the main section. now hopefully should all work as intended
+"
+hase,2026-06-05T12:03:25+10:00,more responsiveq,"fixed grid issues of overflow. added a max width to text
+"
+hase,2026-06-05T11:10:13+10:00,responsiveness,"added in grid template for the four areas to shift based on screen width
+"
+hase,2026-06-05T09:14:59+10:00,init,"set up and linked basic files
+"

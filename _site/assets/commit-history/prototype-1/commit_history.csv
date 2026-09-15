@@ -1,0 +1,14 @@
+Son Hai Anh Nguyen,2026-09-16T02:02:36+10:00,Test out automatic syncing,"After adding to automate code syncing code from branches of this repo to separate repo containing each prototype
+"
+Son Hai Anh Nguyen,2026-09-01T18:06:25+10:00,Restore and fix draggable button,"Restore the draggable flower in Mapping Prototype 1 and repair broken HTML and JavaScript. Preserve Tone.js playback, zone detection, random note selection, and octave 2–6 pitch ranges.
+"
+Son Hai Anh Nguyen,2026-09-01T17:30:55+10:00,Tone.js and expand zone notes,Updated zone notes to include more musical notes and refactored audio handling to use Tone.js for synthesis.
+Son Hai Anh Nguyen,2026-09-01T17:21:43+10:00,Add Tone.js script to index.html,
+Son Hai Anh Nguyen,2026-09-01T17:21:03+10:00,Clean up CSS by removing unused styles,Removed unused keyframes and image styles from CSS.
+Son Hai Anh Nguyen,2026-09-01T17:17:03+10:00,Enhance dragging functionality and note retrieval,"A draggable object, which plays a random low, middle, or high note depending on whether it is dropped in the underground, garden, or sky zone. Refactor dragging logic and improve note selection."
+Son Hai Anh Nguyen,2026-09-01T17:01:42+10:00,Rename index1.html to index.html,
+Son Hai Anh Nguyen,2026-09-01T16:40:40+10:00,Add initial CSS styles for the prototype,"add all styles for the class, id"
+Son Hai Anh Nguyen,2026-09-01T16:26:30+10:00,Remove unnecessary lines  & enable functions,Change pitch/sound depending on the zone/place the objects are placed. Enable objects as draggable
+Son Hai Anh Nguyen,2026-09-01T16:24:32+10:00,Refactor index1.html,Removed unused elements and updated the structure of the HTML for the Garden of Sounds prototype.
+Son Hai Anh Nguyen,2026-09-01T16:21:49+10:00,Create index1.html for Garden of Sounds prototype,"Added a new HTML structure for the 'Garden of Sounds' 1st prototype, including sections for interaction, sound zones, and audio controls."
+Son Hai Anh Nguyen,2026-09-01T11:48:18+10:00,Initial commit,

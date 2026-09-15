@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 2 — Garden of Sounds</title>
+    <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header><h1>Parallel Prototypes</h1></header>
+    <div class="mainNavContainer">
+        <nav aria-label="Assignments">
+            <a href="./index.html">Home Page</a>
+            <a href="./assignment1.html">Assignment 1</a>
+            <a href="./assignment2.html">Assignment 2</a>
+        </nav>
+        
+        <main>
+            <section class="section-block" aria-labelledby="mapping-heading">
+                <h2 id="mapping-heading">Area 1: Mapping — Garden of Sounds</h2>
+                <p>These three prototypes explore how moving an object on screen can change musical pitch: through separate zones, continuous vertical movement, and a combination of notes and octaves.</p>
+                <p>Open a prototype to try it. Expand its commit log to see the recorded development history.</p>
+            </section>
+            <section class="section-block" aria-labelledby="prototype-1-heading">
+                <h3 id="prototype-1-heading"><a href="./Prototype-1/" target="_blank" rel="noopener">Prototype 1: Three sound zones<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+                <p>Drag the flower into the sky, garden, or underground, then release it to play a note from that zone.</p>
+                <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype1/Prototype-1" target="_blank" rel="noopener">View code</a></p>
+                <!-- BEGIN COMMIT LOG 1 -->
+<details class="commit-log">
+    <summary>Commit logs — 12 development commits</summary>
+    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
+    <p><a href="./assets/commit-history/prototype-1/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-1/branch_commit_history.csv" download>Download complete branch CSV (30 commits)</a></p>
+    <div class="table-scroll" role="region" aria-label="Prototype 1 commit history" tabindex="0">
+        <table class="commit-table">
+            <caption>Prototype 1 — newest commits first</caption>
+            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
+            <tbody><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-16T02:02:36+10:00">2026-09-16 02:02:36+10:00</time></td><td class="commit-subject">Test out automatic syncing<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/9529bf7b77a96ee7722f66e6382dd1e7b2bb006c" target="_blank" rel="noopener">9529bf7</a></td><td class="commit-body">After adding to automate code syncing code from branches of this repo to separate repo containing each prototype
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:06:25+10:00">2026-09-01 18:06:25+10:00</time></td><td class="commit-subject">Restore and fix draggable button<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/6857ed23429499c96515b41a13d849f52a01e680" target="_blank" rel="noopener">6857ed2</a></td><td class="commit-body">Restore the draggable flower in Mapping Prototype 1 and repair broken HTML and JavaScript. Preserve Tone.js playback, zone detection, random note selection, and octave 2–6 pitch ranges.
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:30:55+10:00">2026-09-01 17:30:55+10:00</time></td><td class="commit-subject">Tone.js and expand zone notes<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/33243cf95b150df87558b6879d6dbcc76f1f5007" target="_blank" rel="noopener">33243cf</a></td><td class="commit-body">Updated zone notes to include more musical notes and refactored audio handling to use Tone.js for synthesis.</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:21:43+10:00">2026-09-01 17:21:43+10:00</time></td><td class="commit-subject">Add Tone.js script to index.html<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/1407989f083729bb793cfd0129a1f76c8ae5df7f" target="_blank" rel="noopener">1407989</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:21:03+10:00">2026-09-01 17:21:03+10:00</time></td><td class="commit-subject">Clean up CSS by removing unused styles<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/b2c6193400bc332f6673c9b76c2b4b725c554876" target="_blank" rel="noopener">b2c6193</a></td><td class="commit-body">Removed unused keyframes and image styles from CSS.</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:17:03+10:00">2026-09-01 17:17:03+10:00</time></td><td class="commit-subject">Enhance dragging functionality and note retrieval<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/0878bb10b6327783d83c5f3e81367f58536dc48c" target="_blank" rel="noopener">0878bb1</a></td><td class="commit-body">A draggable object, which plays a random low, middle, or high note depending on whether it is dropped in the underground, garden, or sky zone. Refactor dragging logic and improve note selection.</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:01:42+10:00">2026-09-01 17:01:42+10:00</time></td><td class="commit-subject">Rename index1.html to index.html<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/555ebf670d4f2c598c4fbaf7379957b65feeedc1" target="_blank" rel="noopener">555ebf6</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T16:40:40+10:00">2026-09-01 16:40:40+10:00</time></td><td class="commit-subject">Add initial CSS styles for the prototype<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/ae0ba826708f0015e8adc39e547010b13fa8b236" target="_blank" rel="noopener">ae0ba82</a></td><td class="commit-body">add all styles for the class, id</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T16:26:30+10:00">2026-09-01 16:26:30+10:00</time></td><td class="commit-subject">Remove unnecessary lines  &amp; enable functions<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/349a9a46b1a71e1573b821c80939e1f5b637d365" target="_blank" rel="noopener">349a9a4</a></td><td class="commit-body">Change pitch/sound depending on the zone/place the objects are placed. Enable objects as draggable</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T16:24:32+10:00">2026-09-01 16:24:32+10:00</time></td><td class="commit-subject">Refactor index1.html<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/9b50561c00c9dacd7291e9511bbcc65d91bb0b09" target="_blank" rel="noopener">9b50561</a></td><td class="commit-body">Removed unused elements and updated the structure of the HTML for the Garden of Sounds prototype.</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T16:21:49+10:00">2026-09-01 16:21:49+10:00</time></td><td class="commit-subject">Create index1.html for Garden of Sounds prototype<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/ed561bd395c311c4fc1541a58576fd5e7c60d776" target="_blank" rel="noopener">ed561bd</a></td><td class="commit-body">Added a new HTML structure for the &#x27;Garden of Sounds&#x27; 1st prototype, including sections for interaction, sound zones, and audio controls.</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T11:48:18+10:00">2026-09-01 11:48:18+10:00</time></td><td class="commit-subject">Initial commit<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/0a4d5d17bf83d28caa3cb77ee1939ed747fd754e" target="_blank" rel="noopener">0a4d5d1</a></td><td class="commit-body">—</td></tr></tbody>
+        </table>
+    </div>
+</details>
+<!-- END COMMIT LOG 1 -->
+            </section>
+            <section class="section-block" aria-labelledby="prototype-2-heading">
+                <h3 id="prototype-2-heading"><a href="./Prototype-2/" target="_blank" rel="noopener">Prototype 2: Continuous vertical pitch<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+                <p>Drag the flower up and down to change its pitch continuously. The display shows the current frequency in hertz.</p>
+                <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype2/Prototype-2" target="_blank" rel="noopener">View code</a></p>
+                <!-- BEGIN COMMIT LOG 2 -->
+<details class="commit-log">
+    <summary>Commit logs — 6 development commits</summary>
+    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
+    <p><a href="./assets/commit-history/prototype-2/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-2/branch_commit_history.csv" download>Download complete branch CSV (45 commits)</a></p>
+    <div class="table-scroll" role="region" aria-label="Prototype 2 commit history" tabindex="0">
+        <table class="commit-table">
+            <caption>Prototype 2 — newest commits first</caption>
+            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
+            <tbody><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:23:55+10:00">2026-09-01 18:23:55+10:00</time></td><td class="commit-subject">fix css layout<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/723e0ce94a9c138f04f5afb2f9ac68d951d8cdf9" target="_blank" rel="noopener">723e0ce</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:20:35+10:00">2026-09-01 18:20:35+10:00</time></td><td class="commit-subject">Repair Mapping Prototype 2<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/6983af7f2abe93d7918331a755a4068a03520569" target="_blank" rel="noopener">6983af7</a></td><td class="commit-body">Repair Mapping Prototype 2 with a visible draggable flower and continuous C3–C6 vertical pitch control. Fix malformed HTML, CSS, and JavaScript; restore Tone.js audio smoothing, and remove unused Prototype 1 zone code.
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:58:05+10:00">2026-09-01 17:58:05+10:00</time></td><td class="commit-subject">Rename style2.css to style.css<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/e889f8badf53bced08635dfa490da196e4bd0fa0" target="_blank" rel="noopener">e889f8b</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:57:51+10:00">2026-09-01 17:57:51+10:00</time></td><td class="commit-subject">Rename script2.js to script.js<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/fcd49c5caf0c3ec255e6d943fdda0ebfad3dc152" target="_blank" rel="noopener">fcd49c5</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:57:24+10:00">2026-09-01 17:57:24+10:00</time></td><td class="commit-subject">Rename index2.html to index.html<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/2a91a9b6017a14283d9bf5b22afa07978f6f4785" target="_blank" rel="noopener">2a91a9b</a></td><td class="commit-body">—</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T17:56:27+10:00">2026-09-01 17:56:27+10:00</time></td><td class="commit-subject">Add files via upload<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/c63b5b61e6e1598dd182552257e368bbc697aa67" target="_blank" rel="noopener">c63b5b6</a></td><td class="commit-body">—</td></tr></tbody>
+        </table>
+    </div>
+</details>
+<!-- END COMMIT LOG 2 -->
+            </section>
+            <section class="section-block" aria-labelledby="prototype-3-heading">
+                <h3 id="prototype-3-heading"><a href="./Prototype-3/" target="_blank" rel="noopener">Prototype 3: Notes and octaves<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
+                <p>Move the sound objects vertically to select notes from C to B, and horizontally to move between octaves 1 and 8. Press Play Garden to start the sound.</p>
+                <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype3/Prototype-3" target="_blank" rel="noopener">View code</a></p>
+                <!-- BEGIN COMMIT LOG 3 -->
+<details class="commit-log">
+    <summary>Commit logs — 4 development commits</summary>
+    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
+    <p><a href="./assets/commit-history/prototype-3/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-3/branch_commit_history.csv" download>Download complete branch CSV (5 commits)</a></p>
+    <div class="table-scroll" role="region" aria-label="Prototype 3 commit history" tabindex="0">
+        <table class="commit-table">
+            <caption>Prototype 3 — newest commits first</caption>
+            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
+            <tbody><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T19:08:17+10:00">2026-09-01 19:08:17+10:00</time></td><td class="commit-subject">Remap prototype to use musical notes and fix audibility<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/6f57a9b1e01117d8a3750919e6f25519dc0869f9" target="_blank" rel="noopener">6f57a9b</a></td><td class="commit-body">Remap prototype so horizontal movement selects octaves 1–8 and vertical movement selects notes C–B. Add mousemove-based dragging, controlled Hz variations of each notes. Low-octave (1-3) gain compensation, and triangle waves for improved bass audibility.
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:39:47+10:00">2026-09-01 18:39:47+10:00</time></td><td class="commit-subject">Enable sound when objects are dragged and clicked<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/e044932511471c3435e38809ae1fb99333119f17" target="_blank" rel="noopener">e044932</a></td><td class="commit-body">Pressing or dragging objects produces a note with continuous pitch and stereo-pan updates, while releasing fades and safely disposes temporary audio nodes.
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:34:44+10:00">2026-09-01 18:34:44+10:00</time></td><td class="commit-subject">Create prototype 3<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/e22437125a82837a95a0509564c651fb50dfa125" target="_blank" rel="noopener">e224371</a></td><td class="commit-body">making 2 objects draggable in a canvas, a button to play the 2 notes
+</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-01T18:24:54+10:00">2026-09-01 18:24:54+10:00</time></td><td class="commit-subject">Initial commit<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/0d92a58440cdd770e0d905cd518496613566f334" target="_blank" rel="noopener">0d92a58</a></td><td class="commit-body">—</td></tr></tbody>
+        </table>
+    </div>
+</details>
+<!-- END COMMIT LOG 3 -->
+            </section>
+        </main>
+        <aside aria-hidden="true"></aside>
+    </div>
+    <footer>
+        <p>Page maintained by: <a href="https://github.com/Wendy-Hai-Anh" target="_blank" rel="noopener">Wendy Nguyen</a><br>
+            <a href="https://au.miro.com/app/board/u3jVOf59wks=/?share_link_id=91669281293" target="_blank" rel="noopener">Community of Practice Documentation</a>
+        </p>
+    </footer>
+</body>
+</html>

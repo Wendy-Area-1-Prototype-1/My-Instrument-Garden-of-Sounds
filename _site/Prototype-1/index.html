@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Sounds - Mapping Prototype 1</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="prototype">
+        <header class="intro">
+            <p class="label">Garden of Sounds</p>
+            <h1>Mapping Prototype 1</h1>
+            <p>Drag the flower into the sky, garden, or underground, then release it to hear its note.</p>
+        </header>
+
+        <section id="sound-canvas" class="sound-canvas" aria-label="Three-zone garden sound canvas">
+            <div class="zone zone--sky" data-zone="sky" aria-hidden="true"><span>Sky</span></div>
+            <div class="zone zone--garden" data-zone="garden" aria-hidden="true"><span>Garden</span></div>
+            <div class="zone zone--underground" data-zone="underground" aria-hidden="true"><span>Underground</span></div>
+
+            <button id="draggable-flower" class="draggable-flower" type="button" aria-label="Draggable flower">
+                <span aria-hidden="true">&#10047;</span>
+            </button>
+        </section>
+        <h3>Sound Status</h3>
+
+        <p id="sound-status" class="sound-status" role="status" aria-live="polite">
+            Drop the flower in a zone to play a sound.
+        </p>
+    </main>
+</body>
+</html>

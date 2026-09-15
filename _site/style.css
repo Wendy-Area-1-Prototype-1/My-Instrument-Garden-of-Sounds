@@ -1,0 +1,359 @@
+/*!!!!!*/
+/*add in your own font imports here*/
+/*remember to update them in the rest of the CSS : eg the body selector*/
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*!!!!!*/
+/*change out, and/or add colours to the colour scheme*/
+:root{
+    /* basic 2-bit palette from 1bit Monitor Glow Palette by Polyducks */
+    /* https://lospec.com/palette-list/1bit-monitor-glow */
+    --colour-1: #222323;
+    --colour-2: #f0f6f0;
+    --box-tint: rgba(34, 35, 35, 0.05);
+}
+
+/* this swaps the colour order to account for user's OS dark mode */
+/*!!!!!*/
+/*remember to update the colours here too to reflect the above changes*/
+@media (prefers-color-scheme: dark) {
+    :root{
+        --colour-1: #f0f6f0;
+        --colour-2: #222323;
+        --box-tint: rgba(240, 246, 240, 0.08);
+    }
+}
+
+
+body {
+    background-color: var(--colour-2);
+    color: var(--colour-1);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.5;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    margin-block-end: 3rem;
+}
+
+.mainNavContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav {
+    display: flex; 
+    flex-direction: column;
+    min-width: fit-content;
+    flex: 1;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    width: min(100%, 80ch);
+}
+
+section {
+    width: 100%;
+}
+
+/* spacing between sections, replacing the need for manual <br> spacers.
+   Note: this uses ~ (general sibling) instead of + (adjacent sibling)
+   because a hidden <br> still sits between the sections in the HTML,
+   which would break a "+" match even though it isn't visible. */
+main > section ~ section {
+    margin-top: 2.5rem;
+}
+
+/* headings inside a section get breathing room above, and sit close
+   to the paragraph that follows them */
+section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+section h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+section h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* the very first heading in a section shouldn't add its own top gap on
+   top of the section's own top margin */
+section h3:first-child,
+section h4:first-child {
+    margin-top: 0;
+}
+
+.firstSectionHeading {
+    margin-top: 0;
+}
+
+/* paragraph and figure spacing */
+section p {
+    margin-bottom: 1rem;
+}
+
+section p:last-child {
+    margin-bottom: 0;
+}
+
+figure {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+figure img + img {
+    margin-top: 0.5rem;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* "+" sub-points nested one level inside a "-" point, like an indented
+   list in a doc */
+.subpoint {
+    display: block;
+    margin-left: 1.75rem;
+}
+
+/* a soft colored box around each major part of the document, so the
+   sections read as distinct cards rather than relying on spacing alone */
+.section-block {
+    background-color: var(--box-tint);
+    border-left: 3px solid var(--colour-1);
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+}
+
+a:focus-visible, .commit-log summary:focus-visible, .table-scroll:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
+}
+
+.commit-log {
+    margin-top: 1.5rem;
+    border-top: 1px solid currentColor;
+    padding-top: 0.8rem;
+}
+
+.commit-log summary {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.commit-log[open] summary {
+    margin-bottom: 1rem;
+}
+
+.table-scroll {
+    max-width: 100%;
+    overflow: auto;
+    margin-block: 1rem;
+}
+
+.commit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.commit-table caption {
+    text-align: left;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+}
+
+.commit-table th, .commit-table td {
+    border: 1px solid currentColor;
+    padding: 0.65rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.commit-table th {
+    background: var(--box-tint);
+}
+
+.commit-table td {
+    min-width: 8rem;
+    overflow-wrap: anywhere;
+}
+
+.commit-table .commit-subject {
+    min-width: 14rem;
+}
+
+.commit-table .commit-body {
+    white-space: pre-wrap;
+}
+
+.commit-table .commit-id {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: monospace;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* editorial/magazine layout for the Framing intro text + image gallery:
+   text and images sit side by side instead of stacking top to bottom */
+.framing-feature {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.framing-gallery {
+    margin: 0;
+}
+
+.framing-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+/* first image spans both columns as a "hero" shot, the other two sit
+   side by side underneath it, like a magazine photo mosaic */
+.framing-gallery-grid img:first-child {
+    grid-column: 1 / -1;
+}
+
+.framing-gallery-grid img {
+    margin: 0;
+}
+
+@media (width < 840px) {
+    .framing-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* the assignment content uses standalone <br> tags purely to add gaps
+   between elements that already have margin above; hide them so spacing
+   comes only from the rules above instead of doubling up */
+main > br,
+section > br,
+figure > br {
+    display: none;
+}
+
+aside {
+    visibility: hidden;
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 3rem;
+}
+
+footer a {
+    margin-inline-end: 0.5rem;
+}
+
+footer a:last-child {
+    margin-inline-end: 0;
+}
+
+/*technique from Kevin Powell*/
+/*https://youtu.be/CU8Plk-53RU?si=zMpP0Pfbg1SaXeDB&t=255*/
+/*longer post about how this works and the * + * selector*/
+/*https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/*/
+.prose > * + * {
+    margin-block-start: var(--prose-flow, 1em);
+}
+
+/* breakpoints from Material Design Spec https://m3.material.io/foundations/layout/breakpoints/overview */
+/* while sometimes mobile first is recommended, as we will be focused on desktop, we will start there */
+
+/* assumed base sizing is large (1200–1599px) : desktop  */
+
+/* extra-large breakpoint : desktop, ultrawide monitors */
+@media (width > 1600px) {
+
+}
+
+/* expanded breakpoint : phone or tablet in landscape, desktop */
+@media (width < 1200px) {
+    header {
+        margin-block-end: 2rem;
+    }
+    footer {
+        margin-block-start: 2rem;
+    }
+}
+/* medium breakpoint : tablet in portrait */
+@media (width < 840px) {
+    header {
+        margin-block-end: 1rem;
+    }
+    .mainNavContainer {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    nav {
+        flex: 0;
+        width: 100%;
+        max-width: 80ch;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    main {
+        flex: 1;
+    }
+    aside {
+        flex: 0;
+    }
+    footer {
+        margin-block-start: 1rem;
+    }
+}
+/* compact breakpoint : phone in portrait */
+@media (width < 600px) {
+    .section-block {
+        padding: 1.1rem;
+    }
+    nav {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
