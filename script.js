@@ -33,7 +33,7 @@ async function playFlower() {
 
     try {
         // The first user click unlocks audio. Resume it again after a mobile interruption.
-        if (Tone.getContext().state !== "running") {
+        if (!synth || Tone.getContext().state !== "running") {
             await Tone.start();
         }
 
@@ -64,6 +64,13 @@ async function playFlower() {
 
 // A native button's click event supports mouse, touch, Enter and Space.
 flower.addEventListener("click", playFlower);
+
+// Holding a key is one gesture, not a repeating sound loop.
+flower.addEventListener("keydown", event => {
+    if (event.repeat && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+    }
+});
 
 flower.addEventListener("animationstart", () => {
     soundStatus.textContent = "Sound played";

@@ -111,3 +111,15 @@ h1 {
     line-height: 1.5;
     text-align: center;
 }
+
+/* Keep the same sound timing with gentler feedback for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+    .flower.is-playing {
+        animation-name: flower-gentle;
+    }
+}
+
+@keyframes flower-gentle {
+    0%, 100% { transform: scale(1); }
+    40% { transform: scale(1.035); }
+}
