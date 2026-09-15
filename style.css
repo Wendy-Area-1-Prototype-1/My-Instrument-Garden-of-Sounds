@@ -100,3 +100,26 @@ h1 {
     line-height: 1.5;
     text-align: center;
 }
+
+/* Only colour and shadow animate; the flower's size and position stay fixed. */
+.flower.is-playing {
+    animation: flower-glow var(--feedback-duration) ease-out both;
+}
+
+@keyframes flower-glow {
+    0%, 100% {
+        color: var(--petal);
+        background-color: var(--flower-background);
+        box-shadow: 0 0.4rem 0 var(--ink), 0 0 32px 10px rgb(255 196 87 / 0);
+    }
+    8%, 24% {
+        color: #ffadc0;
+        background-color: #fff0ae;
+        box-shadow: 0 0.4rem 0 var(--ink), 0 0 18px 4px rgb(255 196 87 / 70%);
+    }
+    54% {
+        color: #ffa1b4;
+        background-color: #ffe69a;
+        box-shadow: 0 0.4rem 0 var(--ink), 0 0 26px 7px rgb(255 196 87 / 45%);
+    }
+}

@@ -8,6 +8,17 @@ let synth;
 let startingAudio = false;
 let lastStartTime = 0;
 
+// Include the release tail so the colour and glow finish with the note.
+flower.style.setProperty("--feedback-duration", `${noteDuration + releaseDuration}s`);
+
+function restartFeedback() {
+    flower.classList.remove("is-playing");
+    // Flush the previous cycle so a repeated tap starts a fresh response.
+    void flower.offsetWidth;
+    soundStatus.textContent = "";
+    flower.classList.add("is-playing");
+}
+
 async function playFlower() {
     // Coalesce taps while audio unlocks, instead of queuing a burst of sounds.
     if (startingAudio) return;
@@ -46,11 +57,11 @@ async function playFlower() {
             }).toDestination();
         }
 
-        // Separate batched clicks by one audio sample to keep Tone start times valid.
-        const startTime = Math.max(Tone.now(), lastStartTime + synth.sampleTime);
+        // A 20ms lead avoids late audio scheduling; batched clicks keep distinct times.
+        const startTime = Math.max(Tone.immediate() + 0.02, lastStartTime + synth.sampleTime);
         synth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
         lastStartTime = startTime;
-        soundStatus.textContent = "Sound played";
+        restartFeedback();
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
@@ -60,3 +71,14 @@ async function playFlower() {
 
 // Native button clicks cover mouse, touch, Enter and Space without duplicate handlers.
 flower.addEventListener("click", playFlower);
+
+flower.addEventListener("animationstart", () => {
+    soundStatus.textContent = "Sound played";
+});
+
+flower.addEventListener("animationend", () => {
+    // A completed older cycle must not cancel a newer tap's feedback.
+    if (!flower.getAnimations().some(animation => animation.playState === "running")) {
+        flower.classList.remove("is-playing");
+    }
+});
