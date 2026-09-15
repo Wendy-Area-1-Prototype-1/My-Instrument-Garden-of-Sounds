@@ -1,0 +1,102 @@
+:root {
+    --ink: #263832;
+    --cream: #f5f1e7;
+    --garden: #dce9d3;
+    --petal: #f06f87;
+    --flower-background: #f7cb5c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: Verdana, sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+.prototype {
+    display: grid;
+    min-height: 100vh;
+    min-height: 100svh;
+    align-content: center;
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+
+.intro {
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.intro p:last-child {
+    margin: 0.8rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.garden {
+    display: grid;
+    width: min(100%, 42rem);
+    height: clamp(17rem, 45svh, 23rem);
+    place-items: center;
+    border: 3px solid var(--ink);
+    border-radius: 0.75rem;
+    background: var(--garden);
+}
+
+.flower {
+    display: grid;
+    width: 8rem;
+    height: 8rem;
+    padding: 1.15rem;
+    border: 4px solid var(--ink);
+    border-radius: 50%;
+    color: var(--petal);
+    background: var(--flower-background);
+    box-shadow: 0 0.4rem 0 var(--ink);
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.flower svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 7px;
+}
+
+.sound-status {
+    min-height: 1.5em;
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+}
