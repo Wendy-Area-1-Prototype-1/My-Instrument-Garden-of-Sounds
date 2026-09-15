@@ -1,47 +1,35 @@
-name: Publish assignment website
+name: Build Site
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-concurrency:
-  group: github-pages
-  cancel-in-progress: false
+    branches:
+      - main
+      - Area1_Prototype1
+      - Area1_Prototype2
+      - Area1_Prototype3
 
 jobs:
   build:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out main and all prototype histories
-        uses: actions/checkout@v6
-        with:
-          ref: main
-          fetch-depth: 0
-      - name: Fetch current prototype branches
-        run: git fetch origin '+refs/heads/Area1_Prototype*:refs/remotes/origin/Area1_Prototype*'
-      - name: Build assignment pages, prototype sites, and commit logs
-        run: python3 scripts/build_site.py
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload website
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-  deploy:
-    needs: build
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      contents: write
     steps:
-      - name: Deploy website
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Build site
+        run: python scripts/build_site.py --refresh-logs
+
+      - name: Commit and push _site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add _site/
+          git commit -m "Build site: update prototypes and links" || echo "No changes to commit"
+          git push
