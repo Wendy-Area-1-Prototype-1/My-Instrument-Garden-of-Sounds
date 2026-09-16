@@ -3,7 +3,7 @@
 const flower = document.querySelector("#flower");
 const soundStatus = document.querySelector("#sound-status");
 const noteDuration = 0.28;
-const releaseDuration = 0.24;
+const releaseDuration = 0.44;
 let synth;
 let startingAudio = false;
 let lastStartTime = 0;
@@ -81,7 +81,7 @@ flower.addEventListener("keydown", event => {
 
 flower.addEventListener("animationend", () => {
     // A completed older cycle must not cancel a newer tap's feedback.
-    if (!flower.getAnimations().some(animation => animation.playState === "running")) {
+    if (!flower.getAnimations({ subtree: true }).some(animation => animation.playState === "running")) {
         flower.classList.remove("is-playing");
     }
 });

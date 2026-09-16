@@ -59,6 +59,7 @@ h1 {
 }
 
 .garden {
+    overflow: clip;
     display: grid;
     width: min(100%, 42rem);
     height: clamp(17rem, 45svh, 23rem);
@@ -69,6 +70,8 @@ h1 {
 }
 
 .flower {
+    position: relative;
+    isolation: isolate;
     display: grid;
     width: min(8rem, 50vw);
     aspect-ratio: 1;
@@ -109,25 +112,79 @@ h1 {
     text-align: center;
 }
 
-/* Only colour and shadow animate; the flower's size and position stay fixed. */
+/* The flower stays still; two decorative rings carry the expanding glow. */
+.flower::before,
+.flower::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border: 3px solid #ffd365;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 5px rgb(255 202 72 / 65%),
+        inset 0 0 9px 3px rgb(255 202 72 / 45%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flower::after {
+    border-color: #ff8ca8;
+    box-shadow: 0 0 12px 4px rgb(255 111 153 / 55%),
+        inset 0 0 8px 3px rgb(255 111 153 / 35%);
+}
+
 .flower.is-playing {
     animation: flower-glow var(--feedback-duration) ease-out both;
+}
+
+.flower.is-playing::before {
+    animation: glow-wave var(--feedback-duration) ease-out both;
+}
+
+.flower.is-playing::after {
+    animation: glow-echo var(--feedback-duration) ease-out both;
 }
 
 @keyframes flower-glow {
     0%, 100% {
         color: var(--petal);
         background-color: var(--flower-background);
-        box-shadow: 0 0.4rem 0 var(--ink), 0 0 32px 10px rgb(255 196 87 / 0);
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 22px 8px rgb(255 205 74 / 0),
+            0 0 44px 18px rgb(255 222 106 / 0);
     }
-    8%, 24% {
-        color: #ffadc0;
-        background-color: #fff0ae;
-        box-shadow: 0 0.4rem 0 var(--ink), 0 0 18px 4px rgb(255 196 87 / 70%);
+    8%, 25% {
+        color: #ff3475;
+        background-color: #fff5b8;
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 22px 8px rgb(255 205 74 / 85%),
+            0 0 44px 18px rgb(255 222 106 / 55%);
     }
-    54% {
-        color: #ffa1b4;
-        background-color: #ffe69a;
-        box-shadow: 0 0.4rem 0 var(--ink), 0 0 26px 7px rgb(255 196 87 / 45%);
+    55% {
+        color: #ff7198;
+        background-color: #ffe998;
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 28px 10px rgb(255 205 74 / 40%),
+            0 0 50px 20px rgb(255 222 106 / 20%);
+    }
+}
+
+/* Both waves finish with the note's release, including the later pink echo. */
+@keyframes glow-wave {
+    0% { opacity: 0; transform: scale(1); }
+    12% { opacity: 0.9; }
+    100% { opacity: 0; transform: scale(1.85); }
+}
+
+@keyframes glow-echo {
+    0%, 20% { opacity: 0; transform: scale(1); }
+    32% { opacity: 0.75; }
+    100% { opacity: 0; transform: scale(1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower.is-playing::before,
+    .flower.is-playing::after {
+        animation: none;
     }
 }
