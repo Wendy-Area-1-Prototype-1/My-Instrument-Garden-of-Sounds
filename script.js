@@ -15,7 +15,6 @@ function restartFeedback() {
     flower.classList.remove("is-playing");
     // Flush the previous cycle so a repeated tap starts a fresh response.
     void flower.offsetWidth;
-    soundStatus.textContent = "";
     flower.classList.add("is-playing");
 }
 
@@ -62,6 +61,7 @@ async function playFlower() {
         synth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
         lastStartTime = startTime;
         restartFeedback();
+        soundStatus.textContent = "Sound played";
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
@@ -72,8 +72,11 @@ async function playFlower() {
 // Native button clicks cover mouse, touch, Enter and Space without duplicate handlers.
 flower.addEventListener("click", playFlower);
 
-flower.addEventListener("animationstart", () => {
-    soundStatus.textContent = "Sound played";
+// A held key is one activation, rather than an unintended repeating note.
+flower.addEventListener("keydown", event => {
+    if (event.repeat && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+    }
 });
 
 flower.addEventListener("animationend", () => {
@@ -82,3 +85,9 @@ flower.addEventListener("animationend", () => {
         flower.classList.remove("is-playing");
     }
 });
+
+// Enable interaction only after the deferred scripts have finished loading.
+flower.disabled = false;
+soundStatus.textContent = typeof Tone === "undefined"
+    ? "Sound could not load. Check your connection and reload."
+    : "";

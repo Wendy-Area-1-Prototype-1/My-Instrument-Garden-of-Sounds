@@ -23,6 +23,7 @@ button {
 
 .prototype {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 100vh;
     min-height: 100svh;
     align-content: center;
@@ -32,6 +33,8 @@ button {
 }
 
 .intro {
+    max-width: 100%;
+    overflow-wrap: anywhere;
     text-align: center;
 }
 
@@ -67,9 +70,9 @@ h1 {
 
 .flower {
     display: grid;
-    width: 8rem;
-    height: 8rem;
-    padding: 1.15rem;
+    width: min(8rem, 50vw);
+    aspect-ratio: 1;
+    padding: min(1.15rem, 7.2vw);
     border: 4px solid var(--ink);
     border-radius: 50%;
     color: var(--petal);
@@ -79,6 +82,10 @@ h1 {
     touch-action: manipulation;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+.flower:disabled {
+    cursor: wait;
 }
 
 .flower svg {
@@ -94,7 +101,8 @@ h1 {
 }
 
 .sound-status {
-    min-height: 1.5em;
+    max-width: 100%;
+    min-height: 3em;
     margin: 0;
     font-size: 0.8rem;
     line-height: 1.5;
