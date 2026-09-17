@@ -146,7 +146,8 @@ async function prepareSynth() {
 
     if (!synth) {
         synth = new Tone.Synth({
-            oscillator: { type: "sine" },
+            // Triangle harmonics make low notes easier to hear on small speakers.
+            oscillator: { type: "triangle" },
             envelope: {
                 attack: 0.04,
                 decay: 0.1,
@@ -159,6 +160,14 @@ async function prepareSynth() {
     }
 }
 
+function volumeForNote(note) {
+    const octave = Number(note.slice(-1));
+
+    if (octave === 2) return -8;
+    if (octave === 3) return -12;
+    return -16;
+}
+
 async function playZoneNote(zoneKey) {
     const note = getRandomNote(zoneKey);
     const zone = zoneNotes[zoneKey];
@@ -166,6 +175,9 @@ async function playZoneNote(zoneKey) {
     status.textContent = zone.label + " - " + note;
     highlightZone(zoneKey);
     await prepareSynth();
+
+    // Underground octaves receive a bounded boost while higher notes stay quieter.
+    synth.volume.rampTo(volumeForNote(note), 0.04);
     synth.triggerAttackRelease(note, "8n");
 }
 
