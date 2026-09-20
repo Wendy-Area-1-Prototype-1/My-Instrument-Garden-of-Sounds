@@ -6,6 +6,7 @@
     <title>Garden of Sounds — Area 2: Feedback Prototype 3</title>
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tone@15.1.22/build/Tone.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -17,7 +18,7 @@
         </header>
 
         <section class="garden" aria-label="Garden canvas">
-            <button id="flower" class="flower" type="button"
+            <button id="flower" class="flower" type="button" disabled
                     aria-label="Play flower sound" aria-describedby="instruction">
                 <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
                     <g fill="currentColor">
@@ -32,7 +33,7 @@
             </button>
         </section>
 
-        <p id="sound-status" class="sound-status" role="status" aria-atomic="true"></p>
+        <p id="sound-status" class="sound-status" role="status" aria-atomic="true">Loading sound…</p>
         <noscript>Enable JavaScript to play the flower sound.</noscript>
     </main>
 </body>
