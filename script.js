@@ -4,13 +4,14 @@ const flower = document.querySelector("#flower");
 const soundStatus = document.querySelector("#sound-status");
 const rippleLayer = document.querySelector(".ripples");
 const activeRipples = new Map();
-const ripplesPerTap = 3;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const maxActiveRipples = 12;
 const noteDuration = 0.28;
 const releaseDuration = 0.44;
 let synth;
 let startingAudio = false;
 let lastStartTime = 0;
+let responseCount = 0;
 
 function removeRipple(ripple) {
     if (!activeRipples.has(ripple)) return;
@@ -21,21 +22,25 @@ function removeRipple(ripple) {
 }
 
 function createRipples(startTime) {
+    // Reduced motion keeps a clear response with two smaller, shorter rings.
+    const ringCount = reducedMotion.matches ? 2 : 3;
     // Keep both DOM elements and cleanup timers bounded during rapid repeated input.
-    while (activeRipples.size > maxActiveRipples - ripplesPerTap) {
+    while (activeRipples.size > maxActiveRipples - ringCount) {
         removeRipple(activeRipples.keys().next().value);
     }
 
     const flowerBounds = flower.getBoundingClientRect();
     const layerBounds = rippleLayer.getBoundingClientRect();
-    const duration = noteDuration + releaseDuration;
+    const duration = reducedMotion.matches ? 0.28 : noteDuration + releaseDuration;
     const soundDelay = Math.max(0, startTime - Tone.immediate());
-    const endDiameter = Math.hypot(layerBounds.width, layerBounds.height);
+    const endDiameter = reducedMotion.matches
+        ? flowerBounds.width * 1.35
+        : Math.hypot(layerBounds.width, layerBounds.height);
 
-    // Three rings begin at the flower and spread across the surrounding garden.
-    for (let index = 0; index < ripplesPerTap; index++) {
+    // Rings begin at the flower; their staggered durations end together.
+    for (let index = 0; index < ringCount; index++) {
         const ripple = document.createElement("span");
-        const stagger = index * 0.07;
+        const stagger = index * (reducedMotion.matches ? 0.03 : 0.07);
         ripple.className = "ripple";
         ripple.style.left = `${flowerBounds.left + flowerBounds.width / 2 - layerBounds.left}px`;
         ripple.style.top = `${flowerBounds.top + flowerBounds.height / 2 - layerBounds.top}px`;
@@ -54,6 +59,14 @@ function createRipples(startTime) {
 for (const eventName of ["animationend", "animationcancel"]) {
     rippleLayer.addEventListener(eventName, event => removeRipple(event.target));
 }
+
+function clearRipples() {
+    for (const ripple of activeRipples.keys()) removeRipple(ripple);
+}
+
+// Discard rings positioned for an old layout or motion setting; the next tap remeasures.
+window.addEventListener("resize", clearRipples);
+reducedMotion.addEventListener("change", clearRipples);
 
 async function playFlower() {
     // Coalesce input while audio unlocks instead of queuing a burst of notes.
@@ -104,7 +117,8 @@ async function playFlower() {
         synth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
         lastStartTime = startTime;
         createRipples(startTime);
-        soundStatus.textContent = "The garden responded";
+        // A changing live-region message announces each successful activation.
+        soundStatus.textContent = `The garden responded (${++responseCount})`;
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
