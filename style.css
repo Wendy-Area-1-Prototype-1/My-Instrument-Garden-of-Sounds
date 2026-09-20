@@ -113,3 +113,28 @@ h1 {
     line-height: 1.5;
     text-align: center;
 }
+
+/* The decorative layer stays behind the unchanged flower and cannot intercept input. */
+.ripples {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.ripple {
+    position: absolute;
+    width: var(--ripple-size);
+    aspect-ratio: 1;
+    border: 3px solid rgb(64 104 75 / 65%);
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    animation: ripple-spread var(--ripple-duration) ease-out both;
+}
+
+/* Animate diameter, keeping the ring's stroke thin as it reaches the garden edges. */
+@keyframes ripple-spread {
+    0% { width: var(--ripple-size); opacity: 0; }
+    10% { opacity: 0.8; }
+    100% { width: var(--ripple-end); opacity: 0; }
+}
