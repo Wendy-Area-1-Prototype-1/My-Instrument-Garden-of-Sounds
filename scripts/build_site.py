@@ -1,4 +1,4 @@
-"""Build the assignment site from main and the three prototype branches.
+"""Build the assignment site from main and the six prototype branches.
 
 Run with --refresh-logs to also update the checked-in A2 tables and CSVs.
 Only Python's standard library and Git are required.
@@ -19,6 +19,9 @@ PROTOTYPES = [
     (1, "6857ed23429499c96515b41a13d849f52a01e680", "892e3446885a67dc927c556901d23bb5a441af18"),
     (2, "723e0ce94a9c138f04f5afb2f9ac68d951d8cdf9", "dfaa007b308771453dc0d620a909dbeb1adfd338"),
     (3, "6f57a9b1e01117d8a3750919e6f25519dc0869f9", "82202afc62d40aace0f357c9ba29536871c4d71c"),
+    (4, "21d00468af271812f28d662695f96ceff2ba4942", "14dde6b1370cb9a6c63a1ca969eb348672b07ac7"),
+    (5, "f58db83dbd152163676df6168c0e3d0b09771746", "9d65530a91133a78f0967055f3a5bfc14f966354"),
+    (6, "7873b9b288e7ae580eadf43c245b5152023ecbeb", "50006fa8400048ea039a47342fdfae3fd5c3d369"),
 ]
 
 
@@ -40,7 +43,8 @@ def log_records(*revisions):
 
 
 def prototype_data(number, original_tip, import_commit):
-    branch = f"Area1_Prototype{number}"
+    area = 1 if number <= 3 else 2
+    branch = f"Area{area}_Prototype{number}"
     # Freeze a revision for this build so files and logs describe the same commit.
     ref = f"refs/remotes/origin/{branch}"
     tip = git("rev-parse", ref).decode().strip()

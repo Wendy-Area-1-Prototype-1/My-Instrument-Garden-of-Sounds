@@ -1,0 +1,12 @@
+Son Hai Anh Nguyen,2026-09-17T11:23:54+10:00,Organize Prototype 4 in its dedicated Area 2 branch,"Keep only the Prototype-4 folder and preserve every original development commit without squashing. The folder contents match the standalone Prototype-4 repository.
+"
+Son Hai Anh Nguyen,2026-09-16T06:27:16+10:00,Match the flower button to the reference design,"Replace the outlined petals with a simple five-petal pink flower on a yellow circular button. Add a dark pink border and raised lower edge while preserving the Tone.js sound and grow-and-bounce interaction.
+"
+Son Hai Anh Nguyen,2026-09-16T06:10:38+10:00,Support reduced motion and deliberate keyboard activation,"Offer a gentler size pulse for reduced-motion preferences, prevent held keys from repeating notes, and always unlock audio on first activation. Verify desktop and mobile layouts, touch and keyboard input, rapid retriggering, audio resume, and silence after playback.
+"
+Son Hai Anh Nguyen,2026-09-16T06:05:44+10:00,Synchronize flower growth and bounce with the note,"Animate a 1.2x grow, upward bounce and smooth return across the note and release. Restart the CSS class on every tap and account for Tone.js scheduling so the movement follows the sound.
+"
+Son Hai Anh Nguyen,2026-09-16T06:04:44+10:00,Add a gentle reusable Tone.js flower sound,"Load pinned Tone.js from a CDN and unlock audio on the first user activation. Play a fixed C4 note with one quiet sine synth, gentle attack and release, and no overlapping voices.
+"
+Son Hai Anh Nguyen,2026-09-16T06:03:20+10:00,Build the simple feedback prototype garden,"Add a responsive cream and green canvas with one accessible flower button. Match the earlier prototypes with basic shapes and clear instructions.
+"

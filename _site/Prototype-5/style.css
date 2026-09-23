@@ -1,0 +1,190 @@
+:root {
+    --ink: #263832;
+    --cream: #f5f1e7;
+    --garden: #dce9d3;
+    --petal: #f06f87;
+    --flower-background: #f7cb5c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: Verdana, sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+.prototype {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100vh;
+    min-height: 100svh;
+    align-content: center;
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+
+.intro {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.intro p:last-child {
+    margin: 0.8rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.garden {
+    overflow: clip;
+    display: grid;
+    width: min(100%, 42rem);
+    height: clamp(17rem, 45svh, 23rem);
+    place-items: center;
+    border: 3px solid var(--ink);
+    border-radius: 0.75rem;
+    background: var(--garden);
+}
+
+.flower {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    width: min(8rem, 50vw);
+    aspect-ratio: 1;
+    padding: min(1.15rem, 7.2vw);
+    border: 4px solid var(--ink);
+    border-radius: 50%;
+    color: var(--petal);
+    background: var(--flower-background);
+    box-shadow: 0 0.4rem 0 var(--ink);
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.flower:disabled {
+    cursor: wait;
+}
+
+.flower svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 7px;
+}
+
+.sound-status {
+    max-width: 100%;
+    min-height: 3em;
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* The flower stays still; two decorative rings carry the expanding glow. */
+.flower::before,
+.flower::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border: 3px solid #ffd365;
+    border-radius: 50%;
+    box-shadow: 0 0 12px 5px rgb(255 202 72 / 65%),
+        inset 0 0 9px 3px rgb(255 202 72 / 45%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flower::after {
+    border-color: #ff8ca8;
+    box-shadow: 0 0 12px 4px rgb(255 111 153 / 55%),
+        inset 0 0 8px 3px rgb(255 111 153 / 35%);
+}
+
+.flower.is-playing {
+    animation: flower-glow var(--feedback-duration) ease-out both;
+}
+
+.flower.is-playing::before {
+    animation: glow-wave var(--feedback-duration) ease-out both;
+}
+
+.flower.is-playing::after {
+    animation: glow-echo var(--feedback-duration) ease-out both;
+}
+
+@keyframes flower-glow {
+    0%, 100% {
+        color: var(--petal);
+        background-color: var(--flower-background);
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 22px 8px rgb(255 205 74 / 0),
+            0 0 44px 18px rgb(255 222 106 / 0);
+    }
+    8%, 25% {
+        color: #ff3475;
+        background-color: #fff5b8;
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 22px 8px rgb(255 205 74 / 85%),
+            0 0 44px 18px rgb(255 222 106 / 55%);
+    }
+    55% {
+        color: #ff7198;
+        background-color: #ffe998;
+        box-shadow: 0 0.4rem 0 var(--ink),
+            0 0 28px 10px rgb(255 205 74 / 40%),
+            0 0 50px 20px rgb(255 222 106 / 20%);
+    }
+}
+
+/* Both waves finish with the note's release, including the later pink echo. */
+@keyframes glow-wave {
+    0% { opacity: 0; transform: scale(1); }
+    12% { opacity: 0.9; }
+    100% { opacity: 0; transform: scale(1.85); }
+}
+
+@keyframes glow-echo {
+    0%, 20% { opacity: 0; transform: scale(1); }
+    32% { opacity: 0.75; }
+    100% { opacity: 0; transform: scale(1.6); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower.is-playing::before,
+    .flower.is-playing::after {
+        animation: none;
+    }
+}

@@ -1,0 +1,10 @@
+Son Hai Anh Nguyen,2026-09-16T22:51:57+10:00,feat(prototype-5): strengthen colour and add fading glow waves,"Add brighter flower colours and two expanding glow rings that fade with the note. Keep the flower stationary, restart all feedback on repeated taps, and respect reduced-motion preferences.
+"
+Son Hai Anh Nguyen,2026-09-16T22:06:25+10:00,fix(prototype-5): refine interaction and responsive layout,"Improve repeated activation, keyboard support, responsive styling and remove unused code.
+"
+Son Hai Anh Nguyen,2026-09-16T07:13:05+10:00,feat(prototype-5): add colour and glow feedback,"Connect the flower sound to a temporary colour change and fading glow response.
+"
+Son Hai Anh Nguyen,2026-09-16T06:57:04+10:00,feat(prototype-5): add Tone.js flower sound,"Add a gentle musical note and reliable audio activation using a reusable Tone.js synth.
+"
+Son Hai Anh Nguyen,2026-09-16T06:42:38+10:00,feat(prototype-5): scaffold colour feedback prototype,"Create the basic page structure, garden canvas and interactive flower button.
+"

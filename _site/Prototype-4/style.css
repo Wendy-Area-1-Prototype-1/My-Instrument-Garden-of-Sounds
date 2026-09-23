@@ -1,0 +1,126 @@
+:root {
+    --ink: #263832;
+    --cream: #f5f1e7;
+    --garden: #dce9d3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: Verdana, sans-serif;
+}
+
+button {
+    font: inherit;
+}
+
+.prototype {
+    display: grid;
+    min-height: 100vh;
+    min-height: 100svh;
+    align-content: center;
+    justify-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+}
+
+.intro {
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    line-height: 1.15;
+}
+
+.intro p:last-child {
+    margin: 0.8rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.garden {
+    display: grid;
+    width: min(100%, 42rem);
+    height: clamp(17rem, 45svh, 23rem);
+    place-items: center;
+    border: 3px solid var(--ink);
+    border-radius: 0.75rem;
+    background: var(--garden);
+}
+
+.flower {
+    display: grid;
+    width: 8rem;
+    height: 8rem;
+    padding: 1.15rem;
+    border: 4px solid #8c3852;
+    border-radius: 50%;
+    color: #f06f87;
+    background: #f7cb5c;
+    box-shadow: 0 0.4rem 0 #8c3852;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateY(0) scale(1);
+}
+
+.flower svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flower:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 6px;
+}
+
+/* One grow-and-bounce cycle; JavaScript supplies the note + release duration. */
+.flower.is-playing {
+    animation: flower-bounce var(--feedback-duration) ease-in-out var(--sound-delay) both;
+}
+
+@keyframes flower-bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    18% { transform: translateY(-2px) scale(1.2); }
+    40% { transform: translateY(-24px) scale(1.2); }
+    68% { transform: translateY(4px) scale(1.05); }
+    84% { transform: translateY(-5px) scale(1.02); }
+}
+
+.sound-status {
+    min-height: 1.5em;
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Keep the same sound timing with gentler feedback for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+    .flower.is-playing {
+        animation-name: flower-gentle;
+    }
+}
+
+@keyframes flower-gentle {
+    0%, 100% { transform: scale(1); }
+    40% { transform: scale(1.035); }
+}

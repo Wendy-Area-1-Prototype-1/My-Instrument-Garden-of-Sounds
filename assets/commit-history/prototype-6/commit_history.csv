@@ -1,0 +1,12 @@
+Son Hai Anh Nguyen,2026-09-23T13:48:56+10:00, tint garden canvas with sound,"Make the garden background briefly turn a deeper green when the flower plays, then fade back with the note. Repeated taps restart the effect while the flower stays unchanged. Tested mouse, touch, keyboard and reduced motion.
+"
+Son Hai Anh Nguyen,2026-09-23T13:48:06+10:00,feat(prototype-6): tint garden canvas with sound,"Add a subtle garden colour response synchronized with the note and restart it on repeated taps.
+"
+Son Hai Anh Nguyen,2026-09-21T09:46:56+10:00,fix(prototype-6): refine accessibility and repeated feedback,"Improve keyboard support, reduced-motion behaviour, responsive presentation and repeated ripple reliability.
+"
+Son Hai Anh Nguyen,2026-09-21T09:26:15+10:00,feat(prototype-6): add environmental ripple feedback,"Create expanding ripple rings around the flower and remove completed effects to keep repeated interactions stable.
+"
+Son Hai Anh Nguyen,2026-09-21T09:10:46+10:00,feat(prototype-6): add Tone.js flower sound,"Add a reusable Tone.js synth and consistent musical response for the central flower interaction.
+"
+Son Hai Anh Nguyen,2026-09-21T08:42:52+10:00,feat(prototype-6): scaffold environmental feedback prototype,"Create the basic page structure, garden canvas and accessible flower control for the environmental feedback experiment.
+"

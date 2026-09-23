@@ -1,4 +1,12 @@
+Son Hai Anh Nguyen,2026-09-17T11:23:53+10:00,Sync Prototype 1 code and complete development history,
+Son Hai Anh Nguyen,2026-09-17T11:23:26+10:00,Merge Prototype 1 branch edits with latest sound improvements,"Preserve the personal repository and exported branch histories, including the latest bounded volume adjustment and removal of the temporary Sound Status heading.
+"
+Son Hai Anh Nguyen,2026-09-17T11:17:27+10:00,sound volume,"Make underground octaves receive a bounded boost while higher notes stay quieter using if
+"
 Son Hai Anh Nguyen,2026-09-16T05:36:07+10:00,update index.html,
+Son Hai Anh Nguyen,2026-09-16T05:36:07+10:00,update index.html,
+Son Hai Anh Nguyen,2026-09-16T02:02:36+10:00,Test out automatic syncing,"After adding to automate code syncing code from branches of this repo to separate repo containing each prototype
+"
 Son Hai Anh Nguyen,2026-09-16T02:02:36+10:00,Test out automatic syncing,"After adding to automate code syncing code from branches of this repo to separate repo containing each prototype
 "
 Son Hai Anh Nguyen,2026-09-13T21:12:57+10:00,Remove remaining unrelated asset from Area1_Prototype1,
