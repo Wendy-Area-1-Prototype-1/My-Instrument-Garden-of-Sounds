@@ -71,6 +71,16 @@ h1 {
     background: var(--garden);
 }
 
+/* The garden briefly deepens in colour with the note, then returns to rest. */
+.garden.is-responding {
+    animation: garden-tint var(--response-duration) ease-out both;
+}
+
+@keyframes garden-tint {
+    0%, 100% { background-color: var(--garden); }
+    18% { background-color: #cde1c4; }
+}
+
 .flower {
     position: relative;
     z-index: 1;

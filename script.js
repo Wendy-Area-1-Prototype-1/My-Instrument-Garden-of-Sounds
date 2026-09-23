@@ -1,6 +1,7 @@
 "use strict";
 
 const flower = document.querySelector("#flower");
+const garden = document.querySelector(".garden");
 const soundStatus = document.querySelector("#sound-status");
 const rippleLayer = document.querySelector(".ripples");
 const activeRipples = new Map();
@@ -37,6 +38,13 @@ function createRipples(startTime) {
         ? flowerBounds.width * 1.35
         : Math.hypot(layerBounds.width, layerBounds.height);
 
+    // Restart the subtle canvas tint on every note, aligned with the sound.
+    garden.classList.remove("is-responding");
+    garden.style.animationDelay = `${soundDelay}s`;
+    garden.style.setProperty("--response-duration", `${noteDuration + releaseDuration}s`);
+    void garden.offsetWidth;
+    garden.classList.add("is-responding");
+
     // Rings begin at the flower; their staggered durations end together.
     for (let index = 0; index < ringCount; index++) {
         const ripple = document.createElement("span");
@@ -59,6 +67,12 @@ function createRipples(startTime) {
 for (const eventName of ["animationend", "animationcancel"]) {
     rippleLayer.addEventListener(eventName, event => removeRipple(event.target));
 }
+
+garden.addEventListener("animationend", event => {
+    if (event.target === garden && event.animationName === "garden-tint") {
+        garden.classList.remove("is-responding");
+    }
+});
 
 function clearRipples() {
     for (const ripple of activeRipples.keys()) removeRipple(ripple);
