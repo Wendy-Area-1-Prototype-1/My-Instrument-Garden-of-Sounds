@@ -113,3 +113,21 @@ h1 {
     line-height: 1.5;
     text-align: center;
 }
+
+@media (max-width: 340px) {
+    h1 {
+        font-size: clamp(1rem, 12.5vw, 1.8rem);
+    }
+}
+
+@media (max-height: 500px) {
+    .prototype {
+        align-content: start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower.is-playing svg {
+        animation-duration: 20s;
+    }
+}

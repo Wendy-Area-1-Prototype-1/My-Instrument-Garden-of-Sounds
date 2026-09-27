@@ -20,6 +20,7 @@ function stopSound() {
     if (typeof Tone !== "undefined") Tone.Transport.stop();
     isPlaying = false;
     flower.classList.remove("is-playing");
+    flower.setAttribute("aria-pressed", "false");
     soundStatus.textContent = "Sound stopped";
 }
 
@@ -68,6 +69,7 @@ async function startSound() {
         Tone.Transport.start();
         // The spinning class mirrors the sound's playing state.
         flower.classList.add("is-playing");
+        flower.setAttribute("aria-pressed", "true");
         soundStatus.textContent = "Sound playing";
     } catch {
         wantsPlaying = false;
@@ -85,5 +87,12 @@ flower.addEventListener("click", () => {
         void startSound();
     } else {
         stopSound();
+    }
+});
+
+// Native button clicks cover mouse, touch, Enter and Space. A held key is one tap.
+flower.addEventListener("keydown", event => {
+    if (event.repeat && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
     }
 });
