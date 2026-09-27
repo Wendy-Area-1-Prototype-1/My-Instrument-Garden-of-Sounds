@@ -38,6 +38,9 @@ async function startSound() {
         // Audio can start only after the first user gesture; retry on mobile resume.
         await Tone.start();
         if (!wantsPlaying) return;
+        if (Tone.getContext().state !== "running") {
+            throw new Error("Audio context did not start");
+        }
         if (!synth) {
             synth = new Tone.Synth({
                 oscillator: { type: "sine" },
@@ -57,6 +60,14 @@ async function startSound() {
                     synth.triggerAttackRelease("C4", noteDuration, time, 0.65);
                 }
             }, "4n").start("4n");
+            Tone.getContext().rawContext.addEventListener("statechange", () => {
+                // A suspended audio context must not leave a silent flower spinning.
+                if (isPlaying && Tone.getContext().state !== "running") {
+                    wantsPlaying = false;
+                    stopSound();
+                    soundStatus.textContent = "Audio paused. Tap the flower to play again.";
+                }
+            });
         }
 
         // Restore this one synth and loop; never create a second copy on restart.
@@ -94,5 +105,12 @@ flower.addEventListener("click", () => {
 flower.addEventListener("keydown", event => {
     if (event.repeat && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
+    }
+});
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden && wantsPlaying) {
+        wantsPlaying = false;
+        stopSound();
     }
 });
