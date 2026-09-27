@@ -1,0 +1,12 @@
+Son Hai Anh Nguyen,2026-09-27T13:04:32+10:00,Tested and refined rhythm feedback,"Checked the timing between each note and visual pulse. Fixed interaction and animation problems found during testing.
+"
+Son Hai Anh Nguyen,2026-09-27T12:56:57+10:00,Improved accessibility and responsive design,"Added keyboard support and updated aria-pressed to communicate the sound state. Adjusted the layout for desktop and mobile screens.
+"
+Son Hai Anh Nguyen,2026-09-27T12:55:59+10:00,Improved playback state control,"Stored the playing state in JavaScript and prevented duplicate sound loops. Stopping the sound now also clears the visual pulse.
+"
+Son Hai Anh Nguyen,2026-09-27T12:55:12+10:00,Synchronised movement with the music,"Used Tone.Draw.schedule() and a CSS pulse animation to make the flower briefly grow whenever a note plays.
+"
+Son Hai Anh Nguyen,2026-09-27T12:54:32+10:00,Added the repeating musical sound,"Used Tone.Synth and Tone.Loop to play a repeating musical note. Added tap controls for starting and stopping the sound.
+"
+Son Hai Anh Nguyen,2026-09-27T12:53:54+10:00,Created the rhythm feedback page,"Added the page title, instructions and interactive flower using a semantic <button>. Connected the HTML page to its CSS, JavaScript and Tone.js files.
+"

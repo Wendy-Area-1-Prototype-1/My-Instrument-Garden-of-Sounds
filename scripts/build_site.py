@@ -1,4 +1,4 @@
-"""Build the assignment site from main and the six prototype branches.
+"""Build the assignment site from main and the eight prototype branches.
 
 Run with --refresh-logs to also update the checked-in A2 tables and CSVs.
 Only Python's standard library and Git are required.
@@ -22,6 +22,8 @@ PROTOTYPES = [
     (4, "21d00468af271812f28d662695f96ceff2ba4942", "14dde6b1370cb9a6c63a1ca969eb348672b07ac7"),
     (5, "f58db83dbd152163676df6168c0e3d0b09771746", "9d65530a91133a78f0967055f3a5bfc14f966354"),
     (6, "7873b9b288e7ae580eadf43c245b5152023ecbeb", "50006fa8400048ea039a47342fdfae3fd5c3d369"),
+    (7, "9d57543f032c6dc247c640f3fc50f434da793f54", "9ba7b049d9571c52b7085f32f110e6a7b72e5580"),
+    (8, "0865ec4f4788d3472517d095bebbace8af1923f8", "bd6b88e73322bf16327bfd5ee6bbd234751ff474"),
 ]
 
 
