@@ -8,6 +8,20 @@ let noteLoop;
 let isPlaying = false;
 let startingAudio = false;
 
+function pulseFlower() {
+    if (!isPlaying) return;
+    flower.classList.remove("beat-pulse");
+    // Restart the class so every scheduled note creates a distinct pulse.
+    void flower.offsetWidth;
+    flower.classList.add("beat-pulse");
+}
+
+function playBeat(time) {
+    synth.triggerAttackRelease("C4", noteDuration, time, 0.65);
+    // Tone.Draw places the DOM update on the frame matching the audio event.
+    Tone.Draw.schedule(pulseFlower, time);
+}
+
 function stopRhythm() {
     Tone.Transport.stop();
     synth.triggerRelease(Tone.immediate());
@@ -46,13 +60,13 @@ async function toggleRhythm() {
             Tone.Transport.bpm.value = 75;
             // Match Prototype 7 with one C4 note every quarter note.
             noteLoop = new Tone.Loop(time => {
-                synth.triggerAttackRelease("C4", noteDuration, time, 0.65);
+                playBeat(time);
             }, "4n").start("4n");
         }
 
         Tone.Transport.position = 0;
-        synth.triggerAttackRelease("C4", noteDuration, Tone.immediate(), 0.65);
         isPlaying = true;
+        playBeat(Tone.immediate());
         Tone.Transport.start();
         soundStatus.textContent = "Rhythm playing";
     } catch {
@@ -63,3 +77,8 @@ async function toggleRhythm() {
 }
 
 flower.addEventListener("click", toggleRhythm);
+
+flower.addEventListener("animationend", () => {
+    // Removing the temporary class prepares the next beat animation.
+    flower.classList.remove("beat-pulse");
+});

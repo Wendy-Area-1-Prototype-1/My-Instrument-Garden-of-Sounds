@@ -91,6 +91,16 @@ h1 {
     pointer-events: none;
 }
 
+/* A short scale pulse marks one musical beat without moving the flower. */
+.flower.beat-pulse {
+    animation: beat-pulse 0.28s ease-out;
+}
+
+@keyframes beat-pulse {
+    0%, 100% { transform: scale(1); }
+    40% { transform: scale(1.14); }
+}
+
 .flower:focus-visible {
     outline: 3px solid var(--ink);
     outline-offset: 7px;
