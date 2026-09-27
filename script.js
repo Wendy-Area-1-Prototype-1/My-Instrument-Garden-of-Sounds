@@ -37,6 +37,7 @@ function stopRhythm() {
     }
     isPlaying = false;
     flower.classList.remove("beat-pulse");
+    flower.setAttribute("aria-pressed", "false");
     soundStatus.textContent = "Rhythm stopped";
 }
 
@@ -82,6 +83,7 @@ async function startRhythm() {
         noteLoop.mute = false;
         Tone.Transport.position = 0;
         isPlaying = true;
+        flower.setAttribute("aria-pressed", "true");
         playBeat(Tone.immediate());
         Tone.Transport.start();
         soundStatus.textContent = "Rhythm playing";
@@ -107,4 +109,11 @@ flower.addEventListener("click", () => {
 flower.addEventListener("animationend", () => {
     // Removing the temporary class prepares the next beat animation.
     flower.classList.remove("beat-pulse");
+});
+
+// Native button clicks support mouse, touch, Enter and Space; held keys do not repeat.
+flower.addEventListener("keydown", event => {
+    if (event.repeat && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+    }
 });

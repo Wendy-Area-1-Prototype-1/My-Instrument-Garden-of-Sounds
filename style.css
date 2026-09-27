@@ -114,3 +114,26 @@ h1 {
     line-height: 1.5;
     text-align: center;
 }
+
+@media (max-width: 340px) {
+    h1 {
+        font-size: clamp(1rem, 12.5vw, 1.8rem);
+    }
+}
+
+@media (max-height: 500px) {
+    .prototype {
+        align-content: start;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flower.beat-pulse {
+        animation-duration: 0.18s;
+    }
+
+    @keyframes beat-pulse {
+        0%, 100% { transform: scale(1); }
+        40% { transform: scale(1.06); }
+    }
+}
