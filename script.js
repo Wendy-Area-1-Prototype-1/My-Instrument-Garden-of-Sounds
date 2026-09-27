@@ -7,6 +7,7 @@ let synth;
 let noteLoop;
 let isPlaying = false;
 let startingAudio = false;
+let wantsPlaying = false;
 
 function pulseFlower() {
     if (!isPlaying) return;
@@ -23,20 +24,27 @@ function playBeat(time) {
 }
 
 function stopRhythm() {
-    Tone.Transport.stop();
-    synth.triggerRelease(Tone.immediate());
+    // Cancel queued audio and draw work before resetting the visual state.
+    if (synth) {
+        synth.volume.value = -100;
+        synth.envelope.cancel(Tone.immediate());
+        synth.triggerRelease(Tone.immediate());
+    }
+    if (noteLoop) noteLoop.mute = true;
+    if (typeof Tone !== "undefined") {
+        Tone.Draw.cancel(Tone.immediate());
+        Tone.Transport.stop();
+    }
     isPlaying = false;
+    flower.classList.remove("beat-pulse");
     soundStatus.textContent = "Rhythm stopped";
 }
 
-async function toggleRhythm() {
-    if (startingAudio) return;
-    if (isPlaying) {
-        stopRhythm();
-        return;
-    }
-
+async function startRhythm() {
+    // Only one audio-start request and one loop can exist at a time.
+    if (startingAudio || isPlaying) return;
     if (typeof Tone === "undefined") {
+        wantsPlaying = false;
         soundStatus.textContent = "Sound could not load. Check your connection and reload.";
         return;
     }
@@ -45,6 +53,10 @@ async function toggleRhythm() {
     try {
         // Tone.js starts only after the user's first interaction.
         await Tone.start();
+        if (!wantsPlaying) return;
+        if (Tone.getContext().state !== "running") {
+            throw new Error("Audio context did not start");
+        }
         if (!synth) {
             synth = new Tone.Synth({
                 oscillator: { type: "sine" },
@@ -64,19 +76,33 @@ async function toggleRhythm() {
             }, "4n").start("4n");
         }
 
+        // Reuse the same synth and loop whenever playback restarts.
+        synth.envelope.cancel(Tone.immediate());
+        synth.volume.value = -16;
+        noteLoop.mute = false;
         Tone.Transport.position = 0;
         isPlaying = true;
         playBeat(Tone.immediate());
         Tone.Transport.start();
         soundStatus.textContent = "Rhythm playing";
     } catch {
+        wantsPlaying = false;
+        stopRhythm();
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
         startingAudio = false;
     }
 }
 
-flower.addEventListener("click", toggleRhythm);
+flower.addEventListener("click", () => {
+    // Rapid taps update the requested state instead of creating extra loops.
+    wantsPlaying = !wantsPlaying;
+    if (wantsPlaying) {
+        void startRhythm();
+    } else {
+        stopRhythm();
+    }
+});
 
 flower.addEventListener("animationend", () => {
     // Removing the temporary class prepares the next beat animation.
