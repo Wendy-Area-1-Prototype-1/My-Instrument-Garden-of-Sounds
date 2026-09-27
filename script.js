@@ -74,7 +74,15 @@ async function startRhythm() {
             // Match Prototype 7 with one C4 note every quarter note.
             noteLoop = new Tone.Loop(time => {
                 playBeat(time);
-            }, "4n").start("4n");
+            }, "4n").start(0);
+            Tone.getContext().rawContext.addEventListener("statechange", () => {
+                // A suspended audio context must not leave visual beats running alone.
+                if (isPlaying && Tone.getContext().state !== "running") {
+                    wantsPlaying = false;
+                    stopRhythm();
+                    soundStatus.textContent = "Audio paused. Tap the flower to play again.";
+                }
+            });
         }
 
         // Reuse the same synth and loop whenever playback restarts.
@@ -84,8 +92,8 @@ async function startRhythm() {
         Tone.Transport.position = 0;
         isPlaying = true;
         flower.setAttribute("aria-pressed", "true");
-        playBeat(Tone.immediate());
-        Tone.Transport.start();
+        // A short lead lets the first note and every later beat share one timeline.
+        Tone.Transport.start("+0.05");
         soundStatus.textContent = "Rhythm playing";
     } catch {
         wantsPlaying = false;
@@ -106,14 +114,24 @@ flower.addEventListener("click", () => {
     }
 });
 
-flower.addEventListener("animationend", () => {
+function clearPulse() {
     // Removing the temporary class prepares the next beat animation.
     flower.classList.remove("beat-pulse");
-});
+}
+
+flower.addEventListener("animationend", clearPulse);
+flower.addEventListener("animationcancel", clearPulse);
 
 // Native button clicks support mouse, touch, Enter and Space; held keys do not repeat.
 flower.addEventListener("keydown", event => {
     if (event.repeat && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
+    }
+});
+
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden && wantsPlaying) {
+        wantsPlaying = false;
+        stopRhythm();
     }
 });
