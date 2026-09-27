@@ -12,6 +12,7 @@ function stopSound() {
     Tone.Transport.stop();
     synth.triggerRelease(Tone.immediate());
     isPlaying = false;
+    flower.classList.remove("is-playing");
     soundStatus.textContent = "Sound stopped";
 }
 
@@ -54,6 +55,8 @@ async function toggleSound() {
         synth.triggerAttackRelease("C4", noteDuration, Tone.immediate(), 0.65);
         isPlaying = true;
         Tone.Transport.start();
+        // The spinning class mirrors the sound's playing state.
+        flower.classList.add("is-playing");
         soundStatus.textContent = "Sound playing";
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";

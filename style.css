@@ -91,6 +91,15 @@ h1 {
     pointer-events: none;
 }
 
+/* Only the petals rotate; the button remains a steady tap target. */
+.flower.is-playing svg {
+    animation: flower-spin 6s linear infinite;
+}
+
+@keyframes flower-spin {
+    to { transform: rotate(360deg); }
+}
+
 .flower:focus-visible {
     outline: 3px solid var(--ink);
     outline-offset: 7px;
