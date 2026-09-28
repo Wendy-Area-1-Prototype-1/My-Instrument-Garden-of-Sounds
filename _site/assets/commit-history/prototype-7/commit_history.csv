@@ -1,0 +1,14 @@
+Son Hai Anh Nguyen,2026-09-28T10:39:40+10:00,Spin the complete flower button,"Moved the continuous CSS rotation from the inner flower graphic to the complete circular button so its border, face and flower turn together while the sound plays.
+"
+Son Hai Anh Nguyen,2026-09-27T12:48:37+10:00,Tested and refined the interaction,"Checked that the sound and spinning always start and stop together. Fixed small interaction and styling problems found during testing.
+"
+Son Hai Anh Nguyen,2026-09-27T12:45:57+10:00,Improved accessibility and responsive layout,"Added keyboard support and updated aria-pressed to communicate the flower state. Adjusted the layout and button size for desktop and mobile screens.
+"
+Son Hai Anh Nguyen,2026-09-27T12:38:06+10:00,Improved playback control,"Stored the playing state in JavaScript and prevented multiple sound loops from playing at the same time. Rapid taps now start and stop the sound correctly.
+"
+Son Hai Anh Nguyen,2026-09-27T12:36:54+10:00,Connected spinning to the playing state,"Added a CSS rotation animation and used the is-playing class to control it. The flower now spins only while its sound is playing.
+"
+Son Hai Anh Nguyen,2026-09-27T12:36:22+10:00,Added repeating musical sound,"Used Tone.Synth and Tone.Loop to repeat a musical note. The first tap starts the sound and the second tap stops it.
+"
+Son Hai Anh Nguyen,2026-09-27T12:34:20+10:00,Created the basic feedback page,"Added the page title, instructions and interactive flower using a semantic <button>. Connected the HTML page to the CSS, JavaScript and Tone.js files.
+"
