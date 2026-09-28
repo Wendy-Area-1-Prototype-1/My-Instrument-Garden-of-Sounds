@@ -88,8 +88,8 @@
             </section>
             <section class="section-block" aria-labelledby="feedback-heading">
                 <h2 id="feedback-heading">Area 2: Feedback — Garden of Sounds</h2>
-                <p>These five prototypes compare feedback for a sounding flower: brief movement, colour and glow, environmental ripples, continuous rotation, and a shake synchronised with each note.</p>
-                <p>Open an available prototype, view its source repository or branch, and expand its commit log to see the recorded development history.</p>
+                <p>These three prototypes explore how the garden responds when a flower plays a sound: through movement, colour and glow, and ripples in the surrounding canvas.</p>
+                <p>Open a prototype to try it. Expand its commit log to see the recorded development history.</p>
             </section>
             <section class="section-block" aria-labelledby="prototype-4-heading">
                 <h3 id="prototype-4-heading"><a href="https://wendy-area-1-prototype-1.github.io/Prototype-4/" target="_blank" rel="noopener">Prototype 4: Object movement feedback<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
@@ -163,58 +163,6 @@
     </div>
 </details>
 <!-- END COMMIT LOG 6 -->
-            </section>
-            <section class="section-block" aria-labelledby="prototype-7-heading">
-                <h3 id="prototype-7-heading"><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype7/Prototype-7" target="_blank" rel="noopener">Prototype 7: Playing-state feedback<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to start a repeating sound and continuous rotation, then tap it again to stop both.</p>
-                <p><a href="https://github.com/Wendy-Hai-Anh/Prototype-7" target="_blank" rel="noopener">View standalone repository</a></p>
-                <!-- BEGIN COMMIT LOG 7 -->
-<details class="commit-log">
-    <summary>Commit logs — 7 development commits</summary>
-    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
-    <p><a href="./assets/commit-history/prototype-7/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-7/branch_commit_history.csv" download>Download complete branch CSV (9 commits)</a></p>
-    <div class="table-scroll" role="region" aria-label="Prototype 7 commit history" tabindex="0">
-        <table class="commit-table">
-            <caption>Prototype 7 — newest commits first</caption>
-            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
-            <tbody><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-28T10:39:40+10:00">2026-09-28 10:39:40+10:00</time></td><td class="commit-subject">Spin the complete flower button<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/ee65edd931021e2f5f09e5964deeb7991ed58b29" target="_blank" rel="noopener">ee65edd</a></td><td class="commit-body">Moved the continuous CSS rotation from the inner flower graphic to the complete circular button so its border, face and flower turn together while the sound plays.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:48:37+10:00">2026-09-27 12:48:37+10:00</time></td><td class="commit-subject">Tested and refined the interaction<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/9d57543f032c6dc247c640f3fc50f434da793f54" target="_blank" rel="noopener">9d57543</a></td><td class="commit-body">Checked that the sound and spinning always start and stop together. Fixed small interaction and styling problems found during testing.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:45:57+10:00">2026-09-27 12:45:57+10:00</time></td><td class="commit-subject">Improved accessibility and responsive layout<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/0f0e11323c18839cc2d03608616eb2d22782fb2d" target="_blank" rel="noopener">0f0e113</a></td><td class="commit-body">Added keyboard support and updated aria-pressed to communicate the flower state. Adjusted the layout and button size for desktop and mobile screens.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:38:06+10:00">2026-09-27 12:38:06+10:00</time></td><td class="commit-subject">Improved playback control<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/d847f071c9ab91e74ee2536f5f772b6f42071287" target="_blank" rel="noopener">d847f07</a></td><td class="commit-body">Stored the playing state in JavaScript and prevented multiple sound loops from playing at the same time. Rapid taps now start and stop the sound correctly.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:36:54+10:00">2026-09-27 12:36:54+10:00</time></td><td class="commit-subject">Connected spinning to the playing state<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/4e911b5825586efbdcbd9a7514775bcc5a5e2aef" target="_blank" rel="noopener">4e911b5</a></td><td class="commit-body">Added a CSS rotation animation and used the is-playing class to control it. The flower now spins only while its sound is playing.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:36:22+10:00">2026-09-27 12:36:22+10:00</time></td><td class="commit-subject">Added repeating musical sound<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/a4df5f3b6326fa24cca9d01a6e9c1b7f4ab16fb6" target="_blank" rel="noopener">a4df5f3</a></td><td class="commit-body">Used Tone.Synth and Tone.Loop to repeat a musical note. The first tap starts the sound and the second tap stops it.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:34:20+10:00">2026-09-27 12:34:20+10:00</time></td><td class="commit-subject">Created the basic feedback page<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/2f7132ca23f80cdfd60c7d65ca457471b91d90c8" target="_blank" rel="noopener">2f7132c</a></td><td class="commit-body">Added the page title, instructions and interactive flower using a semantic &lt;button&gt;. Connected the HTML page to the CSS, JavaScript and Tone.js files.
-</td></tr></tbody>
-        </table>
-    </div>
-</details>
-<!-- END COMMIT LOG 7 -->
-            </section>
-            <section class="section-block" aria-labelledby="prototype-8-heading">
-                <h3 id="prototype-8-heading"><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype8/Prototype-8" target="_blank" rel="noopener">Prototype 8: Rhythm feedback<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to start a repeating sound and watch it shake side to side with every note in the rhythm.</p>
-                <p><a href="https://github.com/Wendy-Hai-Anh/Prototype-8" target="_blank" rel="noopener">View standalone repository</a></p>
-                <!-- BEGIN COMMIT LOG 8 -->
-<details class="commit-log">
-    <summary>Commit logs — 7 development commits</summary>
-    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
-    <p><a href="./assets/commit-history/prototype-8/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-8/branch_commit_history.csv" download>Download complete branch CSV (9 commits)</a></p>
-    <div class="table-scroll" role="region" aria-label="Prototype 8 commit history" tabindex="0">
-        <table class="commit-table">
-            <caption>Prototype 8 — newest commits first</caption>
-            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
-            <tbody><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-28T10:39:51+10:00">2026-09-28 10:39:51+10:00</time></td><td class="commit-subject">Replace the pulse with a rhythmic shake<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/502667ce7d77bd5e5148a8e6ca6c5113946e238e" target="_blank" rel="noopener">502667c</a></td><td class="commit-body">Used Tone.Draw.schedule() and a temporary CSS shake animation to swing the flower side to side with every repeating note and reset it cleanly when playback stops.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T13:04:32+10:00">2026-09-27 13:04:32+10:00</time></td><td class="commit-subject">Tested and refined rhythm feedback<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/0865ec4f4788d3472517d095bebbace8af1923f8" target="_blank" rel="noopener">0865ec4</a></td><td class="commit-body">Checked the timing between each note and visual pulse. Fixed interaction and animation problems found during testing.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:56:57+10:00">2026-09-27 12:56:57+10:00</time></td><td class="commit-subject">Improved accessibility and responsive design<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/eb4e08bd4f5d540439a4e8bd5905833e2a1810a6" target="_blank" rel="noopener">eb4e08b</a></td><td class="commit-body">Added keyboard support and updated aria-pressed to communicate the sound state. Adjusted the layout for desktop and mobile screens.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:55:59+10:00">2026-09-27 12:55:59+10:00</time></td><td class="commit-subject">Improved playback state control<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/74ef34678be191119d2a2c3cd634ba7771b457ef" target="_blank" rel="noopener">74ef346</a></td><td class="commit-body">Stored the playing state in JavaScript and prevented duplicate sound loops. Stopping the sound now also clears the visual pulse.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:55:12+10:00">2026-09-27 12:55:12+10:00</time></td><td class="commit-subject">Synchronised movement with the music<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/614508b2bd55e91a48a4b23a94f026a79f3411c9" target="_blank" rel="noopener">614508b</a></td><td class="commit-body">Used Tone.Draw.schedule() and a CSS pulse animation to make the flower briefly grow whenever a note plays.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:54:32+10:00">2026-09-27 12:54:32+10:00</time></td><td class="commit-subject">Added the repeating musical sound<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/c8b15b65b9a35626d18a916fdfe4e4ab13ab843d" target="_blank" rel="noopener">c8b15b6</a></td><td class="commit-body">Used Tone.Synth and Tone.Loop to play a repeating musical note. Added tap controls for starting and stopping the sound.
-</td></tr><tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-09-27T12:53:54+10:00">2026-09-27 12:53:54+10:00</time></td><td class="commit-subject">Created the rhythm feedback page<a class="commit-id" href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/commit/93307d1218f60de290efb54208f4946b9c706730" target="_blank" rel="noopener">93307d1</a></td><td class="commit-body">Added the page title, instructions and interactive flower using a semantic &lt;button&gt;. Connected the HTML page to its CSS, JavaScript and Tone.js files.
-</td></tr></tbody>
-        </table>
-    </div>
-</details>
-<!-- END COMMIT LOG 8 -->
             </section>
         </main>
         <aside aria-hidden="true"></aside>
