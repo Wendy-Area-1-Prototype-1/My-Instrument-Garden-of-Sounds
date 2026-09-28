@@ -9,18 +9,18 @@ let isPlaying = false;
 let startingAudio = false;
 let wantsPlaying = false;
 
-function pulseFlower() {
+function shakeFlower() {
     if (!isPlaying) return;
-    flower.classList.remove("beat-pulse");
-    // Restart the class so every scheduled note creates a distinct pulse.
+    flower.classList.remove("beat-shake");
+    // Restart the class so every scheduled note creates a distinct shake.
     void flower.offsetWidth;
-    flower.classList.add("beat-pulse");
+    flower.classList.add("beat-shake");
 }
 
 function playBeat(time) {
     synth.triggerAttackRelease("C4", noteDuration, time, 0.65);
     // Tone.Draw places the DOM update on the frame matching the audio event.
-    Tone.Draw.schedule(pulseFlower, time);
+    Tone.Draw.schedule(shakeFlower, time);
 }
 
 function stopRhythm() {
@@ -36,7 +36,7 @@ function stopRhythm() {
         Tone.Transport.stop();
     }
     isPlaying = false;
-    flower.classList.remove("beat-pulse");
+    flower.classList.remove("beat-shake");
     flower.setAttribute("aria-pressed", "false");
     soundStatus.textContent = "Rhythm stopped";
 }
@@ -114,13 +114,13 @@ flower.addEventListener("click", () => {
     }
 });
 
-function clearPulse() {
+function clearShake() {
     // Removing the temporary class prepares the next beat animation.
-    flower.classList.remove("beat-pulse");
+    flower.classList.remove("beat-shake");
 }
 
-flower.addEventListener("animationend", clearPulse);
-flower.addEventListener("animationcancel", clearPulse);
+flower.addEventListener("animationend", clearShake);
+flower.addEventListener("animationcancel", clearShake);
 
 // Native button clicks support mouse, touch, Enter and Space; held keys do not repeat.
 flower.addEventListener("keydown", event => {

@@ -91,14 +91,17 @@ h1 {
     pointer-events: none;
 }
 
-/* A short scale pulse marks one musical beat without moving the flower. */
-.flower.beat-pulse {
-    animation: beat-pulse 0.28s ease-out;
+/* A brief side-to-side wrist motion makes each note feel like a maraca shake. */
+.flower.beat-shake {
+    animation: beat-shake 0.36s ease-in-out;
+    transform-origin: 50% 85%;
 }
 
-@keyframes beat-pulse {
-    0%, 100% { transform: scale(1); }
-    40% { transform: scale(1.14); }
+@keyframes beat-shake {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-0.2rem) rotate(-12deg); }
+    45% { transform: translateX(0.2rem) rotate(12deg); }
+    70% { transform: translateX(-0.08rem) rotate(-6deg); }
 }
 
 .flower:focus-visible {
@@ -128,12 +131,13 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .flower.beat-pulse {
-        animation-duration: 0.18s;
+    .flower.beat-shake {
+        animation-duration: 0.24s;
     }
 
-    @keyframes beat-pulse {
-        0%, 100% { transform: scale(1); }
-        40% { transform: scale(1.06); }
+    @keyframes beat-shake {
+        0%, 100% { transform: translateX(0) rotate(0deg); }
+        40% { transform: translateX(-0.08rem) rotate(-4deg); }
+        70% { transform: translateX(0.08rem) rotate(4deg); }
     }
 }
