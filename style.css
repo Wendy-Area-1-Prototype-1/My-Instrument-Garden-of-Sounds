@@ -91,8 +91,8 @@ h1 {
     pointer-events: none;
 }
 
-/* Only the petals rotate; the button remains a steady tap target. */
-.flower.is-playing svg {
+/* Rotate the complete circular button so its border, face and flower move together. */
+.flower.is-playing {
     animation: flower-spin 6s linear infinite;
 }
 
@@ -127,7 +127,7 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .flower.is-playing svg {
+    .flower.is-playing {
         animation-duration: 20s;
     }
 }
