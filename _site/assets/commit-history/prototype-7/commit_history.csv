@@ -1,3 +1,5 @@
+Son Hai Anh Nguyen,2026-09-28T10:39:40+10:00,Spin the complete flower button,"Moved the continuous CSS rotation from the inner flower graphic to the complete circular button so its border, face and flower turn together while the sound plays.
+"
 Son Hai Anh Nguyen,2026-09-27T12:48:37+10:00,Tested and refined the interaction,"Checked that the sound and spinning always start and stop together. Fixed small interaction and styling problems found during testing.
 "
 Son Hai Anh Nguyen,2026-09-27T12:45:57+10:00,Improved accessibility and responsive layout,"Added keyboard support and updated aria-pressed to communicate the flower state. Adjusted the layout and button size for desktop and mobile screens.

@@ -1,3 +1,7 @@
+Son Hai Anh Nguyen,2026-09-28T10:41:33+10:00,Sync rhythmic maraca shake,"Merge the standalone Tone.Draw and CSS shake update so every repeating note triggers a side-to-side movement while preserving the source history.
+"
+Son Hai Anh Nguyen,2026-09-28T10:39:51+10:00,Replace the pulse with a rhythmic shake,"Used Tone.Draw.schedule() and a temporary CSS shake animation to swing the flower side to side with every repeating note and reset it cleanly when playback stops.
+"
 Son Hai Anh Nguyen,2026-09-28T08:17:58+10:00,Organize Prototype 8 in its dedicated Area 2 branch,"Keep only the Prototype-8 folder and preserve every original development commit without squashing. The folder contents match the standalone Prototype-8 repository.
 "
 Son Hai Anh Nguyen,2026-09-27T13:04:32+10:00,Tested and refined rhythm feedback,"Checked the timing between each note and visual pulse. Fixed interaction and animation problems found during testing.
