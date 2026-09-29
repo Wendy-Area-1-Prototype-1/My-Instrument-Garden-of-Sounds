@@ -55,7 +55,9 @@ async function playFlower() {
         if (!flowerSynth) {
             // One reusable monophonic voice prevents rapid taps from stacking volume.
             flowerSynth = new Tone.Synth({
-                oscillator: { type: "sine" },
+                oscillator: {
+                    type: "sine"
+                },
                 envelope: {
                     attack: 0.025,
                     decay: 0.08,
@@ -97,7 +99,9 @@ flowerButton.addEventListener("keydown", event => {
 flowerButton.addEventListener("animationend", () => {
     // A completed older cycle must not cancel a newer tap's feedback.
     const feedbackIsRunning = flowerButton
-        .getAnimations({ subtree: true })
+        .getAnimations({
+            subtree: true
+        })
         .some(animation => animation.playState === "running");
 
     if (!feedbackIsRunning) {

@@ -51,7 +51,9 @@ async function playFlower() {
         if (!flowerSynth) {
             // One reusable monophonic voice prevents rapid taps from stacking volume.
             flowerSynth = new Tone.Synth({
-                oscillator: { type: "sine" },
+                oscillator: {
+                    type: "sine"
+                },
                 envelope: {
                     attack: 0.025,
                     decay: 0.08,
