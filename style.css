@@ -206,7 +206,7 @@ a:focus-visible,
 }
 
 .commitTable .commitBody {
-    white-space: pre-wrap;
+    white-space: normal;
 }
 
 .commitTable .commitId {
