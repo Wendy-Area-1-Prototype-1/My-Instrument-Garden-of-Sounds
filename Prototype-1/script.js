@@ -34,8 +34,14 @@ const zoneNotes = {
 
 /* Dragging ------------------------------------------------------------------ */
 let isDragging = false;
-let pointerOffset = { x: 0, y: 0 };
-let lastValidPosition = { x: 0, y: 0 };
+let pointerOffset = {
+    x: 0,
+    y: 0
+};
+let lastValidPosition = {
+    x: 0,
+    y: 0
+};
 
 function placeFlower(xPosition, yPosition) {
     const canvasBounds = soundCanvas.getBoundingClientRect();
@@ -56,7 +62,10 @@ function setInitialPosition() {
     const yPosition = (canvasBounds.height - flowerBounds.height) / 2;
 
     placeFlower(xPosition, yPosition);
-    lastValidPosition = { x: xPosition, y: yPosition };
+    lastValidPosition = {
+        x: xPosition,
+        y: yPosition
+    };
 }
 
 function startDragging(event) {
@@ -154,7 +163,9 @@ async function prepareSynth() {
     if (!flowerSynth) {
         flowerSynth = new Tone.Synth({
             // Triangle harmonics keep the low underground notes audible on small speakers.
-            oscillator: { type: "triangle" },
+            oscillator: {
+                type: "triangle"
+            },
             envelope: {
                 attack: 0.04,
                 decay: 0.1,
