@@ -1,34 +1,39 @@
-/*!!!!!*/
-/*add in your own font imports here*/
-/*remember to update them in the rest of the CSS : eg the body selector*/
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/*
+This stylesheet provides the shared typography, layout and responsive presentation for the
+course website. Its restrained palette and card layout keep attention on the design evidence
+and prototype comparisons.
+*/
 
-/*!!!!!*/
-/*change out, and/or add colours to the colour scheme*/
-:root{
-    /* basic 2-bit palette from 1bit Monitor Glow Palette by Polyducks */
-    /* https://lospec.com/palette-list/1bit-monitor-glow */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+    /*
+    The two-colour scheme is adapted from Polyducks' 1bit Monitor Glow palette:
+    https://lospec.com/palette-list/1bit-monitor-glow
+    */
     --colour-1: #222323;
     --colour-2: #f0f6f0;
     --box-tint: rgba(34, 35, 35, 0.05);
 }
 
-/* this swaps the colour order to account for user's OS dark mode */
-/*!!!!!*/
-/*remember to update the colours here too to reflect the above changes*/
+/*
+The dark-mode values reverse the same palette so the content keeps its contrast while
+respecting the reader's operating-system preference.
+*/
 @media (prefers-color-scheme: dark) {
-    :root{
+    :root {
         --colour-1: #f0f6f0;
         --colour-2: #222323;
         --box-tint: rgba(240, 246, 240, 0.08);
     }
 }
 
+/* Page Layout ---------------------------------------------------------------- */
 
 body {
     background-color: var(--colour-2);
     color: var(--colour-1);
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Work Sans", sans-serif;
     line-height: 1.5;
     padding: 1rem;
     display: flex;
@@ -50,7 +55,7 @@ header {
 }
 
 nav {
-    display: flex; 
+    display: flex;
     flex-direction: column;
     min-width: fit-content;
     flex: 1;
@@ -70,16 +75,16 @@ section {
     width: 100%;
 }
 
-/* spacing between sections, replacing the need for manual <br> spacers.
-   Note: this uses ~ (general sibling) instead of + (adjacent sibling)
-   because a hidden <br> still sits between the sections in the HTML,
-   which would break a "+" match even though it isn't visible. */
+/*
+Section margins replace manual spacer elements and separate each part of the design document.
+The general sibling selector still works when a hidden spacer remains in older page content.
+*/
 main > section ~ section {
     margin-top: 2.5rem;
 }
 
-/* headings inside a section get breathing room above, and sit close
-   to the paragraph that follows them */
+/* Document Content ----------------------------------------------------------- */
+
 section h2 {
     font-size: 1.6rem;
     margin-bottom: 1rem;
@@ -96,18 +101,12 @@ section h4 {
     margin-bottom: 0.5rem;
 }
 
-/* the very first heading in a section shouldn't add its own top gap on
-   top of the section's own top margin */
 section h3:first-child,
-section h4:first-child {
-    margin-top: 0;
-}
-
+section h4:first-child,
 .firstSectionHeading {
     margin-top: 0;
 }
 
-/* paragraph and figure spacing */
 section p {
     margin-bottom: 1rem;
 }
@@ -131,91 +130,99 @@ figcaption {
     opacity: 0.8;
 }
 
-/* "+" sub-points nested one level inside a "-" point, like an indented
-   list in a doc */
+/* Indented subpoints preserve the hierarchy of the written design framework. */
 .subpoint {
     display: block;
     margin-left: 1.75rem;
 }
 
-/* a soft colored box around each major part of the document, so the
-   sections read as distinct cards rather than relying on spacing alone */
-.section-block {
+/*
+Each main section uses a quiet tinted card so long-form evidence remains easy to scan without
+introducing a new visual theme.
+*/
+.sectionBlock {
     background-color: var(--box-tint);
     border-left: 3px solid var(--colour-1);
     border-radius: 4px;
     padding: 1.75rem 2rem;
 }
 
-a:focus-visible, .commit-log summary:focus-visible, .table-scroll:focus-visible {
+/* Commit Histories ----------------------------------------------------------- */
+
+a:focus-visible,
+.commitLog summary:focus-visible,
+.tableScroll:focus-visible {
     outline: 3px solid currentColor;
     outline-offset: 4px;
 }
 
-.commit-log {
+.commitLog {
     margin-top: 1.5rem;
     border-top: 1px solid currentColor;
     padding-top: 0.8rem;
 }
 
-.commit-log summary {
+.commitLog summary {
     cursor: pointer;
     font-weight: 600;
 }
 
-.commit-log[open] summary {
+.commitLog[open] summary {
     margin-bottom: 1rem;
 }
 
-.table-scroll {
+/* Horizontal scrolling keeps the full commit record usable on narrow screens. */
+.tableScroll {
     max-width: 100%;
     overflow: auto;
     margin-block: 1rem;
 }
 
-.commit-table {
+.commitTable {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.875rem;
 }
 
-.commit-table caption {
+.commitTable caption {
     text-align: left;
     font-weight: 600;
     padding-bottom: 0.75rem;
 }
 
-.commit-table th, .commit-table td {
+.commitTable th,
+.commitTable td {
     border: 1px solid currentColor;
     padding: 0.65rem;
     text-align: left;
     vertical-align: top;
 }
 
-.commit-table th {
+.commitTable th {
     background: var(--box-tint);
 }
 
-.commit-table td {
+.commitTable td {
     min-width: 8rem;
     overflow-wrap: anywhere;
 }
 
-.commit-table .commit-subject {
+.commitTable .commitSubject {
     min-width: 14rem;
 }
 
-.commit-table .commit-body {
+.commitTable .commitBody {
     white-space: pre-wrap;
 }
 
-.commit-table .commit-id {
+.commitTable .commitId {
     display: block;
     margin-top: 0.35rem;
     font-family: monospace;
 }
 
-.visually-hidden {
+/* This utility keeps supporting link text available to screen readers. */
+.visuallyHidden {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -227,44 +234,41 @@ a:focus-visible, .commit-log summary:focus-visible, .table-scroll:focus-visible 
     border: 0;
 }
 
-/* editorial/magazine layout for the Framing intro text + image gallery:
-   text and images sit side by side instead of stacking top to bottom */
-.framing-feature {
+/* Assignment 1 Gallery ------------------------------------------------------- */
+
+/*
+The framing evidence pairs explanatory text with a compact image mosaic to support comparison
+without changing the document's reading order.
+*/
+.framingFeature {
     display: grid;
     grid-template-columns: 1.1fr 1fr;
     gap: 2rem;
     align-items: start;
 }
 
-.framing-gallery {
+.framingGallery {
     margin: 0;
 }
 
-.framing-gallery-grid {
+.framingGalleryGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
 
-/* first image spans both columns as a "hero" shot, the other two sit
-   side by side underneath it, like a magazine photo mosaic */
-.framing-gallery-grid img:first-child {
+.framingGalleryGrid img:first-child {
     grid-column: 1 / -1;
 }
 
-.framing-gallery-grid img {
+.framingGalleryGrid img {
     margin: 0;
 }
 
-@media (width < 840px) {
-    .framing-feature {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* the assignment content uses standalone <br> tags purely to add gaps
-   between elements that already have margin above; hide them so spacing
-   comes only from the rules above instead of doubling up */
+/*
+Older assignment content contains spacer elements. Hiding them lets the shared margins provide
+consistent spacing without changing the written material.
+*/
 main > br,
 section > br,
 figure > br {
@@ -290,43 +294,33 @@ footer a:last-child {
     margin-inline-end: 0;
 }
 
-/*technique from Kevin Powell*/
-/*https://youtu.be/CU8Plk-53RU?si=zMpP0Pfbg1SaXeDB&t=255*/
-/*longer post about how this works and the * + * selector*/
-/*https://alistapart.com/article/axiomatic-css-and-lobotomized-owls/*/
-.prose > * + * {
-    margin-block-start: var(--prose-flow, 1em);
-}
+/* Responsive Layout --------------------------------------------------------- */
 
-/* breakpoints from Material Design Spec https://m3.material.io/foundations/layout/breakpoints/overview */
-/* while sometimes mobile first is recommended, as we will be focused on desktop, we will start there */
-
-/* assumed base sizing is large (1200–1599px) : desktop  */
-
-/* extra-large breakpoint : desktop, ultrawide monitors */
-@media (width > 1600px) {
-
-}
-
-/* expanded breakpoint : phone or tablet in landscape, desktop */
+/*
+These breakpoints follow the Material Design layout ranges:
+https://m3.material.io/foundations/layout/breakpoints/overview
+*/
 @media (width < 1200px) {
     header {
         margin-block-end: 2rem;
     }
+
     footer {
         margin-block-start: 2rem;
     }
 }
-/* medium breakpoint : tablet in portrait */
+
 @media (width < 840px) {
     header {
         margin-block-end: 1rem;
     }
+
     .mainNavContainer {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
     }
+
     nav {
         flex: 0;
         width: 100%;
@@ -334,25 +328,34 @@ footer a:last-child {
         justify-content: space-between;
         flex-direction: row;
     }
+
     main {
         flex: 1;
     }
+
     aside {
         flex: 0;
     }
+
     footer {
         margin-block-start: 1rem;
     }
+
+    .framingFeature {
+        grid-template-columns: 1fr;
+    }
 }
-/* compact breakpoint : phone in portrait */
+
 @media (width < 600px) {
-    .section-block {
+    .sectionBlock {
         padding: 1.1rem;
     }
+
     nav {
         flex-wrap: wrap;
         gap: 0.8rem;
     }
+
     header h1 {
         font-size: 1.8rem;
     }

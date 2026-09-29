@@ -1,30 +1,40 @@
+/*
+This reset establishes predictable sizing and readable content widths for every course page.
+The shared baseline lets the main stylesheet control presentation consistently.
+*/
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /*padding: 0; "this is the cmt in CSS*/
 }
 
+html,
 body {
-    min-height: 100vh;
-}
-
-body,
-html {
     margin: 0;
+    min-height: 100vh;
     padding: 0;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    max-width: 80ch;
     text-wrap: balance;
-    max-width: 80ch;
 }
 
-/*readability based on WCAG*/
-/*https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html*/
-p, li, figcaption {
+/*
+The text-width limit follows WCAG guidance for readable line lengths:
+https://www.w3.org/WAI/WCAG21/Understanding/visual-presentation.html
+*/
+p,
+li,
+figcaption {
     max-width: 80ch;
 }
-
 
 img,
 picture,

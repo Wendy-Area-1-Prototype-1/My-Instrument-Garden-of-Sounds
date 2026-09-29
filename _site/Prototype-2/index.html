@@ -9,6 +9,10 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!--
+    This prototype tests whether continuous vertical movement clearly communicates
+    a continuous change in musical pitch.
+    -->
     <main class="prototype">
         <header class="intro">
             <p class="eyebrow">Garden of Sounds</p>
@@ -16,16 +20,27 @@
             <p>Drag the flower up and down to change its pitch.</p>
         </header>
 
-        <section id="pitch-canvas" class="pitch-canvas" aria-label="Continuous vertical pitch canvas">
-            <span class="pitch-end pitch-end--high" aria-hidden="true">High</span>
-            <span class="pitch-end pitch-end--low" aria-hidden="true">Low</span>
+        <section
+            id="pitch-canvas"
+            class="pitchCanvas"
+            aria-label="Continuous vertical pitch canvas"
+        >
+            <span class="pitchEnd pitchEndHigh" aria-hidden="true">High</span>
+            <span class="pitchEnd pitchEndLow" aria-hidden="true">Low</span>
 
-            <button id="drag-object" class="drag-object" type="button" aria-label="Drag flower vertically">
+            <button
+                id="drag-object"
+                class="dragObject"
+                type="button"
+                aria-label="Drag flower vertically"
+            >
                 <span aria-hidden="true">&#10047;</span>
             </button>
         </section>
 
-        <p id="pitch-label" class="pitch-label" role="status" aria-live="polite">370.0 Hz</p>
+        <p id="pitch-label" class="pitchLabel" role="status" aria-live="polite">
+            370.0 Hz
+        </p>
     </main>
 </body>
 </html>

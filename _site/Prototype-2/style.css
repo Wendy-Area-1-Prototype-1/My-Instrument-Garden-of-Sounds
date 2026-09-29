@@ -1,3 +1,8 @@
+/*
+This stylesheet presents one vertical pitch path and keeps horizontal movement fixed
+so the prototype tests only height-to-frequency mapping.
+*/
+
 :root {
     --ink: #263832;
     --canvas-top: #ccebf3;
@@ -57,7 +62,8 @@ h1 {
     font-size: 0.9rem;
 }
 
-.pitch-canvas {
+/* The narrow canvas makes the vertical pitch relationship the dominant variable. */
+.pitchCanvas {
     position: relative;
     width: min(14rem, 72vw);
     height: min(64vh, 34rem);
@@ -70,7 +76,7 @@ h1 {
     user-select: none;
 }
 
-.pitch-end {
+.pitchEnd {
     position: absolute;
     left: 0.65rem;
     color: rgb(38 56 50 / 65%);
@@ -80,15 +86,16 @@ h1 {
     text-transform: uppercase;
 }
 
-.pitch-end--high {
+.pitchEndHigh {
     top: 0.65rem;
 }
 
-.pitch-end--low {
+.pitchEndLow {
     bottom: 0.65rem;
 }
 
-.drag-object {
+/* The large target supports continuous dragging on both touch and pointer devices. */
+.dragObject {
     position: absolute;
     left: 50%;
     width: 4.5rem;
@@ -107,25 +114,26 @@ h1 {
     touch-action: none;
 }
 
-.drag-object.is-dragging {
+.dragObject.isDragging {
     cursor: grabbing;
     box-shadow: 0 0.1rem 0 #8d3c50;
 }
 
-.drag-object:focus-visible {
+.dragObject:focus-visible {
     outline: 0.2rem solid #ffffff;
     outline-offset: 0.2rem;
 }
 
-.pitch-label {
+.pitchLabel {
     min-height: 1rem;
     margin: 0;
     font-size: 0.75rem;
     font-variant-numeric: tabular-nums;
 }
 
+/* Short screens retain enough vertical travel to demonstrate the pitch range. */
 @media (max-height: 620px) {
-    .pitch-canvas {
+    .pitchCanvas {
         height: 58vh;
         min-height: 17rem;
     }

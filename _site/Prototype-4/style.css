@@ -1,3 +1,8 @@
+/*
+This stylesheet keeps the garden and flower simple so the grow-and-bounce motion
+is the only visual feedback being evaluated.
+*/
+
 :root {
     --ink: #263832;
     --cream: #f5f1e7;
@@ -63,6 +68,7 @@ h1 {
     background: var(--garden);
 }
 
+/* The large circular target supports comfortable mouse, touch and keyboard use. */
 .flower {
     display: grid;
     width: 8rem;
@@ -92,20 +98,35 @@ h1 {
     outline-offset: 6px;
 }
 
-/* One grow-and-bounce cycle; JavaScript supplies the note + release duration. */
-.flower.is-playing {
+/* The cycle follows the note and release duration set by JavaScript. */
+.flower.isPlaying {
     animation: flower-bounce var(--feedback-duration) ease-in-out var(--sound-delay) both;
 }
 
 @keyframes flower-bounce {
-    0%, 100% { transform: translateY(0) scale(1); }
-    18% { transform: translateY(-2px) scale(1.2); }
-    40% { transform: translateY(-24px) scale(1.2); }
-    68% { transform: translateY(4px) scale(1.05); }
-    84% { transform: translateY(-5px) scale(1.02); }
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    18% {
+        transform: translateY(-2px) scale(1.2);
+    }
+
+    40% {
+        transform: translateY(-24px) scale(1.2);
+    }
+
+    68% {
+        transform: translateY(4px) scale(1.05);
+    }
+
+    84% {
+        transform: translateY(-5px) scale(1.02);
+    }
 }
 
-.sound-status {
+.soundStatus {
     min-height: 1.5em;
     margin: 0;
     font-size: 0.8rem;
@@ -115,12 +136,18 @@ h1 {
 
 /* Keep the same sound timing with gentler feedback for reduced-motion users. */
 @media (prefers-reduced-motion: reduce) {
-    .flower.is-playing {
+    .flower.isPlaying {
         animation-name: flower-gentle;
     }
 }
 
 @keyframes flower-gentle {
-    0%, 100% { transform: scale(1); }
-    40% { transform: scale(1.035); }
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    40% {
+        transform: scale(1.035);
+    }
 }

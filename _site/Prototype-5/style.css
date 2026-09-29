@@ -1,3 +1,8 @@
+/*
+This stylesheet keeps the flower stationary so colour and glow remain the only
+visual feedback variables being evaluated.
+*/
+
 :root {
     --ink: #263832;
     --cream: #f5f1e7;
@@ -69,6 +74,7 @@ h1 {
     background: var(--garden);
 }
 
+/* The large circular target supports comfortable mouse, touch and keyboard use. */
 .flower {
     position: relative;
     isolation: isolate;
@@ -103,7 +109,7 @@ h1 {
     outline-offset: 7px;
 }
 
-.sound-status {
+.soundStatus {
     max-width: 100%;
     min-height: 3em;
     margin: 0;
@@ -133,15 +139,15 @@ h1 {
         inset 0 0 8px 3px rgb(255 111 153 / 35%);
 }
 
-.flower.is-playing {
+.flower.isPlaying {
     animation: flower-glow var(--feedback-duration) ease-out both;
 }
 
-.flower.is-playing::before {
+.flower.isPlaying::before {
     animation: glow-wave var(--feedback-duration) ease-out both;
 }
 
-.flower.is-playing::after {
+.flower.isPlaying::after {
     animation: glow-echo var(--feedback-duration) ease-out both;
 }
 
@@ -183,8 +189,8 @@ h1 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .flower.is-playing::before,
-    .flower.is-playing::after {
+    .flower.isPlaying::before,
+    .flower.isPlaying::after {
         animation: none;
     }
 }

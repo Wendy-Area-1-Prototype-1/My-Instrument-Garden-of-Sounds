@@ -40,8 +40,11 @@ def log_records(*revisions):
     fields = raw.removesuffix("\0").split("\0")
     if len(fields) % 5:
         raise ValueError("Unexpected git log record format")
-    return [dict(zip(("sha", "author", "date", "subject", "body"), fields[i:i + 5]))
-            for i in range(0, len(fields), 5)]
+    records = [dict(zip(("sha", "author", "date", "subject", "body"), fields[i:i + 5]))
+               for i in range(0, len(fields), 5)]
+    for record in records:
+        record["body"] = record["body"].rstrip()
+    return records
 
 
 def prototype_data(number, original_tip, import_commit):
@@ -63,7 +66,7 @@ def write_csv(path, records):
     path.parent.mkdir(parents=True, exist_ok=True)
     # Match the class example's four columns and lack of a header row.
     with path.open("w", encoding="utf-8", newline="") as stream:
-        writer = csv.writer(stream)
+        writer = csv.writer(stream, lineterminator="\n")
         writer.writerows([r["author"], r["date"], r["subject"], r["body"]] for r in records)
     with path.open(encoding="utf-8", newline="") as stream:
         expected = [[r["author"], r["date"], r["subject"], r["body"]] for r in records]
@@ -77,23 +80,55 @@ def log_html(data):
     escape = html.escape
     for record in data["development"]:
         rows.append(
-            "<tr>"
-            f'<td>{escape(record["author"])}</td>'
-            f'<td><time datetime="{escape(record["date"])}">{escape(record["date"].replace("T", " "))}</time></td>'
-            f'<td class="commit-subject">{escape(record["subject"])}'
-            f'<a class="commit-id" href="{REPOSITORY}/commit/{record["sha"]}" target="_blank" rel="noopener">{record["sha"][:7]}</a></td>'
-            f'<td class="commit-body">{escape(record["body"]) or "—"}</td>'
-            "</tr>"
+            "            <tr>\n"
+            f'                <td>{escape(record["author"])}</td>\n'
+            "                <td>\n"
+            f'                    <time datetime="{escape(record["date"])}">'
+            f'{escape(record["date"].replace("T", " "))}</time>\n'
+            "                </td>\n"
+            f'                <td class="commitSubject">{escape(record["subject"])}\n'
+            f'                    <a class="commitId" '
+            f'href="{REPOSITORY}/commit/{record["sha"]}" target="_blank" '
+            f'rel="noopener">{record["sha"][:7]}</a>\n'
+            "                </td>\n"
+            f'                <td class="commitBody">'
+            f'{escape(record["body"]) or "—"}</td>\n'
+            "            </tr>"
         )
-    return f'''<details class="commit-log">
+    return f'''<details class="commitLog">
     <summary>Commit logs — {len(data["development"])} development commits</summary>
-    <p class="log-note">Original prototype development history and later changes to this prototype's files. Repository imports and housekeeping are available in the complete branch CSV.</p>
-    <p><a href="./assets/commit-history/prototype-{number}/commit_history.csv" download>Download development CSV</a> · <a href="./assets/commit-history/prototype-{number}/branch_commit_history.csv" download>Download complete branch CSV ({len(data["full"])} commits)</a></p>
-    <div class="table-scroll" role="region" aria-label="Prototype {number} commit history" tabindex="0">
-        <table class="commit-table">
+    <p class="logNote">
+        Original prototype development history and later changes to this prototype's files.
+        Repository imports and housekeeping are available in the complete branch CSV.
+    </p>
+    <p>
+        <a href="./assets/commit-history/prototype-{number}/commit_history.csv" download>
+            Download development CSV
+        </a>
+        ·
+        <a href="./assets/commit-history/prototype-{number}/branch_commit_history.csv" download>
+            Download complete branch CSV ({len(data["full"])} commits)
+        </a>
+    </p>
+    <div
+        class="tableScroll"
+        role="region"
+        aria-label="Prototype {number} commit history"
+        tabindex="0"
+    >
+        <table class="commitTable">
             <caption>Prototype {number} — newest commits first</caption>
-            <thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead>
-            <tbody>{''.join(rows)}</tbody>
+            <thead>
+                <tr>
+                    <th scope="col">Author</th>
+                    <th scope="col">Author date</th>
+                    <th scope="col">Commit subject</th>
+                    <th scope="col">Commit body</th>
+                </tr>
+            </thead>
+            <tbody>
+{chr(10).join(rows)}
+            </tbody>
         </table>
     </div>
 </details>'''
