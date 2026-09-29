@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:11+10:00,Expand movement sound configuration,Place the Tone.js oscillator property on its own line for consistent JavaScript formatting.
 Son Hai Anh Nguyen,2026-09-29T10:15:42+10:00,Clarify movement feedback code,"Align names, formatting and comments with the course guide while preserving the flower sound and bounce feedback."
 Son Hai Anh Nguyen,2026-09-17T11:23:54+10:00,Organize Prototype 4 in its dedicated Area 2 branch,Keep only the Prototype-4 folder and preserve every original development commit without squashing. The folder contents match the standalone Prototype-4 repository.
 Son Hai Anh Nguyen,2026-09-16T06:27:16+10:00,Match the flower button to the reference design,Replace the outlined petals with a simple five-petal pink flower on a yellow circular button. Add a dark pink border and raised lower edge while preserving the Tone.js sound and grow-and-bounce interaction.

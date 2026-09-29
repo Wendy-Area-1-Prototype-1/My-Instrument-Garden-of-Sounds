@@ -86,13 +86,20 @@ def log_html(data):
             f'                    <time datetime="{escape(record["date"])}">'
             f'{escape(record["date"].replace("T", " "))}</time>\n'
             "                </td>\n"
-            f'                <td class="commitSubject">{escape(record["subject"])}\n'
-            f'                    <a class="commitId" '
-            f'href="{REPOSITORY}/commit/{record["sha"]}" target="_blank" '
-            f'rel="noopener">{record["sha"][:7]}</a>\n'
+            '                <td class="commitSubject">\n'
+            f'                    {escape(record["subject"])}\n'
+            '                    <a\n'
+            '                        class="commitId"\n'
+            f'                        href="{REPOSITORY}/commit/{record["sha"]}"\n'
+            '                        target="_blank"\n'
+            '                        rel="noopener"\n'
+            '                    >\n'
+            f'                        {record["sha"][:7]}\n'
+            '                    </a>\n'
             "                </td>\n"
-            f'                <td class="commitBody">'
-            f'{escape(record["body"]) or "—"}</td>\n'
+            '                <td class="commitBody">\n'
+            f'                    {escape(record["body"]) or "—"}\n'
+            '                </td>\n'
             "            </tr>"
         )
     return f'''<details class="commitLog">

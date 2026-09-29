@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:11+10:00,Expand colour feedback blocks,Place Tone.js options and CSS keyframe declarations on separate lines for clearer code structure.
 Son Hai Anh Nguyen,2026-09-29T10:15:42+10:00,Clarify colour feedback code,"Improve code structure and design explanations while preserving the existing colour change, glow and sound timing."
 Son Hai Anh Nguyen,2026-09-16T22:51:57+10:00,feat(prototype-5): strengthen colour and add fading glow waves,"Add brighter flower colours and two expanding glow rings that fade with the note. Keep the flower stationary, restart all feedback on repeated taps, and respect reduced-motion preferences."
 Son Hai Anh Nguyen,2026-09-16T22:06:25+10:00,fix(prototype-5): refine interaction and responsive layout,"Improve repeated activation, keyboard support, responsive styling and remove unused code."

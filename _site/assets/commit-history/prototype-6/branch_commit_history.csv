@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:12+10:00,Expand environmental sound configuration,Place the Tone.js oscillator property on its own line for consistent JavaScript formatting.
 Son Hai Anh Nguyen,2026-09-29T10:15:42+10:00,Clarify environmental feedback code,"Use consistent names and focused comments for the sound, ripple cleanup and canvas response without changing the interaction."
 Son Hai Anh Nguyen,2026-09-23T13:48:56+10:00, tint garden canvas with sound,"Make the garden background briefly turn a deeper green when the flower plays, then fade back with the note. Repeated taps restart the effect while the flower stays unchanged. Tested mouse, touch, keyboard and reduced motion."
 Son Hai Anh Nguyen,2026-09-23T13:48:06+10:00,feat(prototype-6): tint garden canvas with sound,Add a subtle garden colour response synchronized with the note and restart it on repeated taps.

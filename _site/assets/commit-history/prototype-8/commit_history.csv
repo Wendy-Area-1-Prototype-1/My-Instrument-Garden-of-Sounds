@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:14+10:00,Expand rhythm sound configuration,Place the Tone.js oscillator property on its own line for consistent JavaScript formatting.
 Son Hai Anh Nguyen,2026-09-29T10:15:43+10:00,Clarify rhythm feedback code,Improve names and comments around Tone.Draw synchronisation and playback state while preserving the repeating note and shake feedback.
 Son Hai Anh Nguyen,2026-09-28T10:39:51+10:00,Replace the pulse with a rhythmic shake,Used Tone.Draw.schedule() and a temporary CSS shake animation to swing the flower side to side with every repeating note and reset it cleanly when playback stops.
 Son Hai Anh Nguyen,2026-09-27T13:04:32+10:00,Tested and refined rhythm feedback,Checked the timing between each note and visual pulse. Fixed interaction and animation problems found during testing.

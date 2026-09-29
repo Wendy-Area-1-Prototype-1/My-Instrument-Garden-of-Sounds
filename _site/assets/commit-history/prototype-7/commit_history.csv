@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:13+10:00,Expand playing-state sound configuration,Place the Tone.js oscillator property on its own line for consistent JavaScript formatting.
 Son Hai Anh Nguyen,2026-09-29T10:15:42+10:00,Clarify playing-state feedback code,"Organise loop control, playing state and accessibility comments while preserving the sound and continuous rotation."
 Son Hai Anh Nguyen,2026-09-28T10:39:40+10:00,Spin the complete flower button,"Moved the continuous CSS rotation from the inner flower graphic to the complete circular button so its border, face and flower turn together while the sound plays."
 Son Hai Anh Nguyen,2026-09-27T12:48:37+10:00,Tested and refined the interaction,Checked that the sound and spinning always start and stop together. Fixed small interaction and styling problems found during testing.

@@ -1,3 +1,4 @@
+Son Hai Anh Nguyen,2026-09-29T15:28:11+10:00,Expand sound configuration block,Place the Tone.js oscillator property on its own line for consistent JavaScript formatting.
 Son Hai Anh Nguyen,2026-09-29T10:15:41+10:00,Clarify two-axis sound mapping,Organise the playback and drag logic with descriptive names and focused comments while preserving the two-dimensional mapping behaviour.
 Son Hai Anh Nguyen,2026-09-13T21:19:02+10:00,Place original Prototype-3 files under Prototype-3,
 Son Hai Anh Nguyen,2026-09-01T19:08:17+10:00,Remap prototype to use musical notes and fix audibility,"Remap prototype so horizontal movement selects octaves 1–8 and vertical movement selects notes C–B. Add mousemove-based dragging, controlled Hz variations of each notes. Low-octave (1-3) gain compensation, and triangle waves for improved bass audibility."
