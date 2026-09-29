@@ -9,24 +9,46 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!--
+    This prototype tests whether three visible garden zones clearly communicate
+    that a flower's drop position selects a group of musical notes.
+    -->
     <main class="prototype">
         <header class="intro">
             <p class="label">Garden of Sounds</p>
             <h1>Mapping Prototype 1</h1>
-            <p>Drag the flower into the sky, garden, or underground, then release it to hear its note.</p>
+            <p>
+                Drag the flower into the sky, garden, or underground, then release it to hear
+                its note.
+            </p>
         </header>
 
-        <section id="sound-canvas" class="sound-canvas" aria-label="Three-zone garden sound canvas">
-            <div class="zone zone--sky" data-zone="sky" aria-hidden="true"><span>Sky</span></div>
-            <div class="zone zone--garden" data-zone="garden" aria-hidden="true"><span>Garden</span></div>
-            <div class="zone zone--underground" data-zone="underground" aria-hidden="true"><span>Underground</span></div>
+        <section
+            id="sound-canvas"
+            class="soundCanvas"
+            aria-label="Three-zone garden sound canvas"
+        >
+            <div class="zone zoneSky" data-zone="sky" aria-hidden="true">
+                <span>Sky</span>
+            </div>
+            <div class="zone zoneGarden" data-zone="garden" aria-hidden="true">
+                <span>Garden</span>
+            </div>
+            <div class="zone zoneUnderground" data-zone="underground" aria-hidden="true">
+                <span>Underground</span>
+            </div>
 
-            <button id="draggable-flower" class="draggable-flower" type="button" aria-label="Draggable flower">
+            <button
+                id="draggable-flower"
+                class="draggableFlower"
+                type="button"
+                aria-label="Draggable flower"
+            >
                 <span aria-hidden="true">&#10047;</span>
             </button>
         </section>
 
-        <p id="sound-status" class="sound-status" role="status" aria-live="polite">
+        <p id="sound-status" class="soundStatus" role="status" aria-live="polite">
             Drop the flower in a zone to play a sound.
         </p>
     </main>
