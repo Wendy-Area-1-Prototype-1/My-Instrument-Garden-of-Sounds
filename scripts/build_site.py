@@ -97,7 +97,7 @@ def log_html(data):
         )
     return f'''<details class="commitLog">
     <summary>Commit logs — {len(data["development"])} development commits</summary>
-    <p class="logNote">
+    <p>
         Original prototype development history and later changes to this prototype's files.
         Repository imports and housekeeping are available in the complete branch CSV.
     </p>

@@ -76,10 +76,9 @@ section {
 }
 
 /*
-Section margins replace manual spacer elements and separate each part of the design document.
-The general sibling selector still works when a hidden spacer remains in older page content.
+Section margins separate each part of the design document without spacer elements.
 */
-main > section ~ section {
+main > section + section {
     margin-top: 2.5rem;
 }
 
@@ -102,8 +101,7 @@ section h4 {
 }
 
 section h3:first-child,
-section h4:first-child,
-.firstSectionHeading {
+section h4:first-child {
     margin-top: 0;
 }
 
@@ -118,10 +116,6 @@ section p:last-child {
 figure {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
-}
-
-figure img + img {
-    margin-top: 0.5rem;
 }
 
 figcaption {
@@ -247,10 +241,6 @@ without changing the document's reading order.
     align-items: start;
 }
 
-.framingGallery {
-    margin: 0;
-}
-
 .framingGalleryGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -259,20 +249,6 @@ without changing the document's reading order.
 
 .framingGalleryGrid img:first-child {
     grid-column: 1 / -1;
-}
-
-.framingGalleryGrid img {
-    margin: 0;
-}
-
-/*
-Older assignment content contains spacer elements. Hiding them lets the shared margins provide
-consistent spacing without changing the written material.
-*/
-main > br,
-section > br,
-figure > br {
-    display: none;
 }
 
 aside {
