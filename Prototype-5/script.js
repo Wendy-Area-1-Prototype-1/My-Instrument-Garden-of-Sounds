@@ -1,37 +1,48 @@
 "use strict";
 
-const flower = document.querySelector("#flower");
+/*
+This script pairs one Tone.js note with a temporary colour-and-glow response.
+Repeated input restarts that response without adding movement feedback.
+*/
+
+/* Page elements and timing ------------------------------------------------- */
+const flowerButton = document.querySelector("#flower");
 const soundStatus = document.querySelector("#sound-status");
 const noteDuration = 0.28;
 const releaseDuration = 0.44;
-let synth;
-let startingAudio = false;
+let flowerSynth;
+let isAudioStarting = false;
 let lastStartTime = 0;
 
 // Include the release tail so the colour and glow finish with the note.
-flower.style.setProperty("--feedback-duration", `${noteDuration + releaseDuration}s`);
+flowerButton.style.setProperty(
+    "--feedback-duration",
+    `${noteDuration + releaseDuration}s`
+);
 
 function restartFeedback() {
-    flower.classList.remove("is-playing");
-    // Flush the previous cycle so a repeated tap starts a fresh response.
-    void flower.offsetWidth;
-    flower.classList.add("is-playing");
+    flowerButton.classList.remove("isPlaying");
+
+    // Reading layout lets the same class restart after rapid repeated input.
+    void flowerButton.offsetWidth;
+    flowerButton.classList.add("isPlaying");
 }
 
+/* Audio and visual feedback ----------------------------------------------- */
 async function playFlower() {
-    // Coalesce taps while audio unlocks, instead of queuing a burst of sounds.
-    if (startingAudio) return;
+    // Coalescing input during audio startup prevents a delayed burst of notes.
+    if (isAudioStarting) return;
 
     if (typeof Tone === "undefined") {
         soundStatus.textContent = "Sound could not load. Check your connection and reload.";
         return;
     }
 
-    startingAudio = true;
+    isAudioStarting = true;
 
     try {
         // Browsers require a user gesture to unlock audio; resume after interruptions too.
-        if (!synth || Tone.getContext().state !== "running") {
+        if (!flowerSynth || Tone.getContext().state !== "running") {
             soundStatus.textContent = "Starting sound…";
             await Tone.start();
         }
@@ -41,9 +52,9 @@ async function playFlower() {
             return;
         }
 
-        if (!synth) {
-            // One quiet, monophonic synth is reused so rapid taps cannot stack voices.
-            synth = new Tone.Synth({
+        if (!flowerSynth) {
+            // One reusable monophonic voice prevents rapid taps from stacking volume.
+            flowerSynth = new Tone.Synth({
                 oscillator: { type: "sine" },
                 envelope: {
                     attack: 0.025,
@@ -57,37 +68,45 @@ async function playFlower() {
         }
 
         // A 20ms lead avoids late audio scheduling; batched clicks keep distinct times.
-        const startTime = Math.max(Tone.immediate() + 0.02, lastStartTime + synth.sampleTime);
-        synth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
+        const startTime = Math.max(
+            Tone.immediate() + 0.02,
+            lastStartTime + flowerSynth.sampleTime
+        );
+        flowerSynth.triggerAttackRelease("C4", noteDuration, startTime, 0.65);
         lastStartTime = startTime;
         restartFeedback();
         soundStatus.textContent = "Sound played";
     } catch {
         soundStatus.textContent = "Sound could not start. Tap the flower to try again.";
     } finally {
-        startingAudio = false;
+        isAudioStarting = false;
     }
 }
 
+/* User input and accessibility -------------------------------------------- */
 // Native button clicks cover mouse, touch, Enter and Space without duplicate handlers.
-flower.addEventListener("click", playFlower);
+flowerButton.addEventListener("click", playFlower);
 
 // A held key is one activation, rather than an unintended repeating note.
-flower.addEventListener("keydown", event => {
+flowerButton.addEventListener("keydown", event => {
     if (event.repeat && (event.key === "Enter" || event.key === " ")) {
         event.preventDefault();
     }
 });
 
-flower.addEventListener("animationend", () => {
+flowerButton.addEventListener("animationend", () => {
     // A completed older cycle must not cancel a newer tap's feedback.
-    if (!flower.getAnimations({ subtree: true }).some(animation => animation.playState === "running")) {
-        flower.classList.remove("is-playing");
+    const feedbackIsRunning = flowerButton
+        .getAnimations({ subtree: true })
+        .some(animation => animation.playState === "running");
+
+    if (!feedbackIsRunning) {
+        flowerButton.classList.remove("isPlaying");
     }
 });
 
 // Enable interaction only after the deferred scripts have finished loading.
-flower.disabled = false;
+flowerButton.disabled = false;
 soundStatus.textContent = typeof Tone === "undefined"
     ? "Sound could not load. Check your connection and reload."
     : "";
