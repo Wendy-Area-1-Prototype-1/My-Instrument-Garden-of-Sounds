@@ -22,21 +22,34 @@
         </nav>
         
         <main>
-            <section class="sectionBlock" aria-labelledby="mapping-heading">
+            <section aria-labelledby="mapping-heading">
+                <h3 id="mapping-heading">Project Title: Garden of Sounds</h3>
+                <p>Garden of Sounds is a browser-based interactive soundscape where toddlers explore 
+                    music by tapping and moving illustrated garden objects. These eight parallel 
+                    prototypes examine how simple spatial controls and visual feedback can communicate 
+                    the relationship between a child’s actions and the sounds they produce. Rather than 
+                    presenting a completed interface, each prototype isolates a specific interaction 
+                    choice for comparison during peer user testing.</p>
+            </section>
+            <section aria-labelledby="mapping-heading">
                 <h2 id="mapping-heading">Area 1: Mapping — Garden of Sounds</h2>
-                <p>These three prototypes explore how moving an object on screen can change musical
-                    pitch: through separate zones, continuous vertical movement, and a combination
-                    of notes and octaves.</p>
-                <p>Open a prototype to try it. Expand its commit log to see the recorded development
-                    history.</p>
+                <p>The first area explores how the position of a draggable object can control sound 
+                    through the extended technique of space. The three prototypes move from separated 
+                    pitch zones to continuous pitch control and two-dimensional sound control. These 
+                    variations examine how simple spatial relationships can allow toddlers to change 
+                    musical properties without needing written instructions or formal musical knowledge.</p>
             </section>
             <section class="sectionBlock" aria-labelledby="prototype-1-heading">
                 <h3 id="prototype-1-heading"><a
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-1/" target="_blank"
-                    rel="noopener">Prototype 1: Three sound zones<span class="visuallyHidden">
+                    rel="noopener">Prototype 1: Three pitch zones<span class="visuallyHidden">
                     (opens in a new tab)</span></a></h3>
-                <p>Drag the flower into the sky, garden, or underground, then release it to play a
-                    note from that zone.</p>
+                <p>The canvas is divided into illustrated height zones, including the underground, 
+                    ground, garden and sky. Placing the object in a different zone produces a note 
+                    from a matching low, middle or high register. Controlled randomness introduces 
+                    small variations within each register while keeping the relationship between 
+                    height and pitch understandable. <br>Drag the flower into the sky, garden, or 
+                    underground, then release it to play a Note from that zone.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype1/Prototype-1"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 1 -->
@@ -233,8 +246,12 @@
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-2/" target="_blank"
                     rel="noopener">Prototype 2: Continuous vertical pitch<span
                     class="visuallyHidden"> (opens in a new tab)</span></a></h3>
-                <p>Drag the flower up and down to change its pitch continuously. The display shows
-                    the current frequency in hertz.</p>
+                <p>This prototype removes the separate zones and maps the object’s vertical position 
+                    directly to sound frequency. Moving the object upward gradually raises the pitch, 
+                    while moving it downward lowers it. This design explores whether a continuous 
+                    relationship between movement and sound provides more direct musical control.
+                    <br>Drag the flower up and down to change its pitch continuously. The display 
+                    shows the current frequency in hertz.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype2/Prototype-2"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 2 -->
@@ -349,10 +366,15 @@
             <section class="sectionBlock" aria-labelledby="prototype-3-heading">
                 <h3 id="prototype-3-heading"><a
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-3/" target="_blank"
-                    rel="noopener">Prototype 3: Notes and octaves<span class="visuallyHidden">
+                    rel="noopener">Prototype 3: Pitch and Panning<span class="visuallyHidden">
                     (opens in a new tab)</span></a></h3>
-                <p>Move the sound objects vertically to select notes from C to B, and horizontally
-                    to move between octaves 1 and 8. Press Play Garden to start the sound.</p>
+                <p>This prototype extends the spatial mapping across both axes and introduces two 
+                    draggable objects. Vertical movement controls pitch, while horizontal movement 
+                    controls whether the sound is heard from the left or right. Combining pitch, 
+                    panning and layered repeating sounds provides greater control while maintaining 
+                    the simple action of moving an object. <br>Move the sound objects vertically to 
+                    select notes from C to B, and horizontally to move between octaves 1 and 8. Press 
+                    Play Garden to start the sound.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area1_Prototype3/Prototype-3"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 3 -->
@@ -444,21 +466,24 @@
 </details>
 <!-- END COMMIT LOG 3 -->
             </section>
-            <section class="sectionBlock" aria-labelledby="feedback-heading">
+            <section ria-labelledby="feedback-heading">
                 <h2 id="feedback-heading">Area 2: Feedback — Garden of Sounds</h2>
-                <p>These five prototypes compare feedback for a sounding flower: brief movement,
-                    colour and glow, environmental ripples, continuous rotation, and a shake
-                    synchronised with each note.</p>
-                <p>Open a prototype to try it. Expand its commit log to see the recorded development
-                    history.</p>
+                <p>The second area explores how visual feedback can communicate the result and continuing 
+                    state of a musical interaction. The five prototypes compare feedback attached to the 
+                    object, feedback appearing within the environment, and movement connected to continuing 
+                    sound. These variations support cause-and-effect learning by helping toddlers recognise 
+                    when their actions have produced or changed a sound.</p>
             </section>
             <section class="sectionBlock" aria-labelledby="prototype-4-heading">
                 <h3 id="prototype-4-heading"><a
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-4/" target="_blank"
                     rel="noopener">Prototype 4: Object movement feedback<span
                     class="visuallyHidden"> (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to play a note and watch it grow and bounce in time with the
-                    sound.</p>
+                <p>Tapping the object produces a sound while making it briefly grow and bounce. 
+                    The movement creates an immediate response at the same location as the user’s action. 
+                    This direct connection is intended to make the result of each tap visible without 
+                    adding text or additional controls. <br>Tap the flower to play a note and watch it grow 
+                    and bounce in time with the sound.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype4/Prototype-4"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 4 -->
@@ -565,8 +590,11 @@
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-5/" target="_blank"
                     rel="noopener">Prototype 5: Colour and glow feedback<span
                     class="visuallyHidden"> (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to play a note and see its colour brighten as soft glow waves fade
-                    away.</p>
+                <p>Tapping the object changes its colour and creates a temporary glow while playing the 
+                    sound. This prototype uses light and colour rather than physical movement to confirm 
+                    the interaction. The response keeps the object recognisable while making its active 
+                    state more visually noticeable.<br>Tap the flower to play a note and see its colour 
+                    brighten as soft glow waves fade away.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype5/Prototype-5"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 5 -->
@@ -673,7 +701,11 @@
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-6/" target="_blank"
                     rel="noopener">Prototype 6: Environmental ripple feedback<span
                     class="visuallyHidden"> (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to play a note and watch ripples spread across the garden as its
+                <p>In this prototype, tapping the object causes the surrounding garden to respond through 
+                    particles, flowers or ripples. Moving the feedback beyond the object makes the wider 
+                    storybook environment feel connected to the sound. This design supports the project’s 
+                    framing as an interactive garden rather than a conventional musical control panel.
+                    <br>Tap the flower to play a note and watch ripples spread across the garden as its
                     background briefly deepens in colour.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype6/Prototype-6"
                     target="_blank" rel="noopener">View code</a></p>
@@ -791,8 +823,11 @@
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-7/" target="_blank"
                     rel="noopener">Prototype 7: Playing-state feedback<span class="visuallyHidden">
                     (opens in a new tab)</span></a></h3>
-                <p>Tap the flower to start a repeating sound and continuous rotation, then tap it
-                    again to stop both.</p>
+                <p>Tapping the object once starts a repeating sound and makes the object rotate slowly. 
+                    Tapping it again stops both the sound and the movement. Unlike the earlier temporary 
+                    responses, the continuous spinning communicates that the object remains active after 
+                    the first interaction.<br>Tap the flower to start a repeating sound and continuous rotation, 
+                    then tap it again to stop both.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype7/Prototype-7"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 7 -->
@@ -919,8 +954,11 @@
                     href="https://wendy-area-1-prototype-1.github.io/Prototype-8/" target="_blank"
                     rel="noopener">Prototype 8: Rhythm feedback<span class="visuallyHidden"> (opens
                     in a new tab)</span></a></h3>
-                <p>Tap the flower to start a repeating sound and watch it shake side to side with
-                    every note in the rhythm.</p>
+                <p>Tapping the object starts a repeating sound, while the object briefly pulses with every 
+                    musical note. The visual movement is synchronised with the rhythm rather than continuing 
+                    at a fixed speed. This design explores whether repeated visual responses can communicate 
+                    both the playing state and the timing of the sound.<br>Tap the flower to start a repeating 
+                    sound and watch it shake side to side with every note in the rhythm.</p>
                 <p><a href="https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds/tree/Area2_Prototype8/Prototype-8"
                     target="_blank" rel="noopener">View code</a></p>
                 <!-- BEGIN COMMIT LOG 8 -->
