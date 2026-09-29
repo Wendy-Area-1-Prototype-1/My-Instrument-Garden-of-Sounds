@@ -16,7 +16,7 @@ from html.parser import HTMLParser
 ROOT = Path(__file__).resolve().parents[1]
 REPOSITORY = "https://github.com/Wendy-Area-1-Prototype-1/My-Instrument-Garden-of-Sounds"
 PROTOTYPES = [
-    (1, "6857ed23429499c96515b41a13d849f52a01e680", "892e3446885a67dc927c556901d23bb5a441af18"),
+    (1, "1c6e5fbcd83b8d4b2d0cb2ee4507123d5802df19", "892e3446885a67dc927c556901d23bb5a441af18"),
     (2, "723e0ce94a9c138f04f5afb2f9ac68d951d8cdf9", "dfaa007b308771453dc0d620a909dbeb1adfd338"),
     (3, "6f57a9b1e01117d8a3750919e6f25519dc0869f9", "82202afc62d40aace0f357c9ba29536871c4d71c"),
     (4, "21d00468af271812f28d662695f96ceff2ba4942", "14dde6b1370cb9a6c63a1ca969eb348672b07ac7"),
