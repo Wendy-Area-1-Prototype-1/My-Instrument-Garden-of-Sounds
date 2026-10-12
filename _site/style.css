@@ -251,6 +251,89 @@ without changing the document's reading order.
     grid-column: 1 / -1;
 }
 
+/* Assignment 3 Final Project -------------------------------------------------- */
+
+/*
+The current-page marker uses an underline rather than colour alone, so the active section stays
+identifiable in both the light and dark versions of the two-colour palette.
+*/
+nav a[aria-current="page"] {
+    font-weight: 600;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+/*
+The final submission is set apart with a heavier border so it reads as the main entry point
+without introducing colours outside the existing palette.
+*/
+.finalProject {
+    border-left-width: 6px;
+}
+
+.projectFacts {
+    margin-bottom: 1rem;
+}
+
+.projectFacts dt {
+    font-weight: 600;
+}
+
+.projectFacts dd {
+    margin-bottom: 0.75rem;
+}
+
+/*
+The two main destinations are styled as large outlined links so they are easy to find and tap,
+while remaining ordinary links that keep their native keyboard and screen-reader behaviour.
+*/
+.actionLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.actionLink {
+    display: inline-block;
+    border: 2px solid currentColor;
+    border-radius: 4px;
+    padding: 0.6rem 1.1rem;
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.actionLink:hover {
+    background-color: var(--box-tint);
+}
+
+/*
+Dashed placeholder boxes mark areas waiting for real evidence, so unfinished documentation is
+obvious and is never mistaken for completed design decisions.
+*/
+.placeholderBox {
+    border: 2px dashed currentColor;
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    margin-block: 1rem;
+    opacity: 0.8;
+}
+
+.placeholderBox p,
+.placeholderBox li {
+    font-size: 0.95rem;
+}
+
+.placeholderBox ul {
+    padding-left: 1.25rem;
+}
+
+.featureList {
+    padding-left: 1.25rem;
+    margin-bottom: 1rem;
+}
+
 aside {
     visibility: hidden;
     flex: 1;
