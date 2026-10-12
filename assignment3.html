@@ -58,8 +58,8 @@
 
                 <div class="actionLinks">
                     <!--
-                    Replace https://wendy-hai-anh.github.io/final-instrument/ with the GitHub Pages URL of the published
-                    instrument. The same placeholder also appears on the home page.
+                    The final instrument is published separately from this Work Index.
+                    Both pages link to the instrument repository's GitHub Pages address.
                     -->
                     <a class="actionLink" href="https://wendy-hai-anh.github.io/final-instrument/" target="_blank"
                         rel="noopener">
@@ -263,19 +263,191 @@
                 <h2 id="commit-log-heading">6. Final Git Commit Logs</h2>
 
                 <p>
-                    The final instrument's commit history will be shown here as a table, using the
-                    same layout as the Assignment 2 prototype logs.
+                    The final instrument's current commit history is shown below, newest first, using
+                    the same layout as the Assignment 2 prototype logs.
                 </p>
 
                 <!--
-                Insert the final commit-log table between these markers. The CSV is expected at
-                assets/commit-history/final-instrument/commit_history.csv, matching the folder
-                pattern used for the Assignment 2 prototypes.
+                The table and downloadable CSV are generated from the final instrument's main branch.
+                Refresh both from Git when more instrument changes are committed.
                 -->
                 <!-- BEGIN FINAL COMMIT LOG -->
-                <div class="placeholderBox">
-                    <p>To be added: the final version's commit log, generated from its CSV.</p>
-                </div>
+<details class="commitLog">
+    <summary>Commit logs — 8 development commits</summary>
+    <p>
+        <a href="./assets/commit-history/final-instrument/commit_history.csv" download>
+            Download final instrument commit-log CSV
+        </a>
+    </p>
+    <div class="tableScroll" role="region" aria-label="Final instrument commit history" tabindex="0">
+        <table class="commitTable">
+            <caption>Garden of Sounds final instrument — newest commits first</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Author</th>
+                    <th scope="col">Author date</th>
+                    <th scope="col">Commit subject</th>
+                    <th scope="col">Commit body</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:44:59+11:00">
+                        2026-10-12 18:44:59+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Adapt the garden composition for portrait and small screens
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/49af113111db05c3f14c3844a1384a49c8bc8047"
+                        target="_blank" rel="noopener">49af113</a>
+                </td>
+                <td class="commitBody">
+                Added a portrait layout that stacks the tree, bed and tools down the garden,
+                plus larger objects and less decoration on phones. The bird and snail
+                positions are calculated from the tree and stone so they stay perched when
+                the scene changes shape.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:43:40+11:00">
+                        2026-10-12 18:43:40+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Draw the apple, pear and strawberry beside the basket
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/33154f97d5b78e7b161d933b6ebade14ecbb7fed"
+                        target="_blank" rel="noopener">33154f9</a>
+                </td>
+                <td class="commitBody">
+                Added the three fruits as separate SVG objects next to the woven basket
+                under the tree. Each fruit has its own ID and a data-category so it can be
+                given a sound family later.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:42:25+11:00">
+                        2026-10-12 18:42:25+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Draw the bird, butterfly and snail
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/e7cdf1369b0f2f5929ae2cb6eeceb8c6b4b41405"
+                        target="_blank" rel="noopener">e7cdf13</a>
+                </td>
+                <td class="commitBody">
+                Added the three animals as separate SVG objects. The bird&#x27;s feet line
+                up with the bare tree branch, the butterfly hovers above the flowers and the
+                snail rests on a flat stone.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:41:12+11:00">
+                        2026-10-12 18:41:12+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Draw the gardening tools around the planting bed
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/910931c31f1f909e5c8818c1dadfdeff0c55e6ef"
+                        target="_blank" rel="noopener">910931c</a>
+                </td>
+                <td class="commitBody">
+                Added the watering can, hand trowel, rake and flowerpot as separate SVG
+                objects with their own IDs. They use a thicker dark outline than the scenery
+                so they stand out by shape.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:39:53+11:00">
+                        2026-10-12 18:39:53+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Add the foreground grass strip and small garden details
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/cf0d23b4797a0a4e5f1e47890a8ffe204c7464a1"
+                        target="_blank" rel="noopener">cf0d23b</a>
+                </td>
+                <td class="commitBody">
+                Added a low grass strip along the bottom edge with pebbles, fallen leaves,
+                seedlings and lawn tufts. The foreground layer sits beneath the object layer
+                so it can never hide an object.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:38:24+11:00">
+                        2026-10-12 18:38:24+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Add the vegetable bed, stepping stones and flowers
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/3fd0c9b6fb179342c5c60038c42a57998a2df1a3"
+                        target="_blank" rel="noopener">3fd0c9b</a>
+                </td>
+                <td class="commitBody">
+                Drew the raised bed, stepping stones, flowers, leafy plants and fruit basket
+                as reusable SVGs. They sit in their own decoration layer around the edges so
+                the middle of the lawn stays open.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:36:32+11:00">
+                        2026-10-12 18:36:32+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Add the sky, hills, fence, hedge and tree
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/11cef9e17d543dacb1dec3d129fcce1fce9c71c6"
+                        target="_blank" rel="noopener">11cef9e</a>
+                </td>
+                <td class="commitBody">
+                Drew the clouds, distant hills, lawn, hedge shrubs, picket fence and tree as
+                separate SVG files. A shared SVG displacement filter gives each outline the
+                same hand-cut edge.
+                </td>
+            </tr>
+            <tr>
+                <td>Son Hai Anh Nguyen</td>
+                <td>
+                    <time datetime="2026-10-12T18:33:02+11:00">
+                        2026-10-12 18:33:02+11:00
+                    </time>
+                </td>
+                <td class="commitSubject">
+                    Set up the garden page and responsive layout
+                    <a class="commitId"
+                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/afc4e2e4c73af6b5384cbca163239184cec103ae"
+                        target="_blank" rel="noopener">afc4e2e</a>
+                </td>
+                <td class="commitBody">
+                Created the page, colour tokens and a paper-grain texture. The garden keeps
+                a fixed aspect ratio that switches to a taller shape on portrait screens, so
+                percentage positions stay aligned.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</details>
                 <!-- END FINAL COMMIT LOG -->
             </section>
 
