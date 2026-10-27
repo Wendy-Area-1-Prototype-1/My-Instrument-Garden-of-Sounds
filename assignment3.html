@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="./assets/icons/favicon.png">
 
     <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css?v=20261027-assignment3-content">
+    <link rel="stylesheet" href="./style.css?v=20261027-evidence">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 <h2 id="overview-heading">1. Project Overview</h2>
 <dl class="projectFacts"><dt>Project title</dt><dd>Garden of Sounds</dd><dt>Design scenario</dt><dd>Musical Toy for Toddlers</dd><dt>Audience</dt><dd>Toddlers aged approximately 1–3, playing with an accompanying adult.</dd></dl><h3>Synopsis</h3>
 <p>Garden of Sounds is a browser-based musical toy designed for toddlers, presented as an interactive storybook featuring three illustrated garden environments. Children tap and drag familiar gardening tools, animals and fruits to explore sounds and create layered music. Tools provide percussion, animals provide melody and fruits provide ambient textures. Vertical position determines pitch and horizontal position controls rhythm. All objects follow a shared beat and chord progression, allowing different sounds to remain harmonised. Immediate audiovisual feedback, controlled musical variation and simple interactions encourage open-ended exploration, creativity and learning through play without requiring musical knowledge.</p>
-<div class="actionLinks"><a class="actionLink" href="https://wendy-hai-anh.github.io/final-instrument/">View Final Instrument</a> <a class="actionLink" href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/README.md">Technical README</a></div><p>This page documents the finished project. <a href="./assignment1.html">Assignment 1</a> explains its purpose and values; <a href="./assignment2.html">Assignment 2</a> records the eight prototype investigations.</p>
+<div class="actionLinks"><a class="actionLink" href="https://wendy-hai-anh.github.io/final-instrument/">View Final Instrument</a> <a class="actionLink" href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/main/README.md">Technical README</a></div><p>This page documents the finished project. <a href="./assignment1.html">Assignment 1</a> explains its purpose and values; <a href="./assignment2.html">Assignment 2</a> records the eight prototype investigations.</p>
 </section>
 <section id="scenario-response-section" class="sectionBlock" aria-labelledby="scenario-response-heading">
 <h2 id="scenario-response-heading">2. Response to the Design Scenario</h2>
@@ -111,9 +111,9 @@
 <p>Implementation: <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/base.css#L863-L929">reduced motion and garden window-shape rules</a>.</p>
 <h3>Responsive and Adaptive Behaviour</h3>
 <p>The four assessment ranges below organise the documentation; they are not four separate breakpoint modes in the instrument. The garden switches to a tall composition at an aspect ratio of 11:10 or narrower and to a phone composition at 3:5 or narrower. The phone mode increases object scale to 1.6; short landscape windows at or below 31rem height use 1.5. Book arrows move below the spread at 4:5 or narrower. Controls use bounded fluid sizing. Width alone therefore does not determine the composition.</p>
-<div class="tableScroll" role="region" aria-label="Responsive design rules and outstanding verification" tabindex="0">
-<table class="commitTable documentationTable"><caption>Responsive design rules and outstanding verification</caption><thead><tr><th scope="col">Assessment range</th><th scope="col">Implementation behaviour</th><th scope="col">Verification</th></tr></thead><tbody><tr><td>Medium: below 840px</td><td>Narrow portrait windows use tall or phone backgrounds and scene-specific object positions. Phone objects grow while controls keep bounded sizes; book arrows move beneath upright spreads.</td><td>390 × 844 is a proposed test size. Chrome/Firefox verification and viewport screenshots are outstanding.</td></tr><tr><td>Expanded: 840–1199px</td><td>Landscape windows retain the wide composition; a square or portrait window can still select the tall arrangement. Proportional positioning and fluid controls apply.</td><td>1024 × 768 is a proposed test size. Chrome/Firefox verification and viewport screenshots are outstanding.</td></tr><tr><td>Large: 1200–1600px</td><td>A typical landscape window uses the wide scene, with objects positioned relative to the garden and controls at the edges. Aspect ratio and height remain the deciding inputs.</td><td>1440 × 900 is a proposed test size. Chrome/Firefox verification and viewport screenshots are outstanding.</td></tr><tr><td>Extra-large: above 1600px</td><td>Background extensions cover the window while the composition retains its proportions. Control sizes are capped; a wide screen does not imply unlimited control growth.</td><td>1920 × 1080 is a proposed test size. Chrome/Firefox verification and viewport screenshots are outstanding.</td></tr></tbody></table></div>
-<p>The garden illustrations above are asset previews, not evidence of browser compatibility or viewport testing.</p>
+<div class="tableScroll" role="region" aria-label="Responsive design rules and Chrome evidence" tabindex="0">
+<table class="commitTable documentationTable"><caption>Responsive design rules and Chrome evidence</caption><thead><tr><th scope="col">Assessment range</th><th scope="col">Implementation behaviour</th><th scope="col">Verification</th></tr></thead><tbody><tr><td>Medium: below 840px</td><td>Narrow portrait windows use tall or phone backgrounds and scene-specific object positions. Phone objects grow while controls keep bounded sizes; book arrows move beneath upright spreads.</td><td>Chrome checked at 390 × 844 on 27 October 2026. <a href="./assets/browser-testing/chrome-garden-390x844.webp">Screenshot</a>; see Section 7 for the observed checks and limitations.</td></tr><tr><td>Expanded: 840–1199px</td><td>Landscape windows retain the wide composition; a square or portrait window can still select the tall arrangement. Proportional positioning and fluid controls apply.</td><td>Chrome checked at 1024 × 768 on 27 October 2026. <a href="./assets/browser-testing/chrome-garden-1024x768.webp">Screenshot</a>; see Section 7 for the observed checks and limitations.</td></tr><tr><td>Large: 1200–1600px</td><td>A typical landscape window uses the wide scene, with objects positioned relative to the garden and controls at the edges. Aspect ratio and height remain the deciding inputs.</td><td>Chrome checked at 1440 × 900 on 27 October 2026. <a href="./assets/browser-testing/chrome-guide-1440x900.webp">Screenshot</a>; see Section 7 for the observed checks and limitations.</td></tr><tr><td>Extra-large: above 1600px</td><td>Background extensions cover the window while the composition retains its proportions. Control sizes are capped; a wide screen does not imply unlimited control growth.</td><td>Chrome checked at 1920 × 1080 on 27 October 2026. <a href="./assets/browser-testing/chrome-garden-1920x1080.webp">Screenshot</a>; see Section 7 for the observed checks and limitations.</td></tr></tbody></table></div>
+<p>The garden illustrations above are asset previews. Section 7 separately records screenshots from the running instrument at four viewport sizes.</p>
 <p>Implementation: <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/style.css#L425-L452">portrait book navigation and reduced motion</a>.</p>
 </section>
 <section id="prototype-decisions-section" class="sectionBlock" aria-labelledby="prototype-decisions-heading">
@@ -121,16 +121,9 @@
 <p>Assignment 2 compared eight mapping and feedback prototypes. Qualitative peer feedback informed the final choices, without establishing usability for every child aged 1–3. Four findings were most significant:</p>
 <ul class="featureList"><li><strong>Musical coherence:</strong> independent loops sounded noisy when layered. Shared timing, chord-compatible notes and distinct sound families now organise playback.</li><li><strong>Noticeable movement:</strong> broad three-zone pitch changes could be missed. Eight height steps and horizontal rhythm choices make spatial changes more responsive while preserving harmony.</li><li><strong>Discoverability:</strong> some testers treated the garden as a picture to tidy. Note badges, breathing and wiggles identify musical objects.</li><li><strong>Participatory guidance:</strong> watching a demonstration did not always explain the controls. The final guide advances through the player’s own tap and drag actions.</li></ul><div class="tableScroll" role="region" aria-label="Prototype choices carried into the final design" tabindex="0">
 <table class="commitTable documentationTable"><caption>Prototype choices carried into the final design</caption><thead><tr><th scope="col">Experiment</th><th scope="col">Final decision</th></tr></thead><tbody><tr><td>1 · Three pitch zones</td><td>Retain height-to-pitch; refine to eight chord-note steps.</td></tr><tr><td>2 · Continuous pitch</td><td>Retain direct movement feedback; constrain final pitch choices.</td></tr><tr><td>3 · Two-axis mapping</td><td>Use height for pitch and horizontal position for rhythm.</td></tr><tr><td>4 · Grow and bounce</td><td>Adapt to object-specific note-timed movement.</td></tr><tr><td>5 · Colour and glow</td><td>Retain outline glow and soft playing-state halos.</td></tr><tr><td>6 · Environmental ripple</td><td>Retain a ground ripple on placement.</td></tr><tr><td>7 · Continuous spinning</td><td>Omit spinning; retain tap-to-start/tap-to-stop interaction.</td></tr><tr><td>8 · Rhythm feedback</td><td>Synchronise repeated motion to individual notes.</td></tr></tbody></table></div>
-<p>See <a href="./assignment2.html">Assignment 2</a> for the investigations and <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/README.md#prototype-testing-and-final-design-decisions">the technical README</a> for the full observations.</p>
+<p>See <a href="./assignment2.html">Assignment 2</a> for the investigations and <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/main/README.md#prototype-testing-and-final-design-decisions">the technical README</a> for the full observations.</p>
 </section>
-<section id="browser-testing-section" class="sectionBlock" aria-labelledby="browser-testing-heading">
-<h2 id="browser-testing-heading">7. Browser Testing and Verification</h2>
-<p>The recorded desktop check on 27 October 2026 used Chrome 156.0.8078.48 and the published instrument URL identified by <code>picture-book-20261026h</code>. Opening the cover, turning to Lakeside Picnic and entering the garden were observed. Play-All changed the control to “Stop all sounds” and displayed halos and floating notes; stopping restored “Play the whole garden”. These observations verify interface responses only.</p>
-<div class="tableScroll" role="region" aria-label="Required browser and viewport coverage" tabindex="0">
-<table class="commitTable documentationTable"><caption>Required browser and viewport coverage</caption><thead><tr><th scope="col">Width category</th><th scope="col">Proposed viewport (CSS px)</th><th scope="col">Chrome</th><th scope="col">Firefox</th></tr></thead><tbody><tr><td>Below 840px</td><td>390 × 844</td><td>Not tested at a recorded size.</td><td>Not tested.</td></tr><tr><td>840–1199px</td><td>1024 × 768</td><td>Not tested at a recorded size.</td><td>Not tested.</td></tr><tr><td>1200–1600px</td><td>1440 × 900</td><td>Not tested at a recorded size.</td><td>Not tested.</td></tr><tr><td>Above 1600px</td><td>1920 × 1080</td><td>Not tested at a recorded size.</td><td>Not tested.</td></tr></tbody></table></div>
-<p>The earlier Chrome check did not record viewport dimensions. Audible output, pitch and rhythm accuracy, silence after stopping, individual dragging, keyboard operation, touch, all three scenes and reduced-motion behaviour remain unverified in that run. Firefox was not available on the test computer. Cross-browser testing and four-range screenshot evidence remain outstanding.</p>
-<p>At each size, verification should cover navigation, control visibility, all scenes, individual playback and dragging, musical layering, guide completion, keyboard input and stopping sound. Results must record the browser version and actual viewport, with listening checks as well as visual observations. <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/README.md#browser-testing-record">Read the detailed browser record</a>.</p>
-</section>
+<section id="browser-testing-section" class="sectionBlock" aria-labelledby="browser-testing-heading"><h2 id="browser-testing-heading">7. Browser Testing and Verification</h2><p>Checks performed on <strong>27 October 2026</strong> in <strong>Google Chrome 156.0.8078.48</strong>, using Chrome DevTools Responsive mode at the four CSS-pixel viewport sizes below. The instrument was served locally at <code>http://127.0.0.1:4187/</code>. Its served <code>garden.js</code> matched the final repository’s working-copy file; the source revision was <a href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2">dd04d7c</a>. Screenshots show the running interface, including separate objects and controls.</p><div class="tableScroll" role="region" aria-label="Chrome viewport results" tabindex="0"><table class="commitTable documentationTable"><caption>Observed Chrome interface results — four viewport ranges</caption><thead><tr><th scope="col">Range</th><th scope="col">Viewport (CSS px)</th><th scope="col">Scene</th><th scope="col">Observed results</th><th scope="col">Evidence</th></tr></thead><tbody><tr><td>Medium · below 840px</td><td>390 × 844</td><td>Lakeside Picnic</td><td>Book opened and turned; garden entered; bird tapped and dragged on both axes; status changed from “middle, quickly” to “high up, slowly”; Stop-All returned “All quiet”.</td><td><a href="./assets/browser-testing/chrome-garden-390x844.webp">View screenshot</a></td></tr><tr><td>Expanded · 840–1199px</td><td>1024 × 768</td><td>Lakeside Picnic</td><td>Scene and controls remained visible after resizing; Play-All displayed “The whole garden is playing” with halos and floating notes; Stop-All returned “All quiet”.</td><td><a href="./assets/browser-testing/chrome-garden-1024x768.webp">View screenshot</a></td></tr><tr><td>Large · 1200–1600px</td><td>1440 × 900</td><td>Painted Orchard</td><td>Chapter navigation opened the orchard; the guide advanced through tap, drag down and drag right, then displayed “Your turn!”; Stop-All returned “All quiet”.</td><td><a href="./assets/browser-testing/chrome-guide-1440x900.webp">View screenshot</a></td></tr><tr><td>Extra-large · above 1600px</td><td>1920 × 1080</td><td>Giant Flower Meadow</td><td>Chapter navigation opened the meadow; bird activated; Tab focused the butterfly, Space activated it and Right moved it; Play-All and Stop-All updated their visible states.</td><td><a href="./assets/browser-testing/chrome-garden-1920x1080.webp">View screenshot</a></td></tr></tbody></table></div><div class="evidenceGallery"><figure class="evidenceShot evidenceShot--portrait"><a href="./assets/browser-testing/chrome-book-390x844.webp"><img loading="lazy" width="780" height="1687" src="./assets/browser-testing/chrome-book-390x844.webp" alt="Chrome screenshot: Portrait book spread with navigation arrows below the pages."></a><figcaption><strong>390 × 844 CSS px · Lakeside Picnic book spread.</strong> Portrait book spread with navigation arrows below the pages. Select the image for full resolution.</figcaption></figure><figure class="evidenceShot evidenceShot--portrait"><a href="./assets/browser-testing/chrome-garden-390x844.webp"><img loading="lazy" width="780" height="1687" src="./assets/browser-testing/chrome-garden-390x844.webp" alt="Chrome screenshot: Portrait garden after tapping and dragging the bird vertically and horizontally."></a><figcaption><strong>390 × 844 CSS px · Lakeside Picnic.</strong> Portrait garden after tapping and dragging the bird vertically and horizontally. Select the image for full resolution.</figcaption></figure><figure class="evidenceShot"><a href="./assets/browser-testing/chrome-garden-1024x768.webp"><img loading="lazy" width="2048" height="1536" src="./assets/browser-testing/chrome-garden-1024x768.webp" alt="Chrome screenshot: Expanded garden with Play-All active, visible object halos, notes and controls."></a><figcaption><strong>1024 × 768 CSS px · Lakeside Picnic.</strong> Expanded garden with Play-All active, visible object halos, notes and controls. Select the image for full resolution.</figcaption></figure><figure class="evidenceShot"><a href="./assets/browser-testing/chrome-guide-1440x900.webp"><img loading="lazy" width="2880" height="1800" src="./assets/browser-testing/chrome-guide-1440x900.webp" alt="Chrome screenshot: Interactive guide at its horizontal-drag step; the complete guide was subsequently completed."></a><figcaption><strong>1440 × 900 CSS px · Painted Orchard.</strong> Interactive guide at its horizontal-drag step; the complete guide was subsequently completed. Select the image for full resolution.</figcaption></figure><figure class="evidenceShot"><a href="./assets/browser-testing/chrome-garden-1920x1080.webp"><img loading="lazy" width="3840" height="2160" src="./assets/browser-testing/chrome-garden-1920x1080.webp" alt="Chrome screenshot: Extra-large playable garden with Play-All active, separate objects and navigation controls."></a><figcaption><strong>1920 × 1080 CSS px · Giant Flower Meadow.</strong> Extra-large playable garden with Play-All active, separate objects and navigation controls. Select the image for full resolution.</figcaption></figure></div><h3>Scope and observations</h3><p>These results establish the visual and interaction responses listed in each row, rather than a complete feature test at every size. The four viewports were emulated in desktop Chrome, not tested on four physical devices. The screenshots were captured at approximately 2× pixel density and saved losslessly as WebP; the portrait captures have a one-pixel rounding difference in image height. Window resizing preserved the layout, and navigation between the three scenes was observed. The Chrome console reported a missing <code>favicon.ico</code> and a Tone.js scheduling warning during Play-All.</p><p>Audible pitch, timing, volume quality and silence after stopping were not assessed by listening; “playing” and “All quiet” are interface-state observations. Physical multi-touch, reduced-motion preferences, prolonged use and other browsers remain outside this run. <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/main/README.md#browser-testing-record">Detailed README record</a> · <a href="./assets/browser-testing/evidence.json">Evidence metadata</a>.</p></section>
 <section id="credits-section" class="sectionBlock" aria-labelledby="credits-heading">
 <h2 id="credits-heading">8. References, Assets and Credits</h2>
 <h3>Design References</h3>
@@ -141,15 +134,14 @@
 <h3>Assets and Production</h3>
 <p>All storybook, garden, character, object and interface illustrations were created by <strong>Son Hai Anh Nguyen (Wendy)</strong>. Claude assisted with code and the grain texture of the illustrations. Artwork was prepared as SVG and exported as WebP. Codex assisted with documentation, code-source checks and the recorded Chrome interface observations.</p>
 <p>Visual references informed palettes and composition rather than becoming final assets: an unsigned lakeside image; an orchard image marked Kaaillustration.com (<a href="https://www.behance.net/Kaaillustration">KAA Illustration: Phung Nguyen Quang and Huynh Kim Lien</a>); and an image marked Huhubanana plus an unsigned floral composition. The specific original image URLs remain unidentified. The cover and buttons also draw on a user-provided reference sheet showing a home button, notebook, Start sign and numbered path; its original creator is not recorded.</p>
-<p>The detailed <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/README.md#final-references-assets-and-tool-credits">reference list, asset register and tool credits</a> retain file locations and production details.</p>
+<p>The detailed <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/main/README.md#final-references-assets-and-tool-credits">reference list, asset register and tool credits</a> retain file locations and production details.</p>
 </section>
 <section id="commit-log-section" class="sectionBlock"
                 aria-labelledby="commit-log-heading">
                 <h2 id="commit-log-heading">9. Final Git Commit Logs</h2>
 
                 <p>
-                    The final instrument's initial development history is shown below, newest first, using
-                    the same layout as the Assignment 2 prototype logs.
+                    The final instrument’s complete main-branch history is shown below, including the 26–27 October work, with a matching downloadable CSV.
                 </p>
 
                 <!--
@@ -157,183 +149,51 @@
                 Refresh both from Git when more instrument changes are committed.
                 -->
                 <!-- BEGIN FINAL COMMIT LOG -->
-<details class="commitLog">
-    <summary>Commit logs — 8 development commits</summary>
-    <p>
-        <a href="./assets/commit-history/final-instrument/commit_history.csv" download>
-            Download final instrument commit-log CSV
-        </a>
-    </p>
-    <div class="tableScroll" role="region" aria-label="Final instrument commit history" tabindex="0">
-        <table class="commitTable">
-            <caption>Garden of Sounds final instrument — newest commits first</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Author</th>
-                    <th scope="col">Author date</th>
-                    <th scope="col">Commit subject</th>
-                    <th scope="col">Commit body</th>
-                </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:44:59+11:00">
-                        2026-10-12 18:44:59+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Adapt the garden composition for portrait and small screens
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/49af113111db05c3f14c3844a1384a49c8bc8047"
-                        target="_blank" rel="noopener">49af113</a>
-                </td>
-                <td class="commitBody">
-                Added a portrait layout that stacks the tree, bed and tools down the garden,
-                plus larger objects and less decoration on phones. The bird and snail
-                positions are calculated from the tree and stone so they stay perched when
-                the scene changes shape.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:43:40+11:00">
-                        2026-10-12 18:43:40+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Draw the apple, pear and strawberry beside the basket
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/33154f97d5b78e7b161d933b6ebade14ecbb7fed"
-                        target="_blank" rel="noopener">33154f9</a>
-                </td>
-                <td class="commitBody">
-                Added the three fruits as separate SVG objects next to the woven basket
-                under the tree. Each fruit has its own ID and a data-category so it can be
-                given a sound family later.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:42:25+11:00">
-                        2026-10-12 18:42:25+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Draw the bird, butterfly and snail
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/e7cdf1369b0f2f5929ae2cb6eeceb8c6b4b41405"
-                        target="_blank" rel="noopener">e7cdf13</a>
-                </td>
-                <td class="commitBody">
-                Added the three animals as separate SVG objects. The bird&#x27;s feet line
-                up with the bare tree branch, the butterfly hovers above the flowers and the
-                snail rests on a flat stone.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:41:12+11:00">
-                        2026-10-12 18:41:12+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Draw the gardening tools around the planting bed
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/910931c31f1f909e5c8818c1dadfdeff0c55e6ef"
-                        target="_blank" rel="noopener">910931c</a>
-                </td>
-                <td class="commitBody">
-                Added the watering can, hand trowel, rake and flowerpot as separate SVG
-                objects with their own IDs. They use a thicker dark outline than the scenery
-                so they stand out by shape.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:39:53+11:00">
-                        2026-10-12 18:39:53+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Add the foreground grass strip and small garden details
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/cf0d23b4797a0a4e5f1e47890a8ffe204c7464a1"
-                        target="_blank" rel="noopener">cf0d23b</a>
-                </td>
-                <td class="commitBody">
-                Added a low grass strip along the bottom edge with pebbles, fallen leaves,
-                seedlings and lawn tufts. The foreground layer sits beneath the object layer
-                so it can never hide an object.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:38:24+11:00">
-                        2026-10-12 18:38:24+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Add the vegetable bed, stepping stones and flowers
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/3fd0c9b6fb179342c5c60038c42a57998a2df1a3"
-                        target="_blank" rel="noopener">3fd0c9b</a>
-                </td>
-                <td class="commitBody">
-                Drew the raised bed, stepping stones, flowers, leafy plants and fruit basket
-                as reusable SVGs. They sit in their own decoration layer around the edges so
-                the middle of the lawn stays open.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:36:32+11:00">
-                        2026-10-12 18:36:32+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Add the sky, hills, fence, hedge and tree
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/11cef9e17d543dacb1dec3d129fcce1fce9c71c6"
-                        target="_blank" rel="noopener">11cef9e</a>
-                </td>
-                <td class="commitBody">
-                Drew the clouds, distant hills, lawn, hedge shrubs, picket fence and tree as
-                separate SVG files. A shared SVG displacement filter gives each outline the
-                same hand-cut edge.
-                </td>
-            </tr>
-            <tr>
-                <td>Son Hai Anh Nguyen</td>
-                <td>
-                    <time datetime="2026-10-12T18:33:02+11:00">
-                        2026-10-12 18:33:02+11:00
-                    </time>
-                </td>
-                <td class="commitSubject">
-                    Set up the garden page and responsive layout
-                    <a class="commitId"
-                        href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/afc4e2e4c73af6b5384cbca163239184cec103ae"
-                        target="_blank" rel="noopener">afc4e2e</a>
-                </td>
-                <td class="commitBody">
-                Created the page, colour tokens and a paper-grain texture. The garden keeps
-                a fixed aspect ratio that switches to a taller shape on portrait screens, so
-                percentage positions stay aligned.
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</details>
-                <!-- END FINAL COMMIT LOG -->
+<details class="commitLog" id="final-commit-log"><summary>Final instrument commit log — 41 commits</summary>
+<p>Complete main-branch history through <a href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/da444ed953f31ef979673af595a19af6d4be916d">da444ed</a>, newest first. Updated 27 October 2026.</p><p><a href="./assets/commit-history/final-instrument/commit_history.csv" download>Download final instrument commit-log CSV (41 commits)</a></p><div class="tableScroll" role="region" aria-label="Final instrument commit history" tabindex="0"><table class="commitTable"><caption>Garden of Sounds — complete final-instrument main history</caption><thead><tr><th scope="col">Author</th><th scope="col">Author date</th><th scope="col">Commit subject</th><th scope="col">Commit body</th></tr></thead><tbody>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T15:34:14+11:00">2026-10-27 15:34:14+11:00</time></td><td class="commitSubject">Document Chrome viewport testing with screenshot evidence<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/da444ed953f31ef979673af595a19af6d4be916d">da444ed</a></td><td class="commitBody"></td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T13:08:00+11:00">2026-10-27 13:08:00+11:00</time></td><td class="commitSubject">Complete instrument documentation and font licence notices<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2">dd04d7c</a></td><td class="commitBody"></td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T07:34:26+11:00">2026-10-27 07:34:26+11:00</time></td><td class="commitSubject">Make sound respond during dragging<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/f636d1883d186a6f372ebac36d0814c6d2c66cb0">f636d18</a></td><td class="commitBody">Start playback during mouse, touch and pen drags using the existing Tone.js synth and shared beat. Let pitch and rhythm changes sound before release, throttle rapid triggers and avoid restarting playback when the object is dropped.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T07:34:11+11:00">2026-10-27 07:34:11+11:00</time></td><td class="commitSubject">Show guidance only on the first garden visit<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/5ee4a5773cd90440cb314d98a7f17d1c0bb5fc3e">5ee4a57</a></td><td class="commitBody">Remember the first guide appearance with shared browser storage across all three gardens, while keeping Help available. Prevent delayed guide steps from continuing after closing and refresh the script links.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T03:38:44+11:00">2026-10-27 03:38:44+11:00</time></td><td class="commitSubject">Make the garden play in harmony and easier to read as an instrument<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/f6b61ffcbe55ef10c6d79c55cce2090a2f5cb4d3">f6b61ff</a></td><td class="commitBody">Objects now share one beat and an I-vi-IV-V chord round, each with its own note set; note badges, &lt; &gt; garden keys, a guide that passes at the arrow and a redrawn turn-phone picture.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T02:21:57+11:00">2026-10-27 02:21:57+11:00</time></td><td class="commitSubject">Fix stagger garden playback and reduce visual effects<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/b99fabbea2fbeb31051258b722b418e6580efe12">b99fabb</a></td><td class="commitBody">Restored sequential playback with random 0.5-1s intervals between objects, ensuring pause stops all active and queued sounds.<br>Reduced the size, opacity, and intensity of colored halos across all three gardens for a cleaner visual experience.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T01:17:49+11:00">2026-10-27 01:17:49+11:00</time></td><td class="commitSubject">Refine musical mapping and guided play<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/d08c20218f06c2f4d4c2d912db03dddbcbef7d21">d08c202</a></td><td class="commitBody">Map pitch and repeat speed continuously, generate fresh looping tunes, and add the interactive guide, welcome sound, phone prompt and responsive controls. Refresh cache tags so the updated storybook and gardens load reliably.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-27T01:05:44+11:00">2026-10-27 01:05:44+11:00</time></td><td class="commitSubject">Complete the main garden playback controls<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/8c2462885acb3d9133166658745f807b8dc036b9">8c24628</a></td><td class="commitBody">Keep note choice and repeat timing tied to object position, start repeating playback after taps or drops, and let the play button bring the whole garden in with a shuffled order before changing to pause. Update the instructions and cache version.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-26T23:57:48+11:00">2026-10-26 23:57:48+11:00</time></td><td class="commitSubject">Refine button feedback and playback controls<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/d639874ae5e844aa0868c5fbe59177ab55d37c8f">d639874</a></td><td class="commitBody">Add shared press-and-spring behavior for picture buttons, replace stop-all with pause and resume, and lead the help demonstration with clear shadowless arrows. Update the related artwork, cache versions and documentation.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-26T23:30:14+11:00">2026-10-26 23:30:14+11:00</time></td><td class="commitSubject">Improve storybook guidance across screen sizes<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/76687582a432f47278b026def597b4d36cdd8987">7668758</a></td><td class="commitBody">Add a press-and-hold guide for grown-ups and keep the picture book usable in portrait layouts with a turn-for-more-space hint. Document the updated controls and child-friendly interaction choices.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-26T23:29:53+11:00">2026-10-26 23:29:53+11:00</time></td><td class="commitSubject">Add child-friendly garden feedback<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/2946b6a8b6cf3f5ab8b5b9154e37282c1625126a">2946b6a</a></td><td class="commitBody">Add quiet and help controls, playing glows, floating notes, guided demonstrations and gentle object hints. Refresh the shared buttons and garden artwork while preserving the existing sound mapping.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-25T03:46:13+11:00">2026-10-25 03:46:13+11:00</time></td><td class="commitSubject">Complete the picture book refinements<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/7e4cdf63b7d2f098119b0f76334fd2bc38d2fbab">7e4cdf6</a></td><td class="commitBody">Use the supplied split-page artwork, open-book ribbon and phone rotation prompt. Keep complete gardens across each spread, place page controls at the book edges and preserve reliable mouse and touch swiping.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-25T03:09:37+11:00">2026-10-25 03:09:37+11:00</time></td><td class="commitSubject">Improve page navigation and button feedback<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/ba72b667b2a43a2a6460c92535055cc4fc8654bd">ba72b66</a></td><td class="commitBody">Keep mouse and touch swipes moving in the expected direction, block browser image dragging and show controls raised at rest and flat on hover.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-25T03:02:54+11:00">2026-10-25 03:02:54+11:00</time></td><td class="commitSubject">Refine the story and garden page spreads<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/4e1de244963276516199dd19f735dbe7be4c2d1a">4e1de24</a></td><td class="commitBody">Show the title and each complete garden across both pages, make either half open the garden and keep a small play button in the corner.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-25T02:57:23+11:00">2026-10-25 02:57:23+11:00</time></td><td class="commitSubject">Improve the picture book layout across screens<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/6fb446de37d405e9d2241e66b5d48ecef58778fc">6fb446d</a></td><td class="commitBody">Hide the duplicate closed-book ribbon, let the open book fill the window, place arrows at its edges and show a landscape prompt on upright phones.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-23T21:31:37Z">2026-10-23 21:31:37Z</time></td><td class="commitSubject">Turn the start page into a picture book that opens and turns<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/709294c9be1a5fa9de7360a991c49075865f1e80">709294c</a></td><td class="commitBody">Tapping the cover opens the book, big arrows or a swipe turn its pages and a cross closes it. Each garden has its own spread, and tapping it zooms from the page into the garden and back.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-23T15:21:08Z">2026-10-23 15:21:08Z</time></td><td class="commitSubject">Let resting objects breathe and widen their touch area<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/0a161ea1f99821a0b0c27d340e5c8c7278be8129">0a161ea</a></td><td class="commitBody">Objects that are not playing now swell gently every few seconds, so a child can see what can be touched without words. On touch screens the invisible margin around each object grows to 1.25rem.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-23T15:20:37Z">2026-10-23 15:20:37Z</time></td><td class="commitSubject">Show each garden as a picture on its chapter button<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/2ef2d81f567bb0436136b2f838465b3971f9ae93">2ef2d81</a></td><td class="commitBody">The numbered chapter dots are now round pictures of their gardens, so a child who cannot read numbers can still pick a scene. The current garden keeps a gold rim, and the buttons are larger.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-24T07:38:48+11:00">2026-10-24 07:38:48+11:00</time></td><td class="commitSubject">Version page links across the storybook<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/2e1aca5359c05cba5da2338c17aae940713a5eea">2e1aca5</a></td><td class="commitBody">Add the scene-preview version to Home, Start and chapter URLs so navigation loads current HTML instead of restoring cached numbered-button pages.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-24T07:30:28+11:00">2026-10-24 07:30:28+11:00</time></td><td class="commitSubject">Keep garden previews inside chapter buttons<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/5eedb49187ab64ab48d1721ee1408e65e4317cd0">5eedb49</a></td><td class="commitBody">Version the stylesheet URLs so browsers load the new preview rules, and retain the shared button-image sizing as a fallback when an older stylesheet remains cached.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-24T07:23:51+11:00">2026-10-24 07:23:51+11:00</time></td><td class="commitSubject">Correct the picture credit<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/d28ef5e072b04d79580c65c07b49109a39e4c600">d28ef5e</a></td><td class="commitBody">Remove the inaccurate SVG export statement and update the repository structure notes to describe the new garden preview buttons.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-24T07:23:38+11:00">2026-10-24 07:23:38+11:00</time></td><td class="commitSubject">Show garden previews in chapter navigation<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/06912000feb3d84e11f26d72d8a607f70fdbb9e8">0691200</a></td><td class="commitBody">Replace the numbered chapter dots with cropped WebP scene previews on the cover and in each garden. Keep the existing links, keyboard access and gold current-garden state.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-16T17:36:04Z">2026-10-16 17:36:04Z</time></td><td class="commitSubject">Add home and chapter buttons to each garden<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/dc886707ce029a53334dd6fd4d011b1dc58f7fd3">dc88670</a></td><td class="commitBody">Every garden now has a home button that goes back to the storybook cover, and numbered chapter<br>dots that open the other gardens, with the current garden&#x27;s dot in gold.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-16T17:33:21Z">2026-10-16 17:33:21Z</time></td><td class="commitSubject">Turn the start page into a storybook cover<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/9ae15a19f623a9e5d53677db23792b79285d3c6a">9ae15a1</a></td><td class="commitBody">The start page is now a closed storybook. Its Start sign opens the book and loads the first<br>garden, and its numbered chapters open each of the three gardens.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-14T19:26:40+11:00">2026-10-14 19:26:40+11:00</time></td><td class="commitSubject">Let objects move anywhere on the screen<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/02959a177ef6091fe9d41b93e21afec663d4def0">02959a1</a></td><td class="commitBody">Objects can now be dragged into the extended garden around the original picture and always stay<br>fully on screen. The picture no longer takes pointer events, so a drag that starts above the<br>original picture is not mistaken for dragging the picture itself.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-14T19:26:39+11:00">2026-10-14 19:26:39+11:00</time></td><td class="commitSubject">Extend the garden pictures to fill the whole window<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/073c25b1adbc9ec66a58b4a2d21a818b3db39027">073c25b</a></td><td class="commitBody">Each garden picture keeps the original picture in the middle and continues the garden past its<br>sides and into the sky, so the garden fills the window without being enlarged. The header is<br>hidden, and the picture is chosen by the window&#x27;s shape from three shapes instead of four.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:56+11:00">2026-10-13 22:41:56+11:00</time></td><td class="commitSubject">Add play instructions to the garden selection page<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/9ff028b67b36c626be7f3af4adcb26981c6a536e">9ff028b</a></td><td class="commitBody">Tell adults how to start and stop sounds and move objects before choosing one of the three gardens.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:54+11:00">2026-10-13 22:41:54+11:00</time></td><td class="commitSubject">Document garden assets, musical rules and design credits<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/0e3202d024a110447b254f638c3ab9c4dab71cf4">0e3202d</a></td><td class="commitBody">Describe the still backgrounds and separate transparent object images, tap and drag controls, sound mapping and visual feedback. Explain the prototype connections and retain library and AI assistance credits.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:50+11:00">2026-10-13 22:41:50+11:00</time></td><td class="commitSubject">Animate taps, playing notes and object drops<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/d03dc60e4a480f58b00ef04c78463d99dd4b2c2a">d03dc60</a></td><td class="commitBody">Show outline glow when an object is tapped. Synchronize tool sways, animal hops and fruit pulses with their notes. Create a small ground ripple on drop and accommodate reduced-motion preferences.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:45+11:00">2026-10-13 22:41:45+11:00</time></td><td class="commitSubject">Prepare glow and drop feedback for garden 3: Flower meadow<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/f4757269c0454d586bd7ec37b55a76662d57180a">f475726</a></td><td class="commitBody">Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:33+11:00">2026-10-13 22:41:33+11:00</time></td><td class="commitSubject">Prepare glow and drop feedback for garden 2: Painted orchard<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/5cd90ef953c55919ce1c62e0266f47407096321a">5cd90ef</a></td><td class="commitBody">Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:31+11:00">2026-10-13 22:41:31+11:00</time></td><td class="commitSubject">Prepare glow and drop feedback for garden 1: Lakeside picnic<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/2e4ba0253a68556c532c581b5347b206d992c0c7">2e4ba02</a></td><td class="commitBody">Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:29+11:00">2026-10-13 22:41:29+11:00</time></td><td class="commitSubject">Implement shared sound families and position-based playback<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/289bbce60c50e0fcee99e8657abd282764b718ac">289bbce</a></td><td class="commitBody">Map tools to pitched drums, animals to melody and fruits to sustained textures. Use height to choose a pentatonic register and horizontal position to choose repeating rhythm. Add tap start/stop, zone-change notes, keyboard movement and a shared musical clock.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:28+11:00">2026-10-13 22:41:28+11:00</time></td><td class="commitSubject">Configure sound and pitch zones for garden 3: Flower meadow<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/8ad34ce8943c58cead91e9632f13db4ba6417839">8ad34ce</a></td><td class="commitBody">Load Tone.js and configure the garden in F at 92 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:27+11:00">2026-10-13 22:41:27+11:00</time></td><td class="commitSubject">Configure sound and pitch zones for garden 2: Painted orchard<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/cf94c723a278a13d0b4f96d7e7d9836e3f687fb3">cf94c72</a></td><td class="commitBody">Load Tone.js and configure the garden in D at 84 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:26+11:00">2026-10-13 22:41:26+11:00</time></td><td class="commitSubject">Configure sound and pitch zones for garden 1: Lakeside picnic<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/1c888a6619f6ef35c806a52bfd3b5ff6b2d39eeb">1c888a6</a></td><td class="commitBody">Load Tone.js and configure the garden in C at 76 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:25+11:00">2026-10-13 22:41:25+11:00</time></td><td class="commitSubject">Define object interaction for garden 3: Flower meadow<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/54057d3f5d3230bb8987dda92ef0b1840894d110">54057d3</a></td><td class="commitBody">Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:25+11:00">2026-10-13 22:41:25+11:00</time></td><td class="commitSubject">Define object interaction for garden 2: Painted orchard<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/27550e61ffc26a96d8938fab7ee42a664e0c3fa2">27550e6</a></td><td class="commitBody">Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:25+11:00">2026-10-13 22:41:25+11:00</time></td><td class="commitSubject">Define object interaction for garden 1: Lakeside picnic<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/1fdb7c14014b59cd089d56b7a1262aabc12f9dc9">1fdb7c1</a></td><td class="commitBody">Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:41:24+11:00">2026-10-13 22:41:24+11:00</time></td><td class="commitSubject">Define shared object dragging and touch targets<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/5586b26decd44355c149164ae26b7aebb89cfcc8">5586b26</a></td><td class="commitBody">Add the shared pointer interaction script and object-button styles. Track movement within the garden, distinguish dragging from taps, and layer lower objects in front of higher ones. Enlarge the interactive area around each object image.</td></tr>
+<tr><td>Son Hai Anh Nguyen</td><td><time datetime="2026-10-13T22:31:20+11:00">2026-10-13 22:31:20+11:00</time></td><td class="commitSubject">Add garden backgrounds and separate object images<a class="commitId" href="https://github.com/Wendy-Hai-Anh/final-instrument/commit/ac0bc6a1a5a25774077e0abf9d62452053f46216">ac0bc6a</a></td><td class="commitBody">Set up three garden layouts with WebP backgrounds for different screen shapes and separate transparent object images.</td></tr>
+</tbody></table></div></details>
+<!-- END FINAL COMMIT LOG -->
             </section><section id="community-section" class="sectionBlock"
                 aria-labelledby="community-heading">
                 <h2 id="community-heading">10. Community of Practice</h2>

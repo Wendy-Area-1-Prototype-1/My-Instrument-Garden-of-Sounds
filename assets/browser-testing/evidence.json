@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-27",
+  "browser": "Google Chrome 156.0.8078.48",
+  "method": "Chrome DevTools Responsive mode; fit-to-window preview; screenshots captured through the device toolbar",
+  "tested_base_url": "http://127.0.0.1:4187/",
+  "source_revision": "dd04d7c1b2e7413468a35c34bb67dcaa91221ed2",
+  "source_verification": "All 12 tested HTML, CSS and JavaScript files served at localhost matched the final-instrument checkout after newline normalization.",
+  "scope": "Visual layouts, pointer interaction, guide progression, keyboard feedback and playback-state indicators. No listening assessment, physical multi-touch or reduced-motion test.",
+  "console_observations": [
+    "favicon.ico returned HTTP 404",
+    "Tone.js emitted an events-scheduled-inside-callbacks scheduling warning during Play-All"
+  ],
+  "screenshots": [
+    {
+      "file": "chrome-book-390x844.webp",
+      "viewport_css_px": [
+        390,
+        844
+      ],
+      "image_pixels": [
+        780,
+        1687
+      ],
+      "scene": "Lakeside Picnic book spread",
+      "caption": "Portrait book spread with navigation arrows below the pages."
+    },
+    {
+      "file": "chrome-garden-390x844.webp",
+      "viewport_css_px": [
+        390,
+        844
+      ],
+      "image_pixels": [
+        780,
+        1687
+      ],
+      "scene": "Lakeside Picnic",
+      "caption": "Portrait garden after tapping and dragging the bird vertically and horizontally."
+    },
+    {
+      "file": "chrome-garden-1024x768.webp",
+      "viewport_css_px": [
+        1024,
+        768
+      ],
+      "image_pixels": [
+        2048,
+        1536
+      ],
+      "scene": "Lakeside Picnic",
+      "caption": "Expanded garden with Play-All active, visible object halos, notes and controls."
+    },
+    {
+      "file": "chrome-guide-1440x900.webp",
+      "viewport_css_px": [
+        1440,
+        900
+      ],
+      "image_pixels": [
+        2880,
+        1800
+      ],
+      "scene": "Painted Orchard",
+      "caption": "Interactive guide at its horizontal-drag step; the complete guide was subsequently completed."
+    },
+    {
+      "file": "chrome-garden-1920x1080.webp",
+      "viewport_css_px": [
+        1920,
+        1080
+      ],
+      "image_pixels": [
+        3840,
+        2160
+      ],
+      "scene": "Giant Flower Meadow",
+      "caption": "Extra-large playable garden with Play-All active, separate objects and navigation controls."
+    }
+  ]
+}

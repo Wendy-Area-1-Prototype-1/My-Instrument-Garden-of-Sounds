@@ -426,3 +426,21 @@ https://m3.material.io/foundations/layout/breakpoints/overview
 .assetPreview img { width: 100%; height: auto; border-radius: 4px; }
 .sectionBlock code { overflow-wrap: anywhere; }
 .sectionBlock .featureList li + li { margin-top: 0.7rem; }
+
+/* Keep each feature heading closer to its own explanation than the preceding feature. */
+#features-section article + article {
+    margin-top: 2.5rem;
+    padding-top: 0.25rem;
+}
+#features-section article > h3 { margin-top: 0; margin-bottom: 0.85rem; }
+#features-section article > p:last-child { margin-bottom: 0; }
+.actionLinks { margin-bottom: 1.25rem; }
+.projectPreview img { width: 100%; height: auto; border-radius: 4px; }
+.evidenceGallery { display: grid; gap: 1.5rem; }
+.evidenceGallery figure { margin-block: 0; }
+
+/* Browser screenshots are distinct from the illustration previews. */
+.evidenceGallery { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-block: 1.5rem; }
+.evidenceShot img { display: block; width: 100%; height: auto; border: 1px solid currentColor; }
+.evidenceShot--portrait { max-width: 22rem; }
+@media (max-width: 600px) { .evidenceGallery { grid-template-columns: 1fr; } }
