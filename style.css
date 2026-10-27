@@ -444,3 +444,20 @@ https://m3.material.io/foundations/layout/breakpoints/overview
 .evidenceShot img { display: block; width: 100%; height: auto; border: 1px solid currentColor; }
 .evidenceShot--portrait { max-width: 22rem; }
 @media (max-width: 600px) { .evidenceGallery { grid-template-columns: 1fr; } }
+
+/* Let the short browser-result fields wrap without forcing a horizontal scrollbar. */
+.browserResults { table-layout: fixed; width: 100%; }
+.browserResults th, .browserResults td { min-width: 0; overflow-wrap: anywhere; }
+.browserResults .resultRange { width: 16%; }
+.browserResults .resultViewport { width: 16%; }
+.browserResults .resultScene { width: 18%; }
+.browserResults .resultObservation { width: 38%; }
+.browserResults .resultEvidence { width: 12%; }
+@media (max-width: 600px) {
+    .browserResults, .browserResults tbody, .browserResults tr { display: block; width: 100%; }
+    .browserResults colgroup, .browserResults thead { display: none; }
+    .browserResults tr + tr { margin-top: 1rem; }
+    .browserResults td { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.6rem; width: 100%; }
+    .browserResults td::before { content: attr(data-label); font-weight: 600; }
+    .browserResults td + td { border-top: 0; }
+}
