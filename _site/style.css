@@ -419,3 +419,10 @@ https://m3.material.io/foundations/layout/breakpoints/overview
         font-size: 1.8rem;
     }
 }
+
+/* Assessment 3 evidence and comparison tables. */
+.documentationTable { font-size: 0.95rem; }
+.documentationTable td { min-width: 10rem; }
+.assetPreview img { width: 100%; height: auto; border-radius: 4px; }
+.sectionBlock code { overflow-wrap: anywhere; }
+.sectionBlock .featureList li + li { margin-top: 0.7rem; }
