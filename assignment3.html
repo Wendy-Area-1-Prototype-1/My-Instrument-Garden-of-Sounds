@@ -45,6 +45,18 @@
 </section>
 <section id="features-section" class="sectionBlock" aria-labelledby="features-heading">
 <h2 id="features-heading">3. Core Interactive Features</h2>
+<div class="tableScroll" role="region" aria-label="Interaction Reference" tabindex="0">
+<table class="commitTable documentationTable interactionReference">
+<caption>Interaction Reference</caption>
+<thead><tr><th scope="col">User action</th><th scope="col">System response</th><th scope="col">Feedback</th></tr></thead>
+<tbody>
+<tr><td>Tap an object</td><td>Starts or stops its repeating musical phrase</td><td>Glow, movement and floating notes</td></tr>
+<tr><td>Drag vertically</td><td>Changes pitch</td><td>Audible pitch change</td></tr>
+<tr><td>Drag horizontally</td><td>Changes rhythm</td><td>Audible rhythm change</td></tr>
+<tr><td>Press Play-All</td><td>Sequentially activates objects</td><td>Layered playback and active-state visuals</td></tr>
+<tr><td>Press Help</td><td>Opens an interactive tutorial</td><td>Spotlight, animated hand and arrows</td></tr>
+</tbody></table></div>
+
 <article id="feature-storybook" aria-labelledby="feature-storybook-heading"><h3 id="feature-storybook-heading">Storybook Opening and Navigation</h3>
 <p>Tapping the cover opens the picture book. Large arrows and swipe gestures turn its spreads; selecting a garden picture or its play button enters that garden. Home returns to the book at the selected garden, chapter buttons switch scenes, and the cross closes the book. This familiar structure makes garden selection part of visual exploration.</p>
 <p>Implementation: <a href="https://github.com/Wendy-Hai-Anh/final-instrument/blob/dd04d7c1b2e7413468a35c34bb67dcaa91221ed2/storybook.js#L159-L412">page transitions and garden navigation</a>.</p>

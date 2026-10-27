@@ -461,3 +461,10 @@ https://m3.material.io/foundations/layout/breakpoints/overview
     .browserResults td::before { content: attr(data-label); font-weight: 600; }
     .browserResults td + td { border-top: 0; }
 }
+
+/* Compact quick reference within Core Interactive Features. */
+.interactionReference { width: 100%; table-layout: fixed; }
+.interactionReference th, .interactionReference td { min-width: 0; overflow-wrap: anywhere; }
+.interactionReference th:nth-child(1) { width: 26%; }
+.interactionReference th:nth-child(2) { width: 40%; }
+.interactionReference th:nth-child(3) { width: 34%; }
