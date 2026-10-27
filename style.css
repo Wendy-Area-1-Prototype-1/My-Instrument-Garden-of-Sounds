@@ -468,3 +468,16 @@ https://m3.material.io/foundations/layout/breakpoints/overview
 .interactionReference th:nth-child(1) { width: 26%; }
 .interactionReference th:nth-child(2) { width: 40%; }
 .interactionReference th:nth-child(3) { width: 34%; }
+
+/* Grouped history entries retain every source commit without repeating task descriptions. */
+.groupedHistory { width: 100%; table-layout: fixed; }
+.groupedHistory th:first-child { width: 54%; }
+.groupedHistory th:last-child { width: 46%; }
+.groupedHistory th, .groupedHistory td { min-width: 0; overflow-wrap: anywhere; }
+.groupedHistory h4 { margin: 0 0 0.6rem; font-size: 1rem; }
+.originalCommits { list-style: none; margin: 0; padding: 0; }
+.originalCommits li + li { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid currentColor; }
+.originalCommits a, .originalCommits time, .originalCommitAuthor { display: block; }
+.originalCommits code { font-size: 0.8rem; }
+.originalCommits time { margin-top: 0.3rem; }
+.originalCommitAuthor { font-size: 0.8rem; }

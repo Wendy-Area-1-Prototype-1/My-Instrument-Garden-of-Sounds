@@ -1,0 +1,469 @@
+{
+  "repository": "https://github.com/Wendy-Hai-Anh/final-instrument",
+  "revision": "da444ed953f31ef979673af595a19af6d4be916d",
+  "commits": [
+    {
+      "sha": "da444ed953f31ef979673af595a19af6d4be916d",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T15:34:14+11:00",
+      "subject": "Document Chrome viewport testing with screenshot evidence",
+      "body": ""
+    },
+    {
+      "sha": "dd04d7c1b2e7413468a35c34bb67dcaa91221ed2",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T13:08:00+11:00",
+      "subject": "Complete instrument documentation and font licence notices",
+      "body": ""
+    },
+    {
+      "sha": "f636d1883d186a6f372ebac36d0814c6d2c66cb0",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T07:34:26+11:00",
+      "subject": "Make sound respond during dragging",
+      "body": "Start playback during mouse, touch and pen drags using the existing Tone.js synth and shared beat. Let pitch and rhythm changes sound before release, throttle rapid triggers and avoid restarting playback when the object is dropped."
+    },
+    {
+      "sha": "5ee4a5773cd90440cb314d98a7f17d1c0bb5fc3e",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T07:34:11+11:00",
+      "subject": "Show guidance only on the first garden visit",
+      "body": "Remember the first guide appearance with shared browser storage across all three gardens, while keeping Help available. Prevent delayed guide steps from continuing after closing and refresh the script links."
+    },
+    {
+      "sha": "f6b61ffcbe55ef10c6d79c55cce2090a2f5cb4d3",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T03:38:44+11:00",
+      "subject": "Make the garden play in harmony and easier to read as an instrument",
+      "body": "Objects now share one beat and an I-vi-IV-V chord round, each with its own note set; note badges, < > garden keys, a guide that passes at the arrow and a redrawn turn-phone picture."
+    },
+    {
+      "sha": "b99fabbea2fbeb31051258b722b418e6580efe12",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T02:21:57+11:00",
+      "subject": "Fix stagger garden playback and reduce visual effects",
+      "body": "Restored sequential playback with random 0.5-1s intervals between objects, ensuring pause stops all active and queued sounds.\nReduced the size, opacity, and intensity of colored halos across all three gardens for a cleaner visual experience."
+    },
+    {
+      "sha": "d08c20218f06c2f4d4c2d912db03dddbcbef7d21",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T01:17:49+11:00",
+      "subject": "Refine musical mapping and guided play",
+      "body": "Map pitch and repeat speed continuously, generate fresh looping tunes, and add the interactive guide, welcome sound, phone prompt and responsive controls. Refresh cache tags so the updated storybook and gardens load reliably."
+    },
+    {
+      "sha": "8c2462885acb3d9133166658745f807b8dc036b9",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-27T01:05:44+11:00",
+      "subject": "Complete the main garden playback controls",
+      "body": "Keep note choice and repeat timing tied to object position, start repeating playback after taps or drops, and let the play button bring the whole garden in with a shuffled order before changing to pause. Update the instructions and cache version."
+    },
+    {
+      "sha": "d639874ae5e844aa0868c5fbe59177ab55d37c8f",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-26T23:57:48+11:00",
+      "subject": "Refine button feedback and playback controls",
+      "body": "Add shared press-and-spring behavior for picture buttons, replace stop-all with pause and resume, and lead the help demonstration with clear shadowless arrows. Update the related artwork, cache versions and documentation."
+    },
+    {
+      "sha": "76687582a432f47278b026def597b4d36cdd8987",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-26T23:30:14+11:00",
+      "subject": "Improve storybook guidance across screen sizes",
+      "body": "Add a press-and-hold guide for grown-ups and keep the picture book usable in portrait layouts with a turn-for-more-space hint. Document the updated controls and child-friendly interaction choices."
+    },
+    {
+      "sha": "2946b6a8b6cf3f5ab8b5b9154e37282c1625126a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-26T23:29:53+11:00",
+      "subject": "Add child-friendly garden feedback",
+      "body": "Add quiet and help controls, playing glows, floating notes, guided demonstrations and gentle object hints. Refresh the shared buttons and garden artwork while preserving the existing sound mapping."
+    },
+    {
+      "sha": "7e4cdf63b7d2f098119b0f76334fd2bc38d2fbab",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-25T03:46:13+11:00",
+      "subject": "Complete the picture book refinements",
+      "body": "Use the supplied split-page artwork, open-book ribbon and phone rotation prompt. Keep complete gardens across each spread, place page controls at the book edges and preserve reliable mouse and touch swiping."
+    },
+    {
+      "sha": "ba72b667b2a43a2a6460c92535055cc4fc8654bd",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-25T03:09:37+11:00",
+      "subject": "Improve page navigation and button feedback",
+      "body": "Keep mouse and touch swipes moving in the expected direction, block browser image dragging and show controls raised at rest and flat on hover."
+    },
+    {
+      "sha": "4e1de244963276516199dd19f735dbe7be4c2d1a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-25T03:02:54+11:00",
+      "subject": "Refine the story and garden page spreads",
+      "body": "Show the title and each complete garden across both pages, make either half open the garden and keep a small play button in the corner."
+    },
+    {
+      "sha": "6fb446de37d405e9d2241e66b5d48ecef58778fc",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-25T02:57:23+11:00",
+      "subject": "Improve the picture book layout across screens",
+      "body": "Hide the duplicate closed-book ribbon, let the open book fill the window, place arrows at its edges and show a landscape prompt on upright phones."
+    },
+    {
+      "sha": "709294c9be1a5fa9de7360a991c49075865f1e80",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-23T21:31:37Z",
+      "subject": "Turn the start page into a picture book that opens and turns",
+      "body": "Tapping the cover opens the book, big arrows or a swipe turn its pages and a cross closes it. Each garden has its own spread, and tapping it zooms from the page into the garden and back."
+    },
+    {
+      "sha": "0a161ea1f99821a0b0c27d340e5c8c7278be8129",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-23T15:21:08Z",
+      "subject": "Let resting objects breathe and widen their touch area",
+      "body": "Objects that are not playing now swell gently every few seconds, so a child can see what can be touched without words. On touch screens the invisible margin around each object grows to 1.25rem."
+    },
+    {
+      "sha": "2ef2d81f567bb0436136b2f838465b3971f9ae93",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-23T15:20:37Z",
+      "subject": "Show each garden as a picture on its chapter button",
+      "body": "The numbered chapter dots are now round pictures of their gardens, so a child who cannot read numbers can still pick a scene. The current garden keeps a gold rim, and the buttons are larger."
+    },
+    {
+      "sha": "2e1aca5359c05cba5da2338c17aae940713a5eea",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-24T07:38:48+11:00",
+      "subject": "Version page links across the storybook",
+      "body": "Add the scene-preview version to Home, Start and chapter URLs so navigation loads current HTML instead of restoring cached numbered-button pages."
+    },
+    {
+      "sha": "5eedb49187ab64ab48d1721ee1408e65e4317cd0",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-24T07:30:28+11:00",
+      "subject": "Keep garden previews inside chapter buttons",
+      "body": "Version the stylesheet URLs so browsers load the new preview rules, and retain the shared button-image sizing as a fallback when an older stylesheet remains cached."
+    },
+    {
+      "sha": "d28ef5e072b04d79580c65c07b49109a39e4c600",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-24T07:23:51+11:00",
+      "subject": "Correct the picture credit",
+      "body": "Remove the inaccurate SVG export statement and update the repository structure notes to describe the new garden preview buttons."
+    },
+    {
+      "sha": "06912000feb3d84e11f26d72d8a607f70fdbb9e8",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-24T07:23:38+11:00",
+      "subject": "Show garden previews in chapter navigation",
+      "body": "Replace the numbered chapter dots with cropped WebP scene previews on the cover and in each garden. Keep the existing links, keyboard access and gold current-garden state."
+    },
+    {
+      "sha": "dc886707ce029a53334dd6fd4d011b1dc58f7fd3",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-16T17:36:04Z",
+      "subject": "Add home and chapter buttons to each garden",
+      "body": "Every garden now has a home button that goes back to the storybook cover, and numbered chapter\ndots that open the other gardens, with the current garden's dot in gold."
+    },
+    {
+      "sha": "9ae15a19f623a9e5d53677db23792b79285d3c6a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-16T17:33:21Z",
+      "subject": "Turn the start page into a storybook cover",
+      "body": "The start page is now a closed storybook. Its Start sign opens the book and loads the first\ngarden, and its numbered chapters open each of the three gardens."
+    },
+    {
+      "sha": "02959a177ef6091fe9d41b93e21afec663d4def0",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-14T19:26:40+11:00",
+      "subject": "Let objects move anywhere on the screen",
+      "body": "Objects can now be dragged into the extended garden around the original picture and always stay\nfully on screen. The picture no longer takes pointer events, so a drag that starts above the\noriginal picture is not mistaken for dragging the picture itself."
+    },
+    {
+      "sha": "073c25b1adbc9ec66a58b4a2d21a818b3db39027",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-14T19:26:39+11:00",
+      "subject": "Extend the garden pictures to fill the whole window",
+      "body": "Each garden picture keeps the original picture in the middle and continues the garden past its\nsides and into the sky, so the garden fills the window without being enlarged. The header is\nhidden, and the picture is chosen by the window's shape from three shapes instead of four."
+    },
+    {
+      "sha": "9ff028b67b36c626be7f3af4adcb26981c6a536e",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:56+11:00",
+      "subject": "Add play instructions to the garden selection page",
+      "body": "Tell adults how to start and stop sounds and move objects before choosing one of the three gardens."
+    },
+    {
+      "sha": "0e3202d024a110447b254f638c3ab9c4dab71cf4",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:54+11:00",
+      "subject": "Document garden assets, musical rules and design credits",
+      "body": "Describe the still backgrounds and separate transparent object images, tap and drag controls, sound mapping and visual feedback. Explain the prototype connections and retain library and AI assistance credits."
+    },
+    {
+      "sha": "d03dc60e4a480f58b00ef04c78463d99dd4b2c2a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:50+11:00",
+      "subject": "Animate taps, playing notes and object drops",
+      "body": "Show outline glow when an object is tapped. Synchronize tool sways, animal hops and fruit pulses with their notes. Create a small ground ripple on drop and accommodate reduced-motion preferences."
+    },
+    {
+      "sha": "f4757269c0454d586bd7ec37b55a76662d57180a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:45+11:00",
+      "subject": "Prepare glow and drop feedback for garden 3: Flower meadow",
+      "body": "Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it."
+    },
+    {
+      "sha": "5cd90ef953c55919ce1c62e0266f47407096321a",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:33+11:00",
+      "subject": "Prepare glow and drop feedback for garden 2: Painted orchard",
+      "body": "Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it."
+    },
+    {
+      "sha": "2e4ba0253a68556c532c581b5347b206d992c0c7",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:31+11:00",
+      "subject": "Prepare glow and drop feedback for garden 1: Lakeside picnic",
+      "body": "Add a decorative ripple layer and the garden-specific glow colour. Keep feedback separate from the background picture and object image assets so the shared animation behavior can use it."
+    },
+    {
+      "sha": "289bbce60c50e0fcee99e8657abd282764b718ac",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:29+11:00",
+      "subject": "Implement shared sound families and position-based playback",
+      "body": "Map tools to pitched drums, animals to melody and fruits to sustained textures. Use height to choose a pentatonic register and horizontal position to choose repeating rhythm. Add tap start/stop, zone-change notes, keyboard movement and a shared musical clock."
+    },
+    {
+      "sha": "8ad34ce8943c58cead91e9632f13db4ba6417839",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:28+11:00",
+      "subject": "Configure sound and pitch zones for garden 3: Flower meadow",
+      "body": "Load Tone.js and configure the garden in F at 92 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message."
+    },
+    {
+      "sha": "cf94c723a278a13d0b4f96d7e7d9836e3f687fb3",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:27+11:00",
+      "subject": "Configure sound and pitch zones for garden 2: Painted orchard",
+      "body": "Load Tone.js and configure the garden in D at 84 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message."
+    },
+    {
+      "sha": "1c888a6619f6ef35c806a52bfd3b5ff6b2d39eeb",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:26+11:00",
+      "subject": "Configure sound and pitch zones for garden 1: Lakeside picnic",
+      "body": "Load Tone.js and configure the garden in C at 76 BPM. Set sky and ground boundaries for landscape and portrait layouts. Add playback button states, interaction instructions, sound status and a JavaScript fallback message."
+    },
+    {
+      "sha": "54057d3f5d3230bb8987dda92ef0b1840894d110",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:25+11:00",
+      "subject": "Define object interaction for garden 3: Flower meadow",
+      "body": "Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions."
+    },
+    {
+      "sha": "27550e61ffc26a96d8938fab7ee42a664e0c3fa2",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:25+11:00",
+      "subject": "Define object interaction for garden 2: Painted orchard",
+      "body": "Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions."
+    },
+    {
+      "sha": "1fdb7c14014b59cd089d56b7a1262aabc12f9dc9",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:25+11:00",
+      "subject": "Define object interaction for garden 1: Lakeside picnic",
+      "body": "Load the shared garden interaction script. Wrap the ten separate object images in buttons and disable native image dragging, keeping their IDs, categories and accessible image descriptions."
+    },
+    {
+      "sha": "5586b26decd44355c149164ae26b7aebb89cfcc8",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:41:24+11:00",
+      "subject": "Define shared object dragging and touch targets",
+      "body": "Add the shared pointer interaction script and object-button styles. Track movement within the garden, distinguish dragging from taps, and layer lower objects in front of higher ones. Enlarge the interactive area around each object image."
+    },
+    {
+      "sha": "ac0bc6a1a5a25774077e0abf9d62452053f46216",
+      "author": "Son Hai Anh Nguyen",
+      "date": "2026-10-13T22:31:20+11:00",
+      "subject": "Add garden backgrounds and separate object images",
+      "body": "Set up three garden layouts with WebP backgrounds for different screen shapes and separate transparent object images."
+    }
+  ],
+  "groups": [
+    {
+      "title": "Chrome testing evidence",
+      "summary": "Record four Chrome viewport sizes, interaction observations and screenshot evidence.",
+      "commits": [
+        "da444ed953f31ef979673af595a19af6d4be916d"
+      ]
+    },
+    {
+      "title": "Final documentation and font licences",
+      "summary": "Complete the technical documentation and include Fredoka and Gochi Hand licence notices.",
+      "commits": [
+        "dd04d7c1b2e7413468a35c34bb67dcaa91221ed2"
+      ]
+    },
+    {
+      "title": "Playback during dragging",
+      "summary": "Start and update sound during pointer drags, throttle rapid triggers and preserve playback on release.",
+      "commits": [
+        "f636d1883d186a6f372ebac36d0814c6d2c66cb0"
+      ]
+    },
+    {
+      "title": "First-visit guidance",
+      "summary": "Show the guide once across gardens, retain manual Help and cancel delayed steps when it closes.",
+      "commits": [
+        "5ee4a5773cd90440cb314d98a7f17d1c0bb5fc3e"
+      ]
+    },
+    {
+      "title": "Shared harmony and musical discoverability",
+      "summary": "Align object phrases to a shared beat and chord progression, add individual note sets and musical cues, and refine guide and navigation feedback.",
+      "commits": [
+        "f6b61ffcbe55ef10c6d79c55cce2090a2f5cb4d3"
+      ]
+    },
+    {
+      "title": "Staggered playback and softer effects",
+      "summary": "Restore staggered random-order activation, stop queued sounds on pause and soften playing halos.",
+      "commits": [
+        "b99fabbea2fbeb31051258b722b418e6580efe12"
+      ]
+    },
+    {
+      "title": "Refined mapping and interactive guidance",
+      "summary": "Refine pitch and repeat-speed mapping, generate looping tunes and introduce interactive guidance, welcome sound and responsive prompts.",
+      "commits": [
+        "d08c20218f06c2f4d4c2d912db03dddbcbef7d21"
+      ]
+    },
+    {
+      "title": "Whole-garden playback controls",
+      "summary": "Connect position-based notes and repeat timing to tap/drop playback and shuffled whole-garden activation.",
+      "commits": [
+        "8c2462885acb3d9133166658745f807b8dc036b9"
+      ]
+    },
+    {
+      "title": "Button press and playback feedback",
+      "summary": "Add shared press-and-spring feedback, pause/resume controls and clearer help arrows.",
+      "commits": [
+        "d639874ae5e844aa0868c5fbe59177ab55d37c8f"
+      ]
+    },
+    {
+      "title": "Grown-ups guidance and portrait support",
+      "summary": "Add a grown-ups guide and portrait guidance while keeping the picture book usable across screen shapes.",
+      "commits": [
+        "76687582a432f47278b026def597b4d36cdd8987"
+      ]
+    },
+    {
+      "title": "Child-friendly garden feedback",
+      "summary": "Add help and quiet controls, playing glows, floating notes and object hints, with refreshed controls and artwork.",
+      "commits": [
+        "2946b6a8b6cf3f5ab8b5b9154e37282c1625126a"
+      ]
+    },
+    {
+      "title": "Opening and page-turning picture book",
+      "summary": "Build and refine the opening book, full-garden spreads, swipe and edge navigation, responsive layout, ribbon and rotation prompt.",
+      "commits": [
+        "709294c9be1a5fa9de7360a991c49075865f1e80",
+        "6fb446de37d405e9d2241e66b5d48ecef58778fc",
+        "4e1de244963276516199dd19f735dbe7be4c2d1a",
+        "ba72b667b2a43a2a6460c92535055cc4fc8654bd",
+        "7e4cdf63b7d2f098119b0f76334fd2bc38d2fbab"
+      ]
+    },
+    {
+      "title": "Idle cues and touch targets",
+      "summary": "Make resting objects breathe gently and enlarge their invisible touch areas.",
+      "commits": [
+        "0a161ea1f99821a0b0c27d340e5c8c7278be8129"
+      ]
+    },
+    {
+      "title": "Visual garden chapter navigation",
+      "summary": "Replace numbered chapter markers with garden previews and gold selection states, and refresh asset and page versions so the previews load consistently.",
+      "commits": [
+        "06912000feb3d84e11f26d72d8a607f70fdbb9e8",
+        "5eedb49187ab64ab48d1721ee1408e65e4317cd0",
+        "2e1aca5359c05cba5da2338c17aae940713a5eea",
+        "2ef2d81f567bb0436136b2f838465b3971f9ae93"
+      ]
+    },
+    {
+      "title": "Picture-credit correction",
+      "summary": "Correct the artwork credit and update the documented repository structure.",
+      "commits": [
+        "d28ef5e072b04d79580c65c07b49109a39e4c600"
+      ]
+    },
+    {
+      "title": "Initial storybook cover and garden navigation",
+      "summary": "Introduce the closed-book start page and connect its chapter navigation with home and chapter controls in all gardens.",
+      "commits": [
+        "9ae15a19f623a9e5d53677db23792b79285d3c6a",
+        "dc886707ce029a53334dd6fd4d011b1dc58f7fd3"
+      ]
+    },
+    {
+      "title": "Full-window gardens and drag bounds",
+      "summary": "Extend backgrounds for different window shapes and let objects move within the expanded garden while remaining on screen.",
+      "commits": [
+        "073c25b1adbc9ec66a58b4a2d21a818b3db39027",
+        "02959a177ef6091fe9d41b93e21afec663d4def0"
+      ]
+    },
+    {
+      "title": "Initial instructions and project documentation",
+      "summary": "Document the original play controls, musical rules, asset structure, prototype connections and credits for players and developers.",
+      "commits": [
+        "9ff028b67b36c626be7f3af4adcb26981c6a536e",
+        "0e3202d024a110447b254f638c3ab9c4dab71cf4"
+      ]
+    },
+    {
+      "title": "Initial audiovisual feedback across all gardens",
+      "summary": "Implement shared tap glow, note-timed movement and drop ripples, and connect each garden’s ripple layer and glow colour.",
+      "commits": [
+        "d03dc60e4a480f58b00ef04c78463d99dd4b2c2a",
+        "f4757269c0454d586bd7ec37b55a76662d57180a",
+        "5cd90ef953c55919ce1c62e0266f47407096321a",
+        "2e4ba0253a68556c532c581b5347b206d992c0c7"
+      ]
+    },
+    {
+      "title": "Initial sound system across all gardens",
+      "summary": "Implement sound families, position-based playback and shared timing, and configure each garden’s key, tempo, pitch zones and playback interface.",
+      "commits": [
+        "289bbce60c50e0fcee99e8657abd282764b718ac",
+        "8ad34ce8943c58cead91e9632f13db4ba6417839",
+        "cf94c723a278a13d0b4f96d7e7d9836e3f687fb3",
+        "1c888a6619f6ef35c806a52bfd3b5ff6b2d39eeb"
+      ]
+    },
+    {
+      "title": "Initial dragging and object controls across all gardens",
+      "summary": "Implement shared dragging and touch targets, then connect the ten named object buttons and interaction script in each garden.",
+      "commits": [
+        "5586b26decd44355c149164ae26b7aebb89cfcc8",
+        "54057d3f5d3230bb8987dda92ef0b1840894d110",
+        "27550e61ffc26a96d8938fab7ee42a664e0c3fa2",
+        "1fdb7c14014b59cd089d56b7a1262aabc12f9dc9"
+      ]
+    },
+    {
+      "title": "Garden artwork and scene assets",
+      "summary": "Set up three garden layouts with responsive WebP backgrounds, separate transparent objects and a shared paper texture.",
+      "commits": [
+        "ac0bc6a1a5a25774077e0abf9d62452053f46216"
+      ]
+    }
+  ],
+  "original_csv_sha256": "350bc0d689fed54f0086725254733be3cabb3918fd16eb8a9fc37a8fe64d38d9"
+}
